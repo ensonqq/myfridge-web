@@ -28,7 +28,7 @@
             <v-tabs-items v-model="tab" touchless :transition="false" :reverse-transition="false">
               <v-tab-item v-for="(val,key) in categoriesWithProducts" :key="key" :value="val.name.en" :transition="false" :reverse-transition="false">
                 <v-card flat>
-                  <v-container class="py-6">
+                  <v-container class="py-6 px-2">
                     <v-row>
                       <v-col cols="12" class="pa-1">
                         <div class="float-end" v-if="topupCredits.length">
