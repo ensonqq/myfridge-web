@@ -1,0 +1,21 @@
+@import "size";
+@import "position";
+@import "border";
+@import "others";
+
+/* vuetify override */
+
+/* carousel  */
+.v-window__prev, .v-window__next {
+  background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.v-window__prev {
+  margin-left: -5px !important;
+}
+
+.v-window__next {
+  margin-right: -5px !important;
+}
+
+/* vuetify override */

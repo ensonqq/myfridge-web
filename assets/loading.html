@@ -1,0 +1,42 @@
+<style>
+  .init-loading {
+    display: flex;
+    position: fixed;
+    z-index: 9999999;
+    background-color: rgb(23, 23, 190);
+    width: 100%;
+    height: 100%;
+    color: white;
+    top: 0;
+    left: 0;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .init-loading .init-spinner {
+    width: 70px;
+    height: 70px;
+    animation: init-spinner-8k6ao5md 3s infinite;
+    border-radius: 50%;
+    background-color: #474bff;
+    background-image: url('/favicon.png');
+    background-size: contain;
+    transform-origin: center;
+  }
+
+  @keyframes init-spinner-8k6ao5md {
+    0% {
+      transform: perspective(224px) rotateY(0deg);
+    }
+    10% {
+      transform: perspective(224px) rotateY(-65deg);
+    }
+    90%, 100% {
+      transform: perspective(224px) rotateY(1800deg);
+    }
+  }
+</style>
+<div class="init-loading">
+  <div class="init-spinner"></div>
+  瘋狂加載中...
+</div>
