@@ -5,7 +5,7 @@
     <v-container v-else class="my-16">
       <v-card max-width="500" class="mx-auto">
         <v-form class="mt-16 pa-5" @submit.prevent="login" ref="loginForm" v-model="loginValidation" lazy-validation>
-          <div class="text-center weblogo"><img src="~/assets/images/logo_short.png" alt="" width="100" height="100"/></div>
+          <div class="text-center"><img src="~/assets/images/logo_short.png" alt="" width="100" height="100"/></div>
           <h2 class="mb-2 text-center">{{ $t('memberLogin') }}</h2>
 
           <p class="text-14 mb-1">{{ $t('account(email)') }}</p>

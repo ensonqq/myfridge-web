@@ -3,7 +3,7 @@
     <v-card class="position-relative" v-if="step === 'login'">
       <div class="px-3 px-md-10 py-8">
         <v-form @submit.prevent="login" ref="loginForm" v-model="loginValidation" lazy-validation>
-          <div class="text-center weblogo"><img src="~/assets/images/logo_short.png" alt="" width="100" height="100"/>
+          <div class="text-center"><img src="~/assets/images/logo_short.png" alt="" width="100" height="100"/>
           </div>
           <h2 class="mb-2 text-center">{{ $t('memberLogin') }}</h2>
 
@@ -50,7 +50,7 @@
     </v-card>
     <v-card class="position-relative" v-else-if="step === 'registration'">
       <v-card-title class="px-2 pl-3 py-2">
-        <v-img max-width="40" :src="require('~/assets/images/logo_short.png')" class="mr-3 weblogo"></v-img>
+        <v-img max-width="40" :src="require('~/assets/images/logo_short.png')" class="mr-3"></v-img>
         {{ $t('register') }}
         <v-btn icon
                class="ml-auto"
@@ -62,7 +62,7 @@
       <v-card-text>
         <div class="px-3 px-md-10 py-8 ">
           <v-form @submit.prevent="register" ref="registrationForm" v-model="regValidation" lazy-validation>
-            <v-img class="mx-auto my-4 weblogo" :src="require('~/assets/images/logo_short.png')" alt="" max-width="128"/>
+            <v-img class="mx-auto my-4" :src="require('~/assets/images/logo_short.png')" alt="" max-width="128"/>
             <p class="text-h6 text-center">
               {{ $t('register') }}
             </p>
