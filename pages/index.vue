@@ -73,7 +73,7 @@
                         <!-- Normal -->
                         <v-col cols="12" lg="4" md="6" sm="12" v-if="item.publish && !item.archive">
                           <CardV2 :item="item" :productName="$route.params.productName" @openProductDetail="value => activeProductName = value"/>
-                          <hr>
+                          <hr color="#ddd">
                         </v-col>
                       </template>
                     </v-row>

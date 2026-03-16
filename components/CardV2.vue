@@ -1,6 +1,6 @@
 <template>
   <v-card elevation="0" class="mb-3">
-    <v-row class="pa-0 pb-6">
+    <v-row class="pa-0 pb-6 pt-4">
       <v-col class="position-relative pa-1" cols="4">
         <div class="position-relative">
           <div class="featured" :class="{'br-28': item.category.name.zh !== '奶粉' && item.category.name.zh !== '雞胸'}" v-if="item.featured === true"></div>
