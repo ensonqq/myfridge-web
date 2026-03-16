@@ -3,7 +3,7 @@
     <v-card>
       <v-card-title class="position-relative">
         <template v-if="product">
-          <div>
+          <div style="line-height: 1.1" :style="'max-width: ' + ((moment(product.createdAt).add(30, 'days').isAfter(moment()))? 'calc(100% - 30px); word-break: break-word;' : '100%;')">
             <span class="red--text text--darken-4 mr-1" v-if="product.featured"><span class="red--text text--darken-4 mr-1" v-if="product.featured">{{ $t('featured') }}<v-icon size="16" color="amber darken-3">{{ icons.mdiCreation }}</v-icon></span></span>{{ product.name[$i18n.locale] }}
           </div>
           <div style="right: 8px; top: 10px; width: 45px; height: 45px;" v-if="moment(product.createdAt).add(30, 'days').isAfter(moment())" class="new-stamp detail shake"></div>
