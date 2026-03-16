@@ -4,12 +4,13 @@ import {mdiAlertOutline} from "@mdi/js";
 
 export default ({ app, store }, inject) => {
   // initial base url by host name
+  const protocol = window.location.protocol
   const hostname = window.location.hostname
-  // const localApiRoot = 'https://api.myfridgehk.com'
+  // const localApiRoot = 'http://api.myfridgehk.com'
   const localApiRoot = 'http://localhost:3001'
-  // const localApiRoot = 'https://dev.myfridgehk.com/api'
-  const devApiRoot = 'https://api-dev.myfridgehk.com'
-  const prodApiRoot = 'https://api.myfridgehk.com'
+  // const localApiRoot = 'http://dev.myfridgehk.com/api'
+  const devApiRoot = 'http://api-dev.myfridgehk.com'
+  const prodApiRoot = 'http://api.myfridgehk.com'
 
   const baseURL = hostname === 'student.myfridgehk.com' || hostname === 'myfridgehk.com' ? prodApiRoot
     : hostname === 'dev.myfridgehk.com' ? devApiRoot : localApiRoot
