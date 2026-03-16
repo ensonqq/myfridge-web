@@ -26,49 +26,49 @@
       </v-col>
 
       <v-col class="position-relative pa-1" cols="8">
-        <!--        <v-row class="px-2 pl-3 py-0">
-                  <v-col class="pa-0 ma-0" cols="12">
-                    <div class="d-block me-3 f-600 text-md-18 text-14 text-lg-h5">
-                      <div class="d-flex justify-space-between">
-                        <div @click.prevent="productImageClicked(item)">
-                      <span class="red&#45;&#45;text text&#45;&#45;darken-4 mr-1" v-if="item.featured">{{ $t('featured') }}
-                        <v-icon size="16" color="red fewdarken-4">{{ icons.mdiCreation }}</v-icon>
-                      </span>{{ item.name[$i18n.locale] }}
-                        </div>
-                        &lt;!&ndash;            <div class="ml-1">&ndash;&gt;
-                        &lt;!&ndash;              <v-icon small color="yellow darken-2">{{ icons.mdiStar }}</v-icon>&ndash;&gt;
-                        &lt;!&ndash;              <span class="font-weight-bold text-14 amber&#45;&#45;text text&#45;&#45;darken-2">5</span>&ndash;&gt;
-                        &lt;!&ndash;            </div>&ndash;&gt;
-                      </div>
-                      <div class="d-flex flex-wrap justify-space-between">
-                        <div class="col-12 pa-0 py-1 ma-0 text-14 grey&#45;&#45;text text&#45;&#45;darken-3" v-if="item.addons && item.addons.length">
-                          *有附加選項
-                        </div>
-                        <div>
-                        <span v-if="user.vipTier === 'gold' || user.vipTier === 'diamond'" class="d-flex align-center">
-                          <v-icon class="text-12 deep-purple&#45;&#45;text text&#45;&#45;lighten-1" v-if="user.vipTier === 'diamond'" small>{{ icons.mdiDiamondStone }}</v-icon>
-                          <v-icon class="text-12 amber&#45;&#45;text text&#45;&#45;accent-4" v-else small>{{ icons.mdiCrown }}</v-icon>
-                          <span class="primary&#45;&#45;text font-weight-bold text-18 text-lg-h5 f-600">${{ (item.discountPrice || item.price) - 1 }}</span>
-                          <del class="grey&#45;&#45;text text&#45;&#45;darken-2 ml-1">${{ item.discountPrice || item.price }}</del>
-                        </span>
-                          <span v-else-if="item.discountPrice">
-                          <span class="primary&#45;&#45;text font-weight-bold text-18 text-lg-h5 f-600">${{ item.discountPrice }}</span>
-                          <del class="grey&#45;&#45;text text&#45;&#45;darken-2">${{ item.price }}</del>
-                        </span>
-                          <span v-else>
-                          <span class="primary&#45;&#45;text font-weight-bold text-18 text-lg-h5 f-600">${{ item.price }}</span>
-                        </span>
-                        </div>
-                      </div>
-                      &lt;!&ndash;          <div class="grey&#45;&#45;text text&#45;&#45;darken-1 text-14 ml-2">{{ item.madeIn.zh }}製造</div>&ndash;&gt;
-                      &lt;!&ndash;            <div class="grey&#45;&#45;text text&#45;&#45;darken-1 text-14 ml-2">{{ item.nutritionInfo.protein }}{{ $t('gramsOfProtein') }}</div>&ndash;&gt;
+        <v-row class="px-2 pl-3 py-0">
+          <v-col class="pa-0 ma-0" cols="12">
+            <div class="d-block me-3 f-600 text-md-18 text-14 text-lg-h5">
+              <div class="d-flex justify-space-between">
+                <div @click.prevent="productImageClicked(item)">
+              <span class="red--text text--darken-4 mr-1" v-if="item.featured">{{ $t('featured') }}
+                <v-icon size="16" color="red fewdarken-4">{{ icons.mdiCreation }}</v-icon>
+              </span>{{ item.name[$i18n.locale] }}
+                </div>
+                <!--            <div class="ml-1">-->
+                <!--              <v-icon small color="yellow darken-2">{{ icons.mdiStar }}</v-icon>-->
+                <!--              <span class="font-weight-bold text-14 amber&#45;&#45;text text&#45;&#45;darken-2">5</span>-->
+                <!--            </div>-->
+              </div>
+              <div class="d-flex flex-wrap justify-space-between">
+                <div class="col-12 pa-0 py-1 ma-0 text-14 grey--text text--darken-3" v-if="item.addons && item.addons.length">
+                  *有附加選項
+                </div>
+                <div>
+                <span v-if="user.vipTier === 'gold' || user.vipTier === 'diamond'" class="d-flex align-center">
+                  <v-icon class="text-12 deep-purple--text text--lighten-1" v-if="user.vipTier === 'diamond'" small>{{ icons.mdiDiamondStone }}</v-icon>
+                  <v-icon class="text-12 amber--text text--accent-4" v-else small>{{ icons.mdiCrown }}</v-icon>
+                  <span class="primary--text font-weight-bold text-18 text-lg-h5 f-600">${{ (item.discountPrice || item.price) - 1 }}</span>
+                  <del class="grey--text text--darken-2 ml-1">${{ item.discountPrice || item.price }}</del>
+                </span>
+                  <span v-else-if="item.discountPrice">
+                  <span class="primary--text font-weight-bold text-18 text-lg-h5 f-600">${{ item.discountPrice }}</span>
+                  <del class="grey--text text--darken-2">${{ item.price }}</del>
+                </span>
+                  <span v-else>
+                  <span class="primary--text font-weight-bold text-18 text-lg-h5 f-600">${{ item.price }}</span>
+                </span>
+                </div>
+              </div>
+              <!--          <div class="grey&#45;&#45;text text&#45;&#45;darken-1 text-14 ml-2">{{ item.madeIn.zh }}製造</div>-->
+              <!--            <div class="grey&#45;&#45;text text&#45;&#45;darken-1 text-14 ml-2">{{ item.nutritionInfo.protein }}{{ $t('gramsOfProtein') }}</div>-->
 
-                    </div>
-                  </v-col>
-                  <v-col class="pa-0 ma-0 carButtonWrapper" cols="12">
-                    <AddToCartV3 :addons="item.addons" :soldOut="item.soldOut" @click.prevent :itemId="item.id"></AddToCartV3>
-                  </v-col>
-                </v-row>-->
+            </div>
+          </v-col>
+          <v-col class="pa-0 ma-0 carButtonWrapper" cols="12">
+            <AddToCartV3 :addons="item.addons" :soldOut="item.soldOut" @click.prevent :itemId="item.id"></AddToCartV3>
+          </v-col>
+        </v-row>
       </v-col>
     </v-row>
   </v-card>

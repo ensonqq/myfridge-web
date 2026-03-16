@@ -13,7 +13,7 @@
         <!--          <v-img src="//via.placeholder.com/1920x1080" max-height="100vh"></v-img>-->
         <!--        </v-row>-->
         <v-row class="flex-nowrap">
-          <v-col class="flex-grow-0 px-0 px-md-1 px-lg-1">
+<!--          <v-col class="flex-grow-0 px-0 px-md-1 px-lg-1">
             <v-list class="category-menu" width="100%">
               <v-list-item :to="'/' + val.name.en" v-for="(val,key) in categoriesWithProducts" :key="key" @click="toCategory(val.name.en)" class="px-2 px-lg-6 px-md-6">
                 <v-list-item-content>
@@ -21,9 +21,7 @@
                 </v-list-item-content>
               </v-list-item>
             </v-list>
-
-
-          </v-col>
+          </v-col>-->
           <v-col class="flex-grow-1">
             <v-tabs-items v-model="tab" touchless :transition="false" :reverse-transition="false">
               <v-tab-item v-for="(val,key) in categoriesWithProducts" :key="key" :value="val.name.en" :transition="false" :reverse-transition="false">
