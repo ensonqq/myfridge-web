@@ -575,6 +575,22 @@ del {
     max-width: 200px;
   }
 
+  .menu-wrapper {
+    max-width: 150px !important;
+
+    @media (max-width: 560px) {
+      max-width: 96px !important;
+    }
+  }
+
+  .item-wrapper {
+    min-height: 850px !important;
+    max-width: calc(100% - 150px);
+    @media (max-width: 560px) {
+      max-width: calc(100% - 96px);
+    }
+  }
+
   @media (max-width: 560px) {
     &.content {
       margin-top: 56px !important;
@@ -1482,7 +1498,7 @@ del {
   overflow-y: scroll !important;
   overflow-x: hidden !important;
   position: sticky !important;
-  top: 80px !important;
+  top: 100px !important;
   width: 100% !important;
 
   .v-list-group__items {
