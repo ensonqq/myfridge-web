@@ -15,11 +15,38 @@
         <v-row class="flex-nowrap">
           <v-col class="px-0 px-md-1 px-lg-1 menu-wrapper">
             <v-list class="category-menu" width="100%">
-              <v-list-item :to="'/' + val.name.en" v-for="(val,key) in categoriesWithProducts" :key="key" @click="toCategory(val.name.en)" class="px-2 px-lg-6 px-md-6">
-                <v-list-item-content>
-                  <v-list-item-title>{{ val.name[$i18n.locale] }}</v-list-item-title>
-                </v-list-item-content>
-              </v-list-item>
+              <template v-for="(item, groupName) in getGroupedCats">
+                <template v-if="groupName === 'undefined'">
+                  <v-list-item :to="'/' + val.name.en"
+                               v-for="(val,key) in item" :key="val.id"
+                               @click="toCategory(val.name.en)"
+                               class="px-2 px-lg-6 px-md-6">
+                    <v-list-item-content>
+                      <v-list-item-title>{{ val.name[$i18n.locale] }}</v-list-item-title>
+                    </v-list-item-content>
+                  </v-list-item>
+                </template>
+                <template v-else>
+                  <v-list-group :prepend-icon="icons.mdiAccountCircleOutline"
+                                :append-icon="icons.mdiMenuUp"
+                                class="px-2 px-lg-6 px-md-6"
+                                :value="true"
+                                no-action>
+                    <template v-slot:activator>
+                      <v-list-item-content>
+                        <v-list-item-title>{{ groupName }}</v-list-item-title>
+                      </v-list-item-content>
+                    </template>
+                    <v-list-item v-for="(val,key) in item"
+                                 :to="'/' + val.name.en"
+                                 :key="val.id"
+                                 @click="toCategory(val.name.en)">
+                      <v-list-item-title>{{ val.name[$i18n.locale] }}</v-list-item-title>
+                    </v-list-item>
+                  </v-list-group>
+                </template>
+
+              </template>
             </v-list>
           </v-col>
           <v-col class="item-wrapper">
@@ -104,10 +131,10 @@
   </div>
 </template>
 <script>
-import {mapMutations, mapState}                          from "vuex"
-import {mdiCrown, mdiDiamondStone, mdiFire, mdiMenuDown} from "@mdi/js";
-import moment                                            from "moment";
-import Cookies                                           from 'js-cookie'
+import {mapMutations, mapState}                                     from "vuex"
+import {mdiCrown, mdiDiamondStone, mdiFire, mdiMenuDown, mdiMenuUp} from "@mdi/js";
+import moment                                                       from "moment";
+import Cookies                                                      from 'js-cookie'
 
 export default {
   head () {
@@ -131,19 +158,10 @@ export default {
 
   computed : {
     ...mapState(['catDiscount', 'buyXGetYFree', 'alert', 'showTrial', 'user', 'topupCredits']),
-    isStudentSite () {
-      return window.location.hostname === 'student.myfridgehk.com' || window.location.hostname === 'localhost'
-    },
-    getCatDiscountMessage () {
-      if (this.catDiscount && this.tab) {
-        const cat = Object.values(this.catDiscount).filter(item => item.name.en === this.tab)[0]
-        if (cat) {
-          // const chunks = _.chunk(cat.discount, 2)
-          // return chunks.map(chunk => chunk.map(item => `滿${ item.quantity }每件減${ item.value * -1 }蚊`)
-          //                                 .join(', ')).join('<br>')
-          return cat.discount.map(item => (`<div>滿${ item.quantity }每件減${ item.value * -1 }蚊</div>`)).join('')
-        }
-      }
+    getGroupedCats () {
+      const test = _.groupBy(this.categoriesWithProducts, 'categoryGroup.name.' + this.$i18n.locale)
+      console.log(test)
+      return test
     },
     getCatDiscount () {
       if (this.catDiscount && this.tab) {
@@ -231,7 +249,7 @@ export default {
         }
 
 
-        const catSort = ['Box', 'Dimsum', 'Chicken', 'Dishes', 'Whey', 'Trial']
+        const catSort = []
         this.categoriesWithProducts = _.sortBy(categoriesWithProducts.data.results, item => {
           return catSort.indexOf(item.name.en)
         })
@@ -316,12 +334,13 @@ export default {
       tab                    : null,
       categoriesWithProducts : [],
       active                 : false,
-
-      icons : {
+      grouped                : {},
+      icons                  : {
         mdiCrown,
         mdiFire,
         mdiDiamondStone,
-        mdiMenuDown
+        mdiMenuDown,
+        mdiMenuUp
       }
     }
   }

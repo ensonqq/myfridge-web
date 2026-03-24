@@ -1505,15 +1505,19 @@ del {
     .v-list-item {
       padding: 0 0 0 8px !important;
     }
+
+    .v-list-item--active {
+      color: black !important;
+    }
   }
 
   .v-list-group {
     width: 150px !important;
 
     .v-list-item {
-      width: 120px !important;
+      width: 108px !important;
       @media(max-width: 500px) {
-        width: 90px !important;
+        width: 80px !important;
       }
     }
 
