@@ -4,7 +4,7 @@
       <v-row>
         <v-col cols="12">
           <div class="px-3 px-md-10 py-8 ">
-            <div class="text-center weblogo"><img src="~/assets/images/logo.png" alt="" width="100" height="100"/></div>
+            <!--            <div class="text-center"><img src="~/assets/images/logo.png" alt="" width="100" height="100"/></div>-->
             <h2 class="mb-2 text-center">{{ $t('emailVerification') }}</h2>
           </div>
         </v-col>

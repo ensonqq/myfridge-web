@@ -5,7 +5,7 @@
     <v-card>
       <v-container class="height-1500">
         <v-row v-if="alert">
-          <v-col style="background-color: #c6773c; color: white; text-align: center">
+          <v-col style="background-color: #f3821d; color: white; text-align: center">
             {{ alert }}
           </v-col>
         </v-row>
@@ -17,10 +17,11 @@
             <v-list class="category-menu" width="100%">
               <template v-for="(item, groupName) in getGroupedCats">
                 <template v-if="groupName === 'undefined'">
-                  <v-list-item :to="'/' + val.name.en"
-                               v-for="(val,key) in item" :key="val.id"
+                  <v-list-item v-for="(val,key) in item"
+                               :key="val.id"
+                               :input-value="isItemActive('/' + val.name.en)"
                                @click="toCategory(val.name.en)"
-                               class="px-2 px-lg-6 px-md-6">
+                               class="px-2 px-lg-4 px-md-4">
                     <v-list-item-content>
                       <v-list-item-title>{{ val.name[$i18n.locale] }}</v-list-item-title>
                     </v-list-item-content>
@@ -28,8 +29,8 @@
                 </template>
                 <template v-else>
                   <v-list-group :prepend-icon="icons.mdiAccountCircleOutline"
-                                :append-icon="icons.mdiMenuUp"
-                                class="px-2 px-lg-6 px-md-6"
+                                :append-icon="icons.mdiMenuDown"
+                                class="px-2 px-lg-4 px-md-4"
                                 :value="true"
                                 no-action>
                     <template v-slot:activator>
@@ -38,8 +39,8 @@
                       </v-list-item-content>
                     </template>
                     <v-list-item v-for="(val,key) in item"
-                                 :to="'/' + val.name.en"
                                  :key="val.id"
+                                 :input-value="isItemActive('/' + val.name.en)"
                                  @click="toCategory(val.name.en)">
                       <v-list-item-title>{{ val.name[$i18n.locale] }}</v-list-item-title>
                     </v-list-item>
@@ -160,7 +161,6 @@ export default {
     ...mapState(['catDiscount', 'buyXGetYFree', 'alert', 'showTrial', 'user', 'topupCredits']),
     getGroupedCats () {
       const test = _.groupBy(this.categoriesWithProducts, 'categoryGroup.name.' + this.$i18n.locale)
-      console.log(test)
       return test
     },
     getCatDiscount () {
@@ -198,7 +198,8 @@ export default {
     const t = this
     setTimeout(function () {
       const tab = t.$route.path.replaceAll('/', '')
-      t.tab = tab ? tab : 'Chilled'
+      t.tab = tab ? decodeURI(tab) : 'Chilled'
+      console.log(t.tab)
     }, 600)
   },
 
@@ -223,6 +224,12 @@ export default {
   },
   methods : {
     ...mapMutations(['setUser', 'setCatDiscount', 'enableTrial', 'toggleTopUpCreditsDialog']),
+    isItemActive (url) {
+      // Ensure both URLs are handled the same way (e.g., encoded)
+      const currentPath = this.$route.path;
+      const encodedItemUrl = encodeURI(url);
+      return currentPath === encodedItemUrl;
+    },
     async dataConstruction () {
       // categories
       const categoriesWithProducts = await this.$api.get('/v1/categories?products=1&status=published')
@@ -305,7 +312,7 @@ export default {
     toCategory (category) {
       const cats = this.categoriesWithProducts.map((item) => item.name.en)
       this.tab = cats.includes(category) ? category : cats[0]
-      this.$router.push(`/${ this.tab }`)
+      this.$router.push(`/${ encodeURI(this.tab) }`)
 
       window.scrollTo({
         // top      : window.innerWidth > 560 ? screen.height - 100 : 0,
