@@ -79,7 +79,7 @@
 
           <h4 class="mx-1">聯繫我們</h4>
           <div class="mx-1">電郵︰info@myfridge.com</div>
-          <div class="mx-1">電話︰55703607</div>
+          <div class="mx-1">電話︰65657682</div>
         </template>
         <template v-else>
           <h3 class="mx-1">Privacy Policy Statement</h3>
@@ -157,7 +157,7 @@
 
           <h4 class="mx-1">Contact us</h4>
           <div class="mx-1">Email: info@Optmeal.com</div>
-          <div class="mx-1">Tel: 55703607</div>
+          <div class="mx-1">Tel: 65657682</div>
         </template>
       </v-col>
     </v-row>

@@ -19,7 +19,7 @@
         {{ $t('sale') }}
       </v-chip>
       <AddToCartV2 :soldOut="item.soldOut" @click.prevent :itemId="item.id"></AddToCartV2>
-      <div v-if="moment(item.createdAt).add(30, 'days').isAfter(moment())" class="new-stamp shake"></div>
+<!--      <div v-if="moment(item.createdAt).add(30, 'days').isAfter(moment())" class="new-stamp shake"></div>-->
     </div>
 
     <div class="product-title pb-0">

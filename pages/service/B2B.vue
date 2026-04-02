@@ -61,7 +61,7 @@
           <p class="d-flex justify-start align-center">
             <v-icon>{{ icons.mdiWhatsapp }}</v-icon>
             <span class="ml-1">
-            : <a href="https://wa.me/+85255703607">55703607</a>
+            : <a href="https://wa.me/+85265657682">65657682</a>
           </span>
           </p>
         </template>
@@ -120,7 +120,7 @@
           </p>
           <p class="d-flex justify-start align-center">
             <v-icon>{{ icons.mdiWhatsapp }}</v-icon>
-            <span class="ml-1">: <a href="https://wa.me/+85255703607">55703607</a></span>
+            <span class="ml-1">: <a href="https://wa.me/+85265657682">65657682</a></span>
           </p>
         </template>
 

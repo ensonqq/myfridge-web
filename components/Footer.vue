@@ -65,7 +65,7 @@
           <div class="d-flex flex-column">
             <!--            <p class="mb-3 footer-color">葵涌華發工業大廈5樓503室</p>-->
             <div class="d-flex flex-wrap">
-              <v-btn class="me-2" fab dark x-small color="secondary" href="https://wa.me/+85255703607" target="_blank" rel="noopener">
+              <v-btn class="me-2" fab dark x-small color="secondary" href="https://wa.me/+85265657682" target="_blank" rel="noopener">
                 <v-icon dark>{{ icons.mdiWhatsapp }}</v-icon>
               </v-btn>
               <v-btn class="me-2" fab dark x-small color="secondary" href="https://www.facebook.com/myfridge" target="_blank" rel="noopener">

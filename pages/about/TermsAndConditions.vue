@@ -134,7 +134,7 @@
 
           <h3 class="mx-1">9. 如何聯絡我們</h3>
           <div class="mx-1">電郵︰info@Optmeal.com</div>
-          <div class="mx-1">電話︰55703607</div>
+          <div class="mx-1">電話︰65657682</div>
         </template>
         <template v-else>
           <h3 class="mx-1">Effective time: January 1, 2017</h3>
@@ -267,7 +267,7 @@
 
           <h3 class="mx-1">9. How to contact us</h3>
           <div class="mx-1">Email: info@Optmeal.com</div>
-          <div class="mx-1">Tel/Whatsapp: 55703607</div>
+          <div class="mx-1">Tel/Whatsapp: 65657682</div>
         </template>
         <template v-else>
           <h3 class="mx-1">Effective time: January 1, 2017</h3>
@@ -399,7 +399,7 @@
 
           <h3 class="mx-1">9. How to contact us</h3>
           <div class="mx-1">Email: info@Optmeal.com</div>
-          <div class="mx-1">Tel/Whatsapp: 55703607</div>
+          <div class="mx-1">Tel/Whatsapp: 65657682</div>
         </template>
       </v-col>
     </v-row>

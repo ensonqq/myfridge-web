@@ -7,7 +7,6 @@
           <v-img position="center center"
                  @click.prevent="productImageClicked(item)"
                  contain
-                 :class="{'br-28': item.category.name.zh !== '奶粉' && item.category.name.zh !== '雞胸'}"
                  width="100%"
                  :aspect-ratio="1"
                  :lazy-src="item.images.length? item.images[0].small.path: 'https://placehold.co/400'"
@@ -22,7 +21,7 @@
                 color="secondary">
           {{ $t('sale') }}
         </v-chip>
-        <div v-if="moment(item.createdAt).add(30, 'days').isAfter(moment())" class="new-stamp shake"></div>
+<!--        <div v-if="moment(item.createdAt).add(30, 'days').isAfter(moment())" class="new-stamp shake"></div>-->
       </v-col>
 
       <v-col class="position-relative pa-1" cols="8">
