@@ -10,7 +10,7 @@
           </a>
           <h5 class="mb-1 font-weight-regular footer-color ">{{ $t('slogan') }}</h5>
           <div class="text-12 footer-color">{{ $t('slogan2') }}</div>
-          <div class="text-12 footer-color">{{ $t('foodFactoryLicense') }}: 2992808925</div>
+          <div class="text-12 footer-color">{{ $t('foodFactoryLicense') }}: 0397802900</div>
           <!--          <div class="d-flex flex-wrap ">
                       <v-avatar class="me-4" tile width="120" height="45">
                         <img src="~/assets/images/google-play.png" alt="">
@@ -68,10 +68,10 @@
               <v-btn class="me-2" fab dark x-small color="secondary" href="https://wa.me/+85265657682" target="_blank" rel="noopener">
                 <v-icon dark>{{ icons.mdiWhatsapp }}</v-icon>
               </v-btn>
-              <v-btn class="me-2" fab dark x-small color="secondary" href="https://www.facebook.com/myfridge" target="_blank" rel="noopener">
+              <v-btn class="me-2" fab dark x-small color="secondary" href="https://www.facebook.com/myfridgehk" target="_blank" rel="noopener">
                 <v-icon dark>{{ icons.mdiFacebook }}</v-icon>
               </v-btn>
-              <v-btn class="me-2" fab dark x-small color="secondary" href="https://www.instagram.com/myfridge" target="_blank" rel="noopener">
+              <v-btn class="me-2" fab dark x-small color="secondary" href="https://www.instagram.com/myfridge_hk" target="_blank" rel="noopener">
                 <v-icon dark>{{ icons.mdiInstagram }}</v-icon>
               </v-btn>
             </div>

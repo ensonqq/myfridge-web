@@ -721,17 +721,17 @@
               <v-row class="pt-0 no-border pb-16">
                 <v-col cols="12" class="d-flex flex-column justify-center align-start pa-0">
                   <v-radio-group class="col-12" v-model="payment.paymentType" column :rules="[$validations.required]" hide-details>
-                    <v-row class="align-center pb-1-eee" @click="payment.paymentType = 'stripe'">
+                    <v-row class="align-center pb-1-eee" @click="payment.paymentType = 'cc'">
                       <v-col cols="1">
                         <v-radio :on-icon="icons.mdiRadioboxMarked"
                                  color="secondary"
-                                 value="stripe"
+                                 value="cc"
                                  class="ma-0"
                                  :off-icon="icons.mdiRadioboxBlank"></v-radio>
                       </v-col>
                       <v-col cols="11" class="d-flex align-center pa-0">
                         <v-col cols="5">
-                          {{ $t('card&wallet') }}
+                          {{ $t('card') }}
                         </v-col>
                         <v-col cols="7" class="d-flex align-start flex-wrap">
                           <v-img class="mr-1 mb-1" max-width="39" contain :src="require('~/assets/images/payment_icons/visa.png')"></v-img>
@@ -739,28 +739,49 @@
                           <v-img class="mr-1" max-width="39" contain :src="require('~/assets/images/payment_icons/americanexpress.png')"></v-img>
                           <v-img class="mr-1" max-width="39" contain :src="require('~/assets/images/payment_icons/unoinpay_icon.png')"></v-img>
                           <v-img class="mr-1" max-width="39" contain :src="require('~/assets/images/payment_icons/jcb_icon.png')"></v-img>
-                          <v-img class="mr-1 br-5" v-if="walletsAvailability.applePay" max-width="39" contain :src="require('~/assets/images/payment_icons/applepay.png')"></v-img>
-                          <v-img class="mr-1 br-5" v-if="walletsAvailability.googlePay" max-width="39" contain :src="require('~/assets/images/payment_icons/googlepay.png')"></v-img>
                         </v-col>
                       </v-col>
                     </v-row>
-                    <v-row class="align-center pb-1-eee" @click="payment.paymentType = 'paypal'">
-                      <v-col cols="1">
-                        <v-radio :on-icon="icons.mdiRadioboxMarked"
-                                 color="secondary"
-                                 value="paypal"
-                                 class="ma-0"
-                                 :off-icon="icons.mdiRadioboxBlank"></v-radio>
-                      </v-col>
-                      <v-col cols="11" class="d-flex align-center pa-0">
-                        <v-col cols="5">
-                          Paypal
-                        </v-col>
-                        <v-col cols="7" class="d-flex align-center">
-                          <v-img max-width="45" contain :src="require('~/assets/images/payment_icons/paypal.png')"></v-img>
-                        </v-col>
-                      </v-col>
-                    </v-row>
+                    <!--                    <v-row class="align-center pb-1-eee" @click="payment.paymentType = 'stripe'">
+                                          <v-col cols="1">
+                                            <v-radio :on-icon="icons.mdiRadioboxMarked"
+                                                     color="secondary"
+                                                     value="stripe"
+                                                     class="ma-0"
+                                                     :off-icon="icons.mdiRadioboxBlank"></v-radio>
+                                          </v-col>
+                                          <v-col cols="11" class="d-flex align-center pa-0">
+                                            <v-col cols="5">
+                                              {{ $t('card&wallet') }}
+                                            </v-col>
+                                            <v-col cols="7" class="d-flex align-start flex-wrap">
+                                              <v-img class="mr-1 mb-1" max-width="39" contain :src="require('~/assets/images/payment_icons/visa.png')"></v-img>
+                                              <v-img class="mr-1" max-width="39" contain :src="require('~/assets/images/payment_icons/master.png')"></v-img>
+                                              <v-img class="mr-1" max-width="39" contain :src="require('~/assets/images/payment_icons/americanexpress.png')"></v-img>
+                                              <v-img class="mr-1" max-width="39" contain :src="require('~/assets/images/payment_icons/unoinpay_icon.png')"></v-img>
+                                              <v-img class="mr-1" max-width="39" contain :src="require('~/assets/images/payment_icons/jcb_icon.png')"></v-img>
+                                              <v-img class="mr-1 br-5" v-if="walletsAvailability.applePay" max-width="39" contain :src="require('~/assets/images/payment_icons/applepay.png')"></v-img>
+                                              <v-img class="mr-1 br-5" v-if="walletsAvailability.googlePay" max-width="39" contain :src="require('~/assets/images/payment_icons/googlepay.png')"></v-img>
+                                            </v-col>
+                                          </v-col>
+                                        </v-row>-->
+                    <!--                    <v-row class="align-center pb-1-eee" @click="payment.paymentType = 'paypal'">
+                                          <v-col cols="1">
+                                            <v-radio :on-icon="icons.mdiRadioboxMarked"
+                                                     color="secondary"
+                                                     value="paypal"
+                                                     class="ma-0"
+                                                     :off-icon="icons.mdiRadioboxBlank"></v-radio>
+                                          </v-col>
+                                          <v-col cols="11" class="d-flex align-center pa-0">
+                                            <v-col cols="5">
+                                              Paypal
+                                            </v-col>
+                                            <v-col cols="7" class="d-flex align-center">
+                                              <v-img max-width="45" contain :src="require('~/assets/images/payment_icons/paypal.png')"></v-img>
+                                            </v-col>
+                                          </v-col>
+                                        </v-row>-->
                     <v-row class="align-center pb-1-eee" @click="payment.paymentType = 'payme'">
                       <v-col cols="1">
                         <v-radio :on-icon="icons.mdiRadioboxMarked"
@@ -1668,7 +1689,7 @@ export default {
           window.location.replace(this.payPalRedirectUrl)
         }
         // asia pay
-        if (['alipay', 'payme', 'wechatpay', 'fps', 'octopus'].includes(this.payment.paymentType)) {
+        if (['alipay', 'payme', 'wechatpay', 'fps', 'octopus', 'cc'].includes(this.payment.paymentType)) {
           const params = this.asiapay
           const form = document.createElement('form')
           form.method = 'post'
@@ -1883,6 +1904,7 @@ export default {
               case 'wechatpay':
               case 'fps':
               case 'octopus':
+              case 'cc':
                 // this.submitOrderToAsiaPay(result.data.asiaPayObj)
                 this.asiapay = result.data.asiaPayObj
                 await this.pay()

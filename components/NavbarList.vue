@@ -210,12 +210,12 @@
             <v-list-item-title>{{ $t('memberJetso') }}</v-list-item-title>
           </v-list-item>
 
-          <v-list-item to="/retails">
+<!--          <v-list-item to="/retails">
             <v-list-item-icon>
               <v-icon>{{ icons.mdiSitemap }}</v-icon>
             </v-list-item-icon>
             <v-list-item-title>{{ $t('retailStores') }}</v-list-item-title>
-          </v-list-item>
+          </v-list-item>-->
 
           <!--          <v-list-item to="/about/TermsAndConditions">
                       <v-list-item-icon>

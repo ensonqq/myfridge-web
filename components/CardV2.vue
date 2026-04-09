@@ -21,7 +21,7 @@
                 color="secondary">
           {{ $t('sale') }}
         </v-chip>
-<!--        <div v-if="moment(item.createdAt).add(30, 'days').isAfter(moment())" class="new-stamp shake"></div>-->
+        <!--        <div v-if="moment(item.createdAt).add(30, 'days').isAfter(moment())" class="new-stamp shake"></div>-->
       </v-col>
 
       <v-col class="position-relative pa-1" cols="8">
@@ -29,10 +29,10 @@
           <v-col class="pa-0 ma-0" cols="12">
             <div class="d-block me-3 f-600 text-md-18 text-14 text-lg-h5">
               <div class="d-flex justify-space-between">
-                <div @click.prevent="productImageClicked(item)">
+                <div>
               <span class="red--text text--darken-4 mr-1" v-if="item.featured">{{ $t('featured') }}
                 <v-icon size="16" color="red fewdarken-4">{{ icons.mdiCreation }}</v-icon>
-              </span>{{ item.name[$i18n.locale] }}
+              </span><span v-html="getProductName(item.name[$i18n.locale])"></span>
                 </div>
                 <!--            <div class="ml-1">-->
                 <!--              <v-icon small color="yellow darken-2">{{ icons.mdiStar }}</v-icon>-->
@@ -91,6 +91,9 @@ export default {
 
   props   : ['item'],
   methods : {
+    getProductName (name) {
+      return name.replace('(', '<br>(')
+    },
     ...mapMutations(['addToCart']),
     productImageClicked (item) {
       this.$router.push('/product/' + window.encodeURI(item.name.zh));

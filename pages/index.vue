@@ -15,15 +15,14 @@
         <v-row class="flex-nowrap">
           <v-col class="px-0 px-md-1 px-lg-1 menu-wrapper">
             <v-list class="category-menu" width="100%">
-              <template v-for="(item, groupName) in getGroupedCats">
-                <template v-if="groupName === 'undefined'">
-                  <v-list-item v-for="(val,key) in item"
-                               :key="val.id"
-                               :input-value="isItemActive('/' + val.name.en)"
-                               @click="toCategory(val.name.en)"
+              <template v-for="item in getGroupedCats">
+                <template v-if="item.type === 'single'">
+                  <v-list-item :key="item.name.en"
+                               :input-value="isItemActive('/' + item.name.en)"
+                               @click="toCategory(item.name.en)"
                                class="px-2 px-lg-4 px-md-4">
                     <v-list-item-content>
-                      <v-list-item-title>{{ val.name[$i18n.locale] }}</v-list-item-title>
+                      <v-list-item-title>{{ item.name[$i18n.locale] }}</v-list-item-title>
                     </v-list-item-content>
                   </v-list-item>
                 </template>
@@ -31,15 +30,14 @@
                   <v-list-group :prepend-icon="icons.mdiAccountCircleOutline"
                                 :append-icon="icons.mdiMenuDown"
                                 class="px-2 px-lg-4 px-md-4"
-                                :value="true"
                                 no-action>
                     <template v-slot:activator>
                       <v-list-item-content>
-                        <v-list-item-title>{{ groupName }}</v-list-item-title>
+                        <v-list-item-title>{{ item.name[$i18n.locale] }}</v-list-item-title>
                       </v-list-item-content>
                     </template>
-                    <v-list-item v-for="(val,key) in item"
-                                 :key="val.id"
+                    <v-list-item v-for="(val,key) in item.items"
+                                 :key="val.name.en"
                                  :input-value="isItemActive('/' + val.name.en)"
                                  @click="toCategory(val.name.en)">
                       <v-list-item-title>{{ val.name[$i18n.locale] }}</v-list-item-title>
@@ -66,7 +64,7 @@
                             {{ $t('topupButton') }}
                           </v-btn>
                         </div>
-                        <h2>{{ val.name[$i18n.locale] }}</h2>
+                        <h2>{{ val.categoryGroup ? val.categoryGroup.name[$i18n.locale] + ' > ' : '' }}{{ val.name[$i18n.locale] }}</h2>
                         <div class="text-12 amber--text text--darken-3 font-weight-bold d-flex align-center" v-if="user.vipTier === 'gold'">
                           <v-icon class="text-12 amber--text text--accent-4" small>{{ icons.mdiCrown }}</v-icon>
                           {{ $t('goldMemberDiscount') }}
@@ -78,7 +76,7 @@
                           </div>
                         </div>
                         <!--<h6 v-if="tab === 'Whey'" class="grey&#45;&#45;lighten-1 font-weight-regular">分離乳清蛋白粉，添加消化酶及鋅，更容易吸收！</h6>-->
-                        <h6 class="grey--lighten-1 font-weight-regular pb-6">{{ val.slogan[$i18n.locale] }}</h6>
+                        <h6 class="grey--lighten-1 font-weight-regular pb-2">{{ val.slogan[$i18n.locale] }}</h6>
                         <div class="d-flex flex-wrap grey--lighten-1 font-weight-regular text-14 pb-2" v-if="val.discountTierEnabled && getCatDiscount && getCatDiscount.length">
                           <!--                          <div class="mt-2 pa-1 br-10 text-14">{{ $t('buyMore1') }}：</div>-->
                           <div v-for="(tier,index) in getCatDiscount" class="mr-2 border-black mt-2 pa-1 br-10 text-12">
@@ -97,6 +95,15 @@
                         </div>
                       </v-col>
                       <!-- Special handle for dimsum -->
+
+                      <v-col cols="12" class="pa-0 ma-0">
+                        <v-row class="rowMain justify-lg-end">
+                          <v-col cols="12" md="5" lg="3" class="my-0 py-0">
+                            <Search @openProductDetail="value => activeProductName = value"></Search>
+                          </v-col>
+                        </v-row>
+                      </v-col>
+
                       <template v-for="(item, groupName) in val.products">
                         <!-- Normal -->
                         <v-col cols="12" lg="4" md="6" sm="12" v-if="item.publish && !item.archive">
@@ -132,10 +139,11 @@
   </div>
 </template>
 <script>
-import {mapMutations, mapState}                                     from "vuex"
-import {mdiCrown, mdiDiamondStone, mdiFire, mdiMenuDown, mdiMenuUp} from "@mdi/js";
-import moment                                                       from "moment";
-import Cookies                                                      from 'js-cookie'
+import {mapMutations, mapState}                                                           from "vuex"
+import {mdiCrown, mdiDiamondStone, mdiFire, mdiMenuDown, mdiMenuUp, mdiMagnify, mdiClose} from "@mdi/js";
+import moment                                                                             from "moment";
+import Cookies                                                                            from 'js-cookie'
+import _                                                                                  from "lodash";
 
 export default {
   head () {
@@ -154,14 +162,33 @@ export default {
     },
     tab () {
       this.setStructuredData()
-    }
+    },
   },
 
   computed : {
     ...mapState(['catDiscount', 'buyXGetYFree', 'alert', 'showTrial', 'user', 'topupCredits']),
     getGroupedCats () {
-      const test = _.groupBy(this.categoriesWithProducts, 'categoryGroup.name.' + this.$i18n.locale)
-      return test
+      let grouped = {}
+      this.categoriesWithProducts.forEach(item => {
+        if (item.categoryGroup) {
+          if (!grouped[item.categoryGroup.name.zh]) {
+            grouped[item.categoryGroup.name.zh] = {
+              type : 'grouped', name : item.categoryGroup.name, items : []
+            }
+          }
+          grouped[item.categoryGroup.name.zh].items.push(item)
+        } else {
+          grouped[item.name.zh] = { type : 'single', name : item.name }
+        }
+      })
+      grouped = Object.values(grouped)
+
+      const catSort = ['燒烤專區', '冰鮮類', '牛肉類', '豬肉類', '家禽類', '羊肉類', '海產類', '雜類']
+      grouped = _.sortBy(grouped, item => {
+        return catSort.indexOf(item.name.zh)
+      })
+      return grouped
+
     },
     getCatDiscount () {
       if (this.catDiscount && this.tab) {
@@ -199,7 +226,6 @@ export default {
     setTimeout(function () {
       const tab = t.$route.path.replaceAll('/', '')
       t.tab = tab ? decodeURI(tab) : 'Chilled'
-      console.log(t.tab)
     }, 600)
   },
 
@@ -347,7 +373,9 @@ export default {
         mdiFire,
         mdiDiamondStone,
         mdiMenuDown,
-        mdiMenuUp
+        mdiMenuUp,
+        mdiMagnify,
+        mdiClose
       }
     }
   }
