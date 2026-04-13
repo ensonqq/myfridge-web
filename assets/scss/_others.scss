@@ -1622,3 +1622,15 @@ del {
     }
   }
 }
+
+.productCardContainer {
+  hr {
+    margin: 0 -15px;
+  }
+
+  &:last-child {
+    hr {
+      //display: none;
+    }
+  }
+}

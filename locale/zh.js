@@ -511,5 +511,6 @@ module.exports = {
   'suggestBuyMore'                      : ', <b class="font-weight-medium font-italic red--text text--darken-3">加多%{x}件再送%{y}件</b>',
   'selectAddons'                        : '請選擇附加項目',
   'AddOnItemsOnTextFieldClicked'        : '因為產品有附加項目，只能透過加減按鈕調整數量。',
-  'addon'                               : '附加'
+  'addon'                               : '附加',
+  'nodata'                              : '沒有資料。'
 }

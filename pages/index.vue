@@ -106,7 +106,7 @@
 
                       <template v-for="(item, groupName) in val.products">
                         <!-- Normal -->
-                        <v-col cols="12" lg="4" md="6" sm="12" v-if="item.publish && !item.archive">
+                        <v-col cols="12" lg="4" md="6" class="productCardContainer" sm="12" v-if="item.publish && !item.archive">
                           <CardV2 :item="item" :productName="$route.params.productName" @openProductDetail="value => activeProductName = value"/>
                           <hr color="#ddd">
                         </v-col>
@@ -225,7 +225,7 @@ export default {
     const t = this
     setTimeout(function () {
       const tab = t.$route.path.replaceAll('/', '')
-      t.tab = tab ? decodeURI(tab) : 'Chilled'
+      t.tab = tab ? decodeURI(tab) : 'BBQ'
     }, 600)
   },
 

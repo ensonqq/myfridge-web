@@ -510,5 +510,6 @@ module.exports = {
   'suggestBuyMore'                      : ', <b class="font-weight-medium font-italic red--text text--darken-3">+%{x}pcs for extra %{y}</b>',
   'selectAddons'                        : 'Please select add ons',
   'AddOnItemsOnTextFieldClicked'        : 'Because the product has additional items, the quantity can only be adjusted using the plus and minus buttons.',
-  'addon'                               : 'Addon'
+  'addon'                               : 'Addon',
+  'nodata'                              : 'No data.'
 }

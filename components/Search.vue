@@ -18,9 +18,7 @@
                   return-object>
     <template v-slot:no-data>
       <v-list-item>
-        <v-list-item-title>
-          沒有資料。
-        </v-list-item-title>
+        <v-list-item-title>{{ $t('nodata') }}</v-list-item-title>
       </v-list-item>
     </template>
     <!-- Customizing the Dropdown List Item -->
