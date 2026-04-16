@@ -271,7 +271,7 @@
 <script>
 export default {
   head () {
-    return { title : 'Review' + ' myfridge' }
+    return { title : 'Review' + ' MyFridge' }
   },
   data () {
     return {

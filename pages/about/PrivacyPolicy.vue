@@ -6,13 +6,13 @@
         <template v-if="$i18n.locale === 'zh'">
           <h3 class="mx-1">私隱政策聲明</h3>
           <p>
-            myfridge 由 滿記凍肉有限公司 全資擁有及全權營運（在本私隱政策聲明中，各自稱為「 myfridge 」、「我們」或「本公司」，視適用情況而定）。
+            MyFridge 由 滿記凍肉有限公司 全資擁有及全權營運（在本私隱政策聲明中，各自稱為「 MyFridge 」、「我們」或「本公司」，視適用情況而定）。
           </p>
           <p>
             我們明白根據香港法例第486章《個人資料（私隱）條例》（該「《條例》」）其在收集、持有、處理、使用及／或轉移個人資料方面的責任。個人資料的收集只限作合法且相關的用途，並會採取一切實際可行方法去確保我們持有的個人資料準確無誤。我們將會根據本私隱政策聲明使用我們不時所收集閣下的個人資料。
           </p>
           <p>
-            我們定期檢討這項私隱政策聲明，並可能不時加以修訂或加入具體指示、政策及條款。本私隱政策聲明如有任何重要修訂，我們會通過閣下提供給我們的聯絡方式通知閣下，也會按該《條例》的規定，讓閣下可以透過屆時通知閣下的途徑選擇拒絕接收此類修訂通知。否則，關於通過 myfridge 應用程式或網站或其他方式而提供給我們的個人資料，閣下繼續使用 myfridge 應用程式或網站或繼續維持與我們的關係即被視為同意並接受此項私隱政策聲明（不時修訂）。
+            我們定期檢討這項私隱政策聲明，並可能不時加以修訂或加入具體指示、政策及條款。本私隱政策聲明如有任何重要修訂，我們會通過閣下提供給我們的聯絡方式通知閣下，也會按該《條例》的規定，讓閣下可以透過屆時通知閣下的途徑選擇拒絕接收此類修訂通知。否則，關於通過 MyFridge 應用程式或網站或其他方式而提供給我們的個人資料，閣下繼續使用 MyFridge 應用程式或網站或繼續維持與我們的關係即被視為同意並接受此項私隱政策聲明（不時修訂）。
           </p>
 
           <p>如對這項私隱政策聲明或我們如何使用閣下的個人資料有任何疑問，請通過下文「聯繫我們」所載的任何一個通訊渠道與我們聯繫。</p>
@@ -53,7 +53,7 @@
           <h4 class="mx-1">我們如何使用cookies</h4>
           <p>閣下通過我們網站查閱我們的資訊或服務時，應當留意到網站有使用cookies。Cookies是指儲存在閣下瀏覽器內的資料檔。閣下進入網站時，網站即在閣下瀏覽器內自動安裝並使用cookies。我們的網站使用兩種cookies。</p>
 
-          <p>Session Cookies: 一種只在閣下瀏覽 myfridge 及本公司網站期間留存於瀏覽器內的短暫性質cookies，用處在於取得並儲存配置資訊及管理網站，包括「攜帶」資訊以隨閣下瀏覽網站的不同版頁，譬如以免閣下每到一個版頁也要重新輸入資訊。Session cookies也會用來編備關於 myfridge 網站使用的匿名統計資料。</p>
+          <p>Session Cookies: 一種只在閣下瀏覽 MyFridge 及本公司網站期間留存於瀏覽器內的短暫性質cookies，用處在於取得並儲存配置資訊及管理網站，包括「攜帶」資訊以隨閣下瀏覽網站的不同版頁，譬如以免閣下每到一個版頁也要重新輸入資訊。Session cookies也會用來編備關於 MyFridge 網站使用的匿名統計資料。</p>
 
           <p>Persistent Cookies: 一種留存於瀏覽器內較長時間的cookies，用以編備關於我們網站使用的匿名統計資料，或追蹤和記錄使用者的習慣偏好。</p>
 
@@ -84,7 +84,7 @@
         <template v-else>
           <h3 class="mx-1">Privacy Policy Statement</h3>
           <p>
-            myfridge is wholly owned and operated by 滿記凍肉有限公司 (in this privacy policy statement, each is referred to as "myfridge", "we" or "the Company", as applicable ).
+            MyFridge is wholly owned and operated by 滿記凍肉有限公司 (in this privacy policy statement, each is referred to as "MyFridge", "we" or "the Company", as applicable ).
           </p>
           <p>
             We understand our responsibilities under the Personal Data (Privacy) Ordinance, Chapter 486, Laws of Hong Kong (the "Ordinance") in relation to the collection, holding, processing, use and/or transfer of personal data. Personal data will only be collected for lawful and relevant purposes and all practicable methods will be taken to ensure that the personal data we hold is accurate. We will use your personal information collected from time to time in accordance with this Privacy Policy Statement.

@@ -166,7 +166,7 @@ import _                                                                        
 export default {
   layout : 'auth',
   head () {
-    return { title : this.$t('myOrders') + ' myfridge' }
+    return { title : this.$t('myOrders') + ' MyFridge' }
   },
   watch : {
     'result.page' : {

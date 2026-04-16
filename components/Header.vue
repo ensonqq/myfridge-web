@@ -34,10 +34,10 @@
         "name"           : "即食雞胸肉",
         "url"            : "https://myfridgehk.com/",
         "image"          : "https://myfridgehk.com/favicon.png",
-        "description"    : "myfridge 即食雞胸|雞胸燒賣|全港最受歡迎雞胸品牌|每日新鮮製造 我們堅持不添加防腐劑，使用無激素雞胸，保證新鮮健康，提供高品質的雞胸燒賣肉，以配合全天候健身目標。雞胸含有豐富蛋白質，男仕增肌減脂必備，雞胸低脂飽腹的特質，女生可配合減肥餐單使用，效果顯注， #不含味精 #不含防腐 #每日新鮮香港制造。",
+        "description"    : "MyFridge 即食雞胸|雞胸燒賣|全港最受歡迎雞胸品牌|每日新鮮製造 我們堅持不添加防腐劑，使用無激素雞胸，保證新鮮健康，提供高品質的雞胸燒賣肉，以配合全天候健身目標。雞胸含有豐富蛋白質，男仕增肌減脂必備，雞胸低脂飽腹的特質，女生可配合減肥餐單使用，效果顯注， #不含味精 #不含防腐 #每日新鮮香港制造。",
         "brand"          : {
           "@type": "Thing",
-          "name" : "myfridge"
+          "name" : "MyFridge"
         },
         "aggregateRating": {
           "@type"      : "AggregateRating",

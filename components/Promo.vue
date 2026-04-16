@@ -18,7 +18,7 @@
       </template>
       <v-card>
         <v-card-title class="text-h5">
-          <b>myfridge {{ $t('newOffers') }}</b>
+          <b>MyFridge {{ $t('newOffers') }}</b>
         </v-card-title>
         <v-card-text class="px-0">
           <!--          <v-img :src="require('~/assets/images/500x500.png')"></v-img>-->

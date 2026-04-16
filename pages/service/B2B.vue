@@ -4,13 +4,13 @@
       <v-col class="height-1500">
         <h1>{{ $t('businessCooperation') }}</h1>
         <template v-if="$i18n.locale === 'zh'">
-          <h3 class="mb-4">為何選擇 myfridge 為您的合作夥伴</h3>
+          <h3 class="mb-4">為何選擇 MyFridge 為您的合作夥伴</h3>
           <ul style="list-style: none">
             <li class="mb-7">
               <v-icon class="mr-1 mb-2" style="margin-left: -10px;">{{ icons.mdiHomeCityOutline }}</v-icon>
               本地生產，本地品牌
               <ul>
-                <li>myfridge為本地知名凍肉品牌。</li>
+                <li>MyFridge為本地知名凍肉品牌。</li>
               </ul>
             </li>
             <li class="mb-7">
@@ -38,7 +38,7 @@
               <v-icon class="mr-1 mb-2" style="margin-left: -10px;">{{ icons.mdiTruckFast }}</v-icon>
               批發可多點送貨
               <ul>
-                <li>myfridge可為您安排多個送貨點，直達您的不同分店地址！</li>
+                <li>MyFridge可為您安排多個送貨點，直達您的不同分店地址！</li>
               </ul>
             </li>
             <li class="mb-7">
@@ -66,13 +66,13 @@
           </p>
         </template>
         <template v-else>
-          <h3 class="mb-4">Why choose myfridge as your partner</h3>
+          <h3 class="mb-4">Why choose MyFridge as your partner</h3>
           <ul style="list-style: none">
             <li class="mb-7">
               <v-icon class="mr-1 mb-2" style="margin-left: -10px;">{{ icons.mdiHomeCityOutline }}</v-icon>
               Local production, local brand
               <ul>
-                <li>myfridge is a well-known local healthy food brand, and its instant/ready-to-eat chicken breast ranks no.1 in sales in Hong Kong.</li>
+                <li>MyFridge is a well-known local healthy food brand, and its instant/ready-to-eat chicken breast ranks no.1 in sales in Hong Kong.</li>
               </ul>
             </li>
             <li class="mb-7">
@@ -100,7 +100,7 @@
               <v-icon class="mr-1 mb-2" style="margin-left: -10px;">{{ icons.mdiTruckFast }}</v-icon>
               Wholesale can be delivered to multiple locations
               <ul>
-                <li>myfridge can arrange multiple deliveries, which deliver directly to all your offline stores!</li>
+                <li>MyFridge can arrange multiple deliveries, which deliver directly to all your offline stores!</li>
               </ul>
             </li>
             <li class="mb-7">
@@ -145,7 +145,7 @@ export default {
   name : "B2B",
   head () {
     return {
-      title : this.$t('businessCooperation')  + ' myfridge',
+      title : this.$t('businessCooperation')  + ' MyFridge',
     }
   },
   data () {

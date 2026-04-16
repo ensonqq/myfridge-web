@@ -1,7 +1,7 @@
 <template>
   <v-dialog v-model="show" max-width="100%" width="500">
     <v-card>
-      <v-card-title class="text-h5 mb-4">myfridge {{ $t('memberTiers') }}</v-card-title>
+      <v-card-title class="text-h5 mb-4">MyFridge {{ $t('memberTiers') }}</v-card-title>
       <v-card-text>
         <template v-if="$i18n.locale === 'zh'">
           <ol>

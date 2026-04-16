@@ -21,7 +21,7 @@
                     </div>-->
         </v-col>
         <v-col cols="12" md="6" lg="3">
-          <h2 class="f-600 mb-4">{{ $t('about') }}myfridge</h2>
+          <h2 class="f-600 mb-4">{{ $t('about') }}MyFridge</h2>
           <div class="d-flex flex-column">
             <nuxt-link to="/about/About" class="footer-link">
               {{ $t('aboutUs') }}

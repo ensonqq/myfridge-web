@@ -187,7 +187,7 @@ import CreditRedemption         from '@/components/CreditRedemption'
 export default {
   head () {
     return {
-      title : this.$t('myAccount') + ' myfridge'
+      title : this.$t('myAccount') + ' MyFridge'
     }
   },
   layout     : 'auth',

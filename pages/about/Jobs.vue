@@ -8,7 +8,7 @@
             - 目前沒有空缺。
           </p>
           <p class="text-14">
-            加入myfridge團隊，We want you！
+            加入MyFridge團隊，We want you！
           </p>
         </template>
         <template v-else>
@@ -16,7 +16,7 @@
             - There are currently no vacancies.
           </p>
           <p class="text-14">
-            Join the myfridge team, We want you!
+            Join the MyFridge team, We want you!
           </p>
         </template>
       </v-col>
@@ -29,7 +29,7 @@ export default {
   name : "Jobs",
   head () {
     return {
-      title : this.$t('vacancies') + ' myfridge',
+      title : this.$t('vacancies') + ' MyFridge',
     }
   },
 }

@@ -1634,3 +1634,21 @@ del {
     }
   }
 }
+
+.about-mileage {
+  padding-left: 0 !important;
+  li {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    line-height: 2.1rem;
+  }
+
+  li::before {
+    content: "•"; /* Custom bullet character */
+    font-size: 2rem;
+    color: #ff8f00;
+    margin-right: 0.5rem;
+  }
+
+}

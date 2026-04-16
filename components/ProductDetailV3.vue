@@ -258,7 +258,7 @@ export default {
               {
                 item_id        : item.product.id,
                 item_name      : item.product.name.zh,
-                item_brand     : 'myfridge',
+                item_brand     : 'MyFridge',
                 item_category  : category.name.zh,
                 item_category2 : category.name.en,
                 price          : item.product.discountPrice || item.product.price,
@@ -286,7 +286,7 @@ export default {
           "description"     : this.product.name.zh + "，每日新鮮香港製造，無激素，無抗生素",
           "brand"           : {
             "@type" : "Brand",
-            "name"  : "myfridge"
+            "name"  : "MyFridge"
           },
           "sku"             : this.product.name.zh,
           "offers"          : {
@@ -341,7 +341,7 @@ export default {
               {
                 item_id        : this.product.id,
                 item_name      : this.product.name.zh,
-                item_brand     : "myfridge",
+                item_brand     : "MyFridge",
                 item_category  : this.product.category.name.zh,
                 item_category2 : this.product.category.name.en,
                 price          : this.product.discountPrice || this.product.price,

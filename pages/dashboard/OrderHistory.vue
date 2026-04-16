@@ -221,7 +221,7 @@
 <script>
 export default {
   head () {
-    return { title : 'Order History' + ' myfridge' }
+    return { title : 'Order History' + ' MyFridge' }
   },
   data () {
     return {

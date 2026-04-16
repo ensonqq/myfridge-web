@@ -7,7 +7,7 @@
           <h3>多種禮遇，盡在掌握</h3>
           <p>我們的會員升級計劃讓您更輕鬆在消費時累積更多以及盡享各種獎賞，以下詳情了解更多有關我們為尊貴會員所作出的革新。</p>
           <ol>
-            <li class="py-3">
+<!--            <li class="py-3">
               <h4>
                 <v-icon>{{ icons.mdiWhatsapp }}</v-icon>
                 會員 Whats App Channel
@@ -24,7 +24,7 @@
                     </v-btn>
                   </a></li>
               </ul>
-            </li>
+            </li>-->
             <li class="py-3">
               <h4>會員積分</h4>
               <ul>
@@ -70,7 +70,7 @@
             <li class="my-2">享有黃金會員專<b>享優惠或產品</b>（如適用）。</li>
             <li class="my-2">下單後能獲取<b>更多積分</b>（如適用）。</li>
           </ol>
-          <h3>立即成為myfridge會員</h3>
+          <h3>立即成為MyFridge會員</h3>
           <p class="py-3">
             我們將把您的會籍提升至更高層次，讓您享受前所未有的更豐富禮遇。盡情享受健康飲食及購物的美好，同時獲享各種豐富的獎賞──我們時刻與您同行。
           </p>
@@ -145,7 +145,7 @@
             <li class="my-2">Enjoy exclusive <b>benefits or products</b> for Gold members (if applicable).</li>
             <li class="my-2">Earn <b>more credits</b> after placing an order (if applicable).</li>
           </ol>
-          <h3>Become an myfridge member now</h3>
+          <h3>Become an MyFridge member now</h3>
           <p class="py-3">
             We will upgrade your membership to a higher level, allowing you to enjoy richer benefits than ever before. Enjoy healthy eating and shopping while enjoying a variety of rich rewards - we are always with you.
           </p>
@@ -166,7 +166,7 @@ export default {
   name : "VipAdvantage",
   head () {
     return {
-      title : this.$t('memberJetso') + ' myfridge',
+      title : this.$t('memberJetso') + ' MyFridge',
     }
   },
   created () {

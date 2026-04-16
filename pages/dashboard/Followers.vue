@@ -163,7 +163,7 @@
 <script>
 export default {
   head () {
-    return { title : 'Followers' + ' myfridge' }
+    return { title : 'Followers' + ' MyFridge' }
   },
   data () {
     return {

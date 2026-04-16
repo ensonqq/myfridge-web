@@ -128,7 +128,7 @@ import {CardSection} from '@/assets/database/data.js';
 
 export default {
   head () {
-    return { title : 'Bookmarks' + ' myfridge' }
+    return { title : 'Bookmarks' + ' MyFridge' }
   },
   middleware : "auth",
   data () {

@@ -26,7 +26,7 @@
           <v-col cols="10" lg="8" class="mx-auto">
             <div class="d-flex align-center my-1">
               <v-divider></v-divider>
-              <span class="mx-4">© myfridge</span>
+              <span class="mx-4">© MyFridge</span>
               <v-divider></v-divider>
             </div>
           </v-col>
@@ -136,7 +136,7 @@
             <v-col cols="10" lg="8" class="mx-auto pt-10">
               <div class="d-flex align-center my-1">
                 <v-divider></v-divider>
-                <span class="mx-4">© myfridge</span>
+                <span class="mx-4">© MyFridge</span>
                 <v-divider></v-divider>
               </div>
             </v-col>
@@ -173,7 +173,7 @@
           <v-col cols="10" lg="8" class="mx-auto">
             <div class="d-flex align-center my-1">
               <v-divider></v-divider>
-              <span class="mx-4">© myfridge</span>
+              <span class="mx-4">© MyFridge</span>
               <v-divider></v-divider>
             </div>
           </v-col>

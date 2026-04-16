@@ -29,7 +29,7 @@
 export default {
   head () {
     return {
-      title : this.$t('partners') + ' myfridge'
+      title : this.$t('partners') + ' MyFridge'
     }
   },
   data : () => ({}),

@@ -41,7 +41,7 @@ import {mdiMapMarkerOutline, mdiPhone} from "@mdi/js";
 export default {
   head () {
     return {
-      title : this.$t('retailStores') + ' myfridge'
+      title : this.$t('retailStores') + ' MyFridge'
     }
   },
   data     : () => ({

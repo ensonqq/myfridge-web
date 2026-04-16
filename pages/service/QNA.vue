@@ -41,7 +41,7 @@
 
             <li class="py-2">
               <div><b>運送過程貨品是否保持低溫？</b></div>
-              <div>myfridge 全程以冷凍保鮮「攝氏-4℃ 至 -18℃」配送到府上。</div>
+              <div>MyFridge 全程以冷凍保鮮「攝氏-4℃ 至 -18℃」配送到府上。</div>
             </li>
 
             <li class="py-2">
@@ -68,11 +68,11 @@
               <div><b>如何聯絡運輸？</b></div>
               <div>客人可先提前下載SF app，運輸(順豐)會於收件後發出SMS 及 於App 自動發出出貨通知，收貨日早上便能查看到派件司機電話</div>
             </li>
-            <li class="py-2">如因未能聯絡客戶導致myfridge 無法於送貨日送到，冷凍運輸公司將於翌日重新安排派送。如翌日仍然未能聯絡客戶或安排運送，將視為放棄有關訂單，myfridge 將不作任何保償。</li>
+            <li class="py-2">如因未能聯絡客戶導致MyFridge 無法於送貨日送到，冷凍運輸公司將於翌日重新安排派送。如翌日仍然未能聯絡客戶或安排運送，將視為放棄有關訂單，MyFridge 將不作任何保償。</li>
 
-            <li class="py-2">如因聯絡資料錯誤導致冷凍運輸公司派送失敗，myfridge 將視為放棄有關訂單及不作任何保償。</li>
+            <li class="py-2">如因聯絡資料錯誤導致冷凍運輸公司派送失敗，MyFridge 將視為放棄有關訂單及不作任何保償。</li>
 
-            <li class="py-2">貨品送達後，如因為一段時間無人看管而可能產生的所有責任，包括 : 遺失、污染及未能保持冷凍食物的溫度變化，myfridge和第三方冷凍運輸公司均不會承擔。</li>
+            <li class="py-2">貨品送達後，如因為一段時間無人看管而可能產生的所有責任，包括 : 遺失、污染及未能保持冷凍食物的溫度變化，MyFridge和第三方冷凍運輸公司均不會承擔。</li>
           </ol>
         </template>
         <template v-else>
@@ -113,7 +113,7 @@
 
             <li class="py-2">
               <div><b>Are the goods kept in low temperature during transportation? </b></div>
-              <div>myfridge is delivered to your home in a frozen and fresh state of -4℃ to -18℃.</div>
+              <div>MyFridge is delivered to your home in a frozen and fresh state of -4℃ to -18℃.</div>
             </li>
 
             <li class="py-2">
@@ -140,13 +140,13 @@
               <div><b>How to track the shipment? </b></div>
               <div>Guests can download the SF app in advance, and the transportation company (SF Express) will send an SMS and a shipping notification automatically on the App after receiving the goods. You can check the delivery driver’s phone number in the morning of the day of delivery</div>
             </li>
-            <li class="py-2">If order cannot be delivered on the delivery day due to failure to contact the customer, the courier company will reschedule the delivery on the next day. If the customer is still unable to be contacted or shipped the next day, the order is regarded as giving up and myfridge will not provide any compensation.</li>
+            <li class="py-2">If order cannot be delivered on the delivery day due to failure to contact the customer, the courier company will reschedule the delivery on the next day. If the customer is still unable to be contacted or shipped the next day, the order is regarded as giving up and MyFridge will not provide any compensation.</li>
 
             <li class="py-2">If the courier company fails to deliver due to incorrect contact information, it is regarded as giving up, and
               no compensation is provided.
             </li>
 
-            <li class="py-2">All liabilities that may arise if food is left unattended for a period of time after arrival, including: loss, contamination, and failure to maintain temperature changes, myfridge and third-party courier company are not liable for failure occurring as a result .</li>
+            <li class="py-2">All liabilities that may arise if food is left unattended for a period of time after arrival, including: loss, contamination, and failure to maintain temperature changes, MyFridge and third-party courier company are not liable for failure occurring as a result .</li>
           </ol>
         </template>
       </v-col>
@@ -196,7 +196,7 @@
           "name"          : "運送過程貨品是否保持低溫？",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text" : "myfridge 全程以冷凍保鮮「攝氏0-4℃」配送到府上。"
+            "text" : "MyFridge 全程以冷凍保鮮「攝氏0-4℃」配送到府上。"
           }
         }, {
           "@type"         : "Question",
@@ -224,7 +224,7 @@ export default {
   name : "QNA",
   head () {
     return {
-      title : this.$t('faq') + ' myfridge',
+      title : this.$t('faq') + ' MyFridge',
     }
   },
 }

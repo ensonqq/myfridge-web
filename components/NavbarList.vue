@@ -160,7 +160,7 @@
                         no-action>
             <template v-slot:activator>
               <v-list-item-content>
-                <v-list-item-title>{{ $t('about') }} myfridge</v-list-item-title>
+                <v-list-item-title>{{ $t('about') }} MyFridge</v-list-item-title>
               </v-list-item-content>
             </template>
 

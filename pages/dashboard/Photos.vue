@@ -127,7 +127,7 @@
 <script>
 export default {
   head () {
-    return { title : 'Photos' + ' myfridge' }
+    return { title : 'Photos' + ' MyFridge' }
   },
   data () {
     return {

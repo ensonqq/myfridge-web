@@ -1,10 +1,10 @@
 <template>
   <v-img class="br-10 d-flex cover-img align-end"
          cover
-         height="250"
-         position="top center"
-         :src="require('~/assets/images/header-bg.jpeg')"
-         gradient="to top, rgba(0,0,0,.7), rgba(0,0,0,0)">
+         height="300"
+         position="left center"
+         :src="require('~/assets/images/Member_header_banner.jpg')"
+         gradient="to top, rgba(0,0,0,.5), rgba(0,0,0,0)">
 
     <div class="d-flex justify-center justify-md-space-between align-center mx-10 cover-image-content ">
       <div class="d-md-flex d-block align-center text-md-left text-center flex-wrap">

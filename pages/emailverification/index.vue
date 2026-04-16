@@ -25,7 +25,7 @@ import {mapMutations}    from "vuex";
 export default {
   head () {
     return {
-      title : this.$t('emailVerification') + ' myfridge'
+      title : this.$t('emailVerification') + ' MyFridge'
     }
   },
 

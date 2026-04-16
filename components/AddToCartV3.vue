@@ -81,7 +81,7 @@ export default {
               {
                 item_id        : item.product.id,
                 item_name      : item.product.name.zh,
-                item_brand     : 'myfridge',
+                item_brand     : 'MyFridge',
                 item_category  : category.name.zh,
                 item_category2 : category.name.en,
                 price          : item.product.discountPrice || item.product.price,

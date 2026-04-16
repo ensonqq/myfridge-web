@@ -124,7 +124,7 @@ import _                                                                        
 export default {
   layout : 'auth',
   head () {
-    return { title : this.$t('topupRecords') + ' myfridge' }
+    return { title : this.$t('topupRecords') + ' MyFridge' }
   },
   watch : {
     'result.page' : {

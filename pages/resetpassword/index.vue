@@ -58,7 +58,7 @@ import moment              from 'moment'
 export default {
   head () {
     return {
-      title : this.$t('resetPassword') + ' myfridge'
+      title : this.$t('resetPassword') + ' MyFridge'
     }
   },
 
