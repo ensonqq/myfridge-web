@@ -129,7 +129,9 @@
                       <v-icon size="18">{{ icons.mdiMapMarker }}</v-icon>
                       {{ parseInt(selected) > -1 ? deliveryInfo.fullAddress : $t('pleaseSelectPickupPoint') }}
                     </div>
-                    <iframe width="100%" height="280" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" :src="'https://maps.google.it/maps?q=' + encodeURIComponent(parseInt(selected) > -1? deliveryInfo.fullAddress : '香港') +'=&output=embed'"></iframe>
+                    <iframe width="100%"
+                            height="280" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+                            :src="`https://maps.google.it/maps?q=${deliveryInfo.latitude},${deliveryInfo.longitude}&output=embed`"></iframe>
                   </v-col>
                 </div>
                 <v-card v-else height="290" width="100%" color="#eee" class="d-flex justify-center align-center">
@@ -239,6 +241,8 @@ export default {
       this.deliveryInfo.fullAddress = this.$i18n.locale === 'zh' ? point.fullAddress : point.fullAddressEn
       this.deliveryInfo.code = point.code
       this.deliveryInfo.workingHour = this.$i18n.locale === 'zh' ? point.workingHour : point.workingHourEn
+      this.deliveryInfo.longitude = point.longitude
+      this.deliveryInfo.latitude = point.latitude
     },
     async removeAddress () {
       try {
@@ -342,7 +346,9 @@ export default {
         subDistrict : '',
         fullAddress : '',
         code        : '',
-        workingHour : ''
+        workingHour : '',
+        latitude    : '',
+        longitude   : ''
       }
     }
   },
