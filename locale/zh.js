@@ -55,7 +55,7 @@ module.exports = {
   'newOffers'                     : '最新優惠',
   'close'                         : '關閉',
   'clear'                         : '清空',
-  'minFreeDeliveryTotal'          : '最低消費$99，免費送貨。',
+  'minFreeDeliveryTotal'          : '最低消費$300，免費送貨。',
   'gift'                          : '禮品',
   'receiving'                     : '獲贈',
   'selectable'                    : '可選取',

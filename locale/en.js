@@ -55,7 +55,7 @@ module.exports = {
   'newOffers'                     : 'New offers',
   'close'                         : 'Close',
   'clear'                         : 'Clear',
-  'minFreeDeliveryTotal'          : 'Minimum $99 spending, free delivery.',
+  'minFreeDeliveryTotal'          : 'Minimum $300 spending, free delivery.',
   'gift'                          : 'Gift',
   'receiving'                     : 'Receiving',
   'selectable'                    : 'Selectable',
