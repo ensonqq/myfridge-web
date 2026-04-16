@@ -3,8 +3,8 @@
     <v-navigation-drawer width="300" v-model="navDrawer" fixed temporary :stateless="!!(loginModal)">
       <!-- <v-app-bar-nav-icon tile dark @click="drawer = true"></v-app-bar-nav-icon> -->
       <div class="d-flex justify-space-between flex-wrap align-center ps-4 pe-3 mt-3">
-        <div class="m-0 col-11 px-0 d-flex align-center">
-          <img class="weblogo" src="../assets/images/logo.png"/>
+        <div class="m-0 col-11 px-0 pb-4 d-flex align-center">
+          <img width="100%" src="../assets/images/logo.png"/>
         </div>
         <div class="col-1 px-0 align-self-start" style="margin-top: -20px;">
           <v-btn icon @click.stop="navDrawer = !navDrawer">

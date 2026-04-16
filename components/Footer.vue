@@ -4,13 +4,11 @@
       <v-row>
         <v-col cols="12" lg="3">
           <a href="/">
-            <v-avatar class="mb-2" tile size="200" style="margin-bottom: -50px !important;">
-              <img class="weblogo" src="~/assets/images/logo.png" alt=""/>
-            </v-avatar>
+            <img class="py-4" src="~/assets/images/logo.png" alt=""/>
           </a>
           <h5 class="mb-1 font-weight-regular footer-color ">{{ $t('slogan') }}</h5>
           <div class="text-12 footer-color">{{ $t('slogan2') }}</div>
-          <div class="text-12 footer-color">{{ $t('foodFactoryLicense') }}: 0397802900</div>
+<!--          <div class="text-12 footer-color">{{ $t('foodFactoryLicense') }}: 0397802900</div>-->
           <!--          <div class="d-flex flex-wrap ">
                       <v-avatar class="me-4" tile width="120" height="45">
                         <img src="~/assets/images/google-play.png" alt="">
