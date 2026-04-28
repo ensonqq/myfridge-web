@@ -185,7 +185,9 @@ export default {
       }
     },
     tab () {
+      console.log('in')
       this.setStructuredData()
+      this.sortChange(this.sortBy)
     },
   },
 
