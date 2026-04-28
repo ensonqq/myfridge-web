@@ -180,8 +180,11 @@
             </template>
 
             <!--      below $100      -->
-            <template v-if="getPureCartTotal < 300">
+            <template v-if="getPureCartTotal < 200">
               <p class="ma-0">- {{ $t('minFreeDeliveryTotal') }}</p>
+            </template>
+            <template v-else-if="getPureCartTotal < 300">
+              <p class="ma-0 orange--text text--darken-2">- {{ $t('deliveryFee') }} +$60 {{ $t('deliveryFeeNote') }}</p>
             </template>
 
 
@@ -347,6 +350,16 @@
               <v-row v-if="isWeekendDelivery" class="pb-1-eee">
                 <v-col cols="9" class="py-0">*{{ $t('weekendDelivery') }}</v-col>
                 <v-col cols="3" class="py-0">$10</v-col>
+              </v-row>
+
+              <!--運費 delivery fee-->
+              <v-row v-if="deliveryFee > 0" class="pb-1-eee">
+                <v-col cols="9" class="py-0">{{ $t('deliveryFee') }} {{ $t('deliveryFeeNote') }}</v-col>
+                <v-col cols="3" class="py-0">$60</v-col>
+              </v-row>
+              <v-row v-else class="pb-1-eee">
+                <v-col cols="9" class="py-0 green--text text--darken-2">{{ $t('deliveryFee') }}</v-col>
+                <v-col cols="3" class="py-0 green--text text--darken-2">{{ $t('free') }}</v-col>
               </v-row>
 
               <!--小結-->
@@ -962,7 +975,7 @@
               <!--step 1-->
               <template v-if="stepper === 1 && user.id">
                 <v-col>
-                  <v-btn class="mb-3" block color="secondary" @click="stepper=2" :disabled="!cart.length || getPureCartTotal < 300">
+                  <v-btn class="mb-3" block color="secondary" @click="stepper=2" :disabled="!cart.length || getPureCartTotal < 200">
                     {{ $t('nextStep') }}: {{ $t('order') }}
                   </v-btn>
                 </v-col>
@@ -974,7 +987,7 @@
                   </v-btn>
                 </v-col>
                 <v-col cols="7">
-                  <v-btn class="mb-3" block color="secondary" @click="stepper = 2" :disabled="!cart.length || getPureCartTotal < 300">
+                  <v-btn class="mb-3" block color="secondary" @click="stepper = 2" :disabled="!cart.length || getPureCartTotal < 200">
                     {{ $t('nextStep') }}: {{ $t('order') }}({{ $t('nonMember') }})
                   </v-btn>
                 </v-col>
@@ -1283,6 +1296,10 @@ export default {
       return false
     },
 
+    deliveryFee () {
+      return this.getPureCartTotal >= 300 ? 0 : 60
+    },
+
     getCatDiscountTotal () {
       let value = 0
       const tiers = Object.values(this.autoDiscountTiersAdopted)
@@ -1320,6 +1337,7 @@ export default {
       })
 
       total += this.isWeekendDelivery ? 10 : 0
+      total += this.deliveryFee
 
       return total
     },
