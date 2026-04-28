@@ -40,14 +40,14 @@
                 {{ $t('exp') }}:
               </div>
               <div class="ml-2 flex-grow-1">
-                <v-progress-linear rounded :value="Math.floor(user.totalSpent / 1500 * 100)" color="amber accent-3" height="25">
+                <v-progress-linear rounded :value="Math.floor(user.totalSpent / 3000 * 100)" color="amber accent-3" height="25">
                   <div class="d-flex align-center">
-                    <span class="text-13">{{ user.totalSpent }}/1500</span>
+                    <span class="text-13">{{ user.totalSpent }}/3000</span>
                     <v-icon class="me-0 me-sm-3 amber--text text--darken-3">{{ icons.mdiCrown }}</v-icon>
                   </div>
                 </v-progress-linear>
               </div>
-              <div class="text-12 font-weight-light col-12 px-0 py-0 align-center">{{ $t('upgradeAtSpent', { spent : 1500 }) }}
+              <div class="text-12 font-weight-light col-12 px-0 py-0 align-center">{{ $t('upgradeAtSpent', { spent : 3000 }) }}
                 <v-icon class="amber--text text--accent-4" style="margin-top: -3px;" small>{{ icons.mdiCrown }}</v-icon>
                 {{ $t('goldMember') }}，{{ $t('$1discountForAllProducts') }} (<i @click="vipTierDetail()" class="cursor-pointer amber--text text--darken-3">{{ $t('clickForMore') }}</i>)
               </div>
@@ -64,14 +64,14 @@
                 {{ $t('exp') }}:
               </div>
               <div class="ml-2 flex-grow-1">
-                <v-progress-linear rounded :value="Math.floor(user.totalSpent / 5000 * 100)" color="deep-purple lighten-3" height="25">
+                <v-progress-linear rounded :value="Math.floor(user.totalSpent / 6000 * 100)" color="deep-purple lighten-3" height="25">
                   <div class="d-flex align-center">
-                    <span class="text-13">{{ user.totalSpent }}/5000</span>
+                    <span class="text-13">{{ user.totalSpent }}/6000</span>
                     <v-icon class="me-0 me-sm-3 deep-purple--text text--lighten-1">{{ icons.mdiDiamondStone }}</v-icon>
                   </div>
                 </v-progress-linear>
               </div>
-              <div class="text-12 font-weight-light col-12 px-0 py-0 align-center">{{ $t('upgradeAtSpent', { spent : 5000 }) }}
+              <div class="text-12 font-weight-light col-12 px-0 py-0 align-center">{{ $t('upgradeAtSpent', { spent : 6000 }) }}
                 <v-icon class="deep-purple--text" style="margin-top: -3px;" small>{{ icons.mdiDiamondStone }}</v-icon>
                 {{ $t('diamondMember') }}
                 <br>- {{ $t('$1discountForAllProducts') }}

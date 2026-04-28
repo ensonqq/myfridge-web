@@ -7,7 +7,7 @@
           <ol class="py-5">
             <li class="py-2">
               <div><b>需要運費嗎？</b></div>
-              <div>每張訂單只需要購買滿$99，即免運費。</div>
+              <div>最低訂購金額：$200 (+$60 運費)。大部份地區訂購滿 $300 可享免費送貨 (偏遠地方除外)。</div>
             </li>
 
             <li class="py-2">
@@ -36,7 +36,7 @@
 
             <li class="py-2">
               <div><b>我幾時可以收到貨？</b></div>
-              <div>您可以在選購時選取送貨日子「由兩日內送抵起」，請留意公眾假期不是我們的工作天，因此公眾假期後一日不設收貨日。</div>
+              <div>您可以在選購時選取送貨日子「由 三 日內送抵起」，請留意公眾假期不是我們的工作天，因此公眾假期後一日不設收貨日。</div>
             </li>
 
             <li class="py-2">
@@ -50,8 +50,17 @@
             </li>
 
             <li class="py-2">
-              <div><b>燒賣包裝如何？</b></div>
-              <div>每盒淨重量180g，有6粒。</div>
+              <div><b>退貨 / 退款 Retrun / Exchange Policy</b></div>
+              <div>收貨人士收取貨品的同時，有責任檢查貨品，發票一經收貨人士簽名作實，便視為交易完成。</div>
+              <div>如閣下在簽收貨品後有任何不滿，請於收貨當日致電 6565 7682 或電郵至 info@myfridgehk.com 與我們的職員聯繫。我們了解及評估 閣下的情況後，視乎不同情況向閣下作出適當回應，包括退款，更換貨品或提供現金券以供 閣下下次的購物時使用。如遇信用卡退款時需要留意，信用卡公司可能需要至少5個星期時間以處理有關退款程序。</div>
+              <div>為了能讓我們作更準確的評估，我們懇請閣下：</div>
+
+              <div>1) 妥善保存貨品於雪櫃急凍格內，直到我們安排職員把它取回。當閣下與我們聯繫後，我們會盡快回收貨品。</div>
+
+              <div>2) 為有問題或缺陷的貨品拍照給我們能讓我們更了解閣下的情況。</div>
+
+              <div>如有爭議，My Fridge 保留最終決定權。</div>
+
             </li>
 
             <li class="py-2">
@@ -61,7 +70,7 @@
 
             <li class="py-2">
               <div><b>現在下單最快幾時收貨？</b></div>
-              <div>下單時可於網站選擇收貨日，加一個工作天可安排派件，如需週末派件，只需加收$10服務費</div>
+              <div>下單時可於網站選擇收貨日，加 兩 個工作天可安排派件。</div>
             </li>
 
             <li class="py-2">
@@ -79,7 +88,7 @@
           <ol class="py-5">
             <li class="py-2">
               <div><b>Is there any shipping fee required? </b></div>
-              <div>Each order only requires a purchase of $99 or more to have free shipping.</div>
+              <div>Minimum Order Amount: $200 (plus a $60 delivery fee). Orders above $300 come with free delivery (excluding remote areas).</div>
             </li>
 
             <li class="py-2">
@@ -108,7 +117,7 @@
 
             <li class="py-2">
               <div><b>When can I receive the goods? </b></div>
-              <div>You can select the delivery date "from within two days" when purchasing. Please note that public holidays are not our working days, so there is no delivery day on the day after a public holiday.</div>
+              <div>ou can select the delivery date "from within three days" when purchasing. Please note that public holidays are not our working days, so there is no delivery day on the day after a public holiday.</div>
             </li>
 
             <li class="py-2">
@@ -122,8 +131,16 @@
             </li>
 
             <li class="py-2">
-              <div><b>What about the packaging of Siu Mai? </b></div>
-              <div>Each box has a net weight of 180g and contains 6 pieces.</div>
+              <div><b>Retrun / Exchange Policy</b></div>
+              <div>When you receive your delivery, we encourage you to firstly check whether it is satisfactory and complete and if everything is fine. If you discover any dissatisfaction with your goods after you have signed for them, then please contact us on the same day of delivery (please either call us on 6565 7682 or email us at info@myfridgehk.com). After assessing the situation and dependent on whether the claim is reasonable to us, we may be able to reimburse you, replace the product or offer you cash back on your next purchase, whichever method is most appropriate. It should be noted however that for reimbursements, credit card companies may take up to 5 weeks to recognize the funds in your account.</div>
+              <div>In case of any disputes, the decision of My Fridge shall be final.</div>
+
+              <div>In order to assist us with assessing the situation, we would advise that you please:</div>
+
+              <div>1) Keep the product until we arrange for it to be picked up. We will endeavor to have it picked up as soon as possible after you contact us.</div>
+
+              <div>2) If applicable, take a photograph of the problem or defect with the product.</div>
+
             </li>
 
             <li class="py-2">
@@ -133,7 +150,7 @@
 
             <li class="py-2">
               <div><b>When is the fastest time to receive the goods if you place an order now? </b></div>
-              <div>When placing an order, you can select the delivery date on the website, orders will be delivered in 2 working days. $10 service fee will be charged if delivery is required on weekends.</div>
+              <div>When placing an order, you can select the delivery date on the website, orders will be delivered in 3 working days.</div>
             </li>
 
             <li class="py-2">

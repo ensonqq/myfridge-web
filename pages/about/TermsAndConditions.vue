@@ -5,10 +5,6 @@
         <h1>{{ $t('termsAndConditions') }}</h1>
         <template v-if="$i18n.locale === 'zh'">
           <h3 class="mx-1">生效時間：2017年 1 月 1 日</h3>
-          <p> MyFridge 的使命在於為香港人製造健康及高蛋白食品。我們致力協助您在增肌，修身，減肥，健康飲食中增加優質蛋白的攝取。</p>
-          <p>我們堅持每日新鮮生產，香港製造，讓本地香港人能快速，安全地享用我們的產品。透過穩定的低溫門到門送貨服務，讓忙碌的你無論在任何時侯及地點都可以攝取最優質蛋白質。</p>
-          <p>我們明白一個嚴格的產品製造過程和良好的送貨服務能讓用戶得到最佳體驗，所以我們會一直朝著這個方向堅持，承諾為客戶提供最好產品及服務。</p>
-
           <h3 class="mx-1">1. 前言</h3>
           <h4>1.1 守則及條款</h4>
           <p>使用 MyFridge 的「服務」即表示您同意所有守則及條款。使用 MyFridge 的「服務」也必須遵守隱私政策，後者的內容規範了 MyFridge 收集、使用、分享以及儲存您的個人資訊時所採行的方式。</p>
@@ -98,9 +94,9 @@
           <p>本守則及條款（包括其他您使用「服務」時我們所提供的條款）為與服務相關並用於約束雙方的唯一條款，同時取代所有較早的「服務」協議。</p>
           <p>如果我們對違反守則及條款行為未採取法律行動，並不代表我們放棄履行的權利。</p>
 
-          <h3 class="mx-1">7. Optmeal 「能做」與「不能做」</h3>
+          <h3 class="mx-1">7. MyFridge 「能做」與「不能做」</h3>
           <h4>7.1. 能做</h4>
-          <p> Optmeal 是一個健康優質蛋白產品銷售平台。這個清單以規範了您在使用我們的「服務」時可以和不可以做的事情。</p>
+          <p> MyFridge 是一個健康優質蛋白產品銷售平台。這個清單以規範了您在使用我們的「服務」時可以和不可以做的事情。</p>
           <p>您同意您將：</p>
           <ol>
             <li>遵守所有適用法律，包括但不僅限於隱私權法、智慧財產權法、反垃圾訊息法、出口管理條例、稅務法及監管要求；</li>
@@ -112,15 +108,15 @@
           <h4>7.2 不能做</h4>
           <p>您同意您將不會：</p>
           <ol>
-            <li>在 Optmeal 上建立虛假身份、謊報身份、建立非您本人（非真人）之會員個人檔案，或是使用或試圖使用他人帳戶；</li>
+            <li>在 MyFridge 上建立虛假身份、謊報身份、建立非您本人（非真人）之會員個人檔案，或是使用或試圖使用他人帳戶；</li>
             <li>開發、支援或使用軟體、裝置、指令碼、自動程式或其他方式或程序（包括網路爬蟲、瀏覽器外掛程式和附加元件，或任何其他技術）來抓取「服務」或以其他方式從「服務」複製個人檔案和其他資料；</li>
             <li>覆寫任何安全功能，或是迴避或規避任何「服務」的存取控制或使用限制（如以大寫字搜尋關鍵字或瀏覽個人檔案）；</li>
             <li>未經 我們同意而複製、使用、披露或散佈任何從「服務」取得之資訊（不論是以直接或經由第三方（如搜尋引擎）的間接方式）；</li>
             <li>披露您未經同意即披露的資訊（如他人的機密資訊）；</li>
             <li>違反他人智慧財產權，包括：著作權、專利、商標、商業機密或其他專利權。</li>
-            <li>違反 我們的智慧財產權或其他權利，包括但不限於 (i) 複製或散佈我們的學習影片或其他資料，或 (ii) 複製或散佈我們的技術，依開放資源授權發佈的技術則不在此限；(iii) 在任何商業名稱、電子郵件或網址使用「 Optmeal 」字眼或標誌；</li>
+            <li>違反 我們的智慧財產權或其他權利，包括但不限於 (i) 複製或散佈我們的學習影片或其他資料，或 (ii) 複製或散佈我們的技術，依開放資源授權發佈的技術則不在此限；(iii) 在任何商業名稱、電子郵件或網址使用「 MyFridge 」字眼或標誌；</li>
             <li>反向工程、反編譯、解譯、破解或以其他方式試圖獲取「服務」或非開放原始碼之任何相關技術的原始程式碼；</li>
-            <li>未經我們同意，默示或明示您為 Optmeal 附屬個體或獲得 Optmeal 背書（如：表示您為 Optmeal 認可的顧問）；</li>
+            <li>未經我們同意，默示或明示您為 MyFridge 附屬個體或獲得 MyFridge 背書（如：表示您為 MyFridge 認可的顧問）；</li>
             <li>未經我們同意即出租、抵押、交易、販售／轉售「服務」或相關資料或其存取權，或以其他方式利用「服務」或相關資料或其存取權賺取收益；</li>
             <li>使用自動程式或其他自動方法使用「服務」、新增或下載聯絡人、傳送或重新導向訊息；</li>
             <li>為任何競爭目的，監視「服務」的可用性、表現或功能；</li>
@@ -133,32 +129,28 @@
           <p>申訴聯絡資訊列於以下項目。</p>
 
           <h3 class="mx-1">9. 如何聯絡我們</h3>
-          <div class="mx-1">電郵︰info@Optmeal.com</div>
+          <div class="mx-1">電郵︰info@fyfridgehk.com</div>
           <div class="mx-1">電話︰65657682</div>
         </template>
         <template v-else>
           <h3 class="mx-1">Effective time: January 1, 2017</h3>
-          <p> Optmeal's mission is to create healthy and high-protein foods for Hong Kong people. We are committed to helping you gain muscle, slim down, lose weight, and increase your intake of high-quality protein in a healthy diet. </p>
-          <p>We insist on fresh production every day and made in Hong Kong, so that local Hong Kong people can enjoy our products quickly and safely. Through stable low-temperature door-to-door delivery service, busy people can consume the highest quality protein at any time and place. </p>
-          <p>We understand that a strict product manufacturing process and good delivery service can provide users with the best experience, so we will always adhere to this direction and promise to provide customers with the best products and services. </p>
-
           <h3 class="mx-1">1. Preface</h3>
           <h4>1.1 Code and Terms</h4>
-          <p>By using Optmeal's Services, you agree to all Terms and Conditions. Use of Optmeal's "Services" is also subject to the Privacy Policy, which governs how Optmeal collects, uses, shares and stores your personal information. </p>
-          <p>You agree that once you open an account at Optmeal (whether through the website or application) or use our "Services" through any means, you agree to all items in this Code and Terms (we will act accordingly based on the actual situation). Any of these rules or terms may be updated from time to time). If you do not agree with anything in these Terms and Conditions, please do not open an account with Optmeal and do not use our Services through any means. If you want to terminate your use of Optmeal's "Services", you can notify us by email or phone. </p>
-          <p>The "services" in these Terms and Conditions refer to any functions, information or products provided by Optmeal's applications or websites or other communication channels, including emails, products, delivery services, orders and offers, etc. </p>
-          <p> Optmeal is wholly owned and operated by 滿記凍肉有限公司 (in this privacy policy statement, each is referred to as "Optmeal", "we" or "the Company", as applicable depending on the situation). </p>
+          <p>By using MyFridge's Services, you agree to all Terms and Conditions. Use of MyFridge's "Services" is also subject to the Privacy Policy, which governs how MyFridge collects, uses, shares and stores your personal information. </p>
+          <p>You agree that once you open an account at MyFridge (whether through the website or application) or use our "Services" through any means, you agree to all items in this Code and Terms (we will act accordingly based on the actual situation). Any of these rules or terms may be updated from time to time). If you do not agree with anything in these Terms and Conditions, please do not open an account with MyFridge and do not use our Services through any means. If you want to terminate your use of MyFridge's "Services", you can notify us by email or phone. </p>
+          <p>The "services" in these Terms and Conditions refer to any functions, information or products provided by MyFridge's applications or websites or other communication channels, including emails, products, delivery services, orders and offers, etc. </p>
+          <p> MyFridge is wholly owned and operated by 滿記凍肉有限公司 (in this privacy policy statement, each is referred to as "MyFridge", "we" or "the Company", as applicable depending on the situation). </p>
           <p>These Terms and Conditions apply to members and visitors. </p>
-          <p>As a "Visitor" or "Member" of the Optmeal "Service", the collection, use and sharing of your personal information must comply with the Privacy Policy and its updates. </p>
+          <p>As a "Visitor" or "Member" of the MyFridge "Service", the collection, use and sharing of your personal information must comply with the Privacy Policy and its updates. </p>
 
           <h4>1.2 Members and Visitors</h4>
-          <p>When you register an account with Optmeal through any means, you become a member. If you choose not to register to use our Services, you may also be able to use certain features as a guest. </p>
+          <p>When you register an account with MyFridge through any means, you become a member. If you choose not to register to use our Services, you may also be able to use certain features as a guest. </p>
           <h4>1.3 Changes</h4>
           <p>Based on business development considerations, we may change the contents of this Code and Terms from time to time. </p>
           <p>We may modify these Terms and Conditions and the Privacy Policy at any time. If there are major changes, we will notify you through the "Service" or other means to give you the opportunity to read the changes in detail before they take effect. We agree that changes cannot be retroactive. If you do not agree with any changed content, you may close your account. If you continue to use our "Services" after we publish or transmit a notice of changes to the terms, you agree to abide by the updated terms from the effective date. </p>
           <h3 class="mx-1">2. Obligations</h3>
           <h4>2.1. Service applicability</h4>
-          <p> Optmeal's Services are not intended for use by anyone under the age of 16. </p>
+          <p> MyFridge's Services are not intended for use by anyone under the age of 16. </p>
 
           <h4>2.2 Your Account</h4>
           <p>You will keep your password confidential. </p>
@@ -193,20 +185,20 @@
           <p>You and we agree that if content contains personal data, it must comply with our privacy policy. </p>
           <p>You and we agree that we may access, store, process and use any information and personal data you provide in accordance with the Privacy Policy. </p>
           <p>By sending suggestions or other feedback related to our Services, you agree that we may use and share your comments (but not necessarily) for any purpose without paying any compensation. </p>
-          <p>Please make sure you only provide information and content that you are authorized to share, and that the information in your Optmeal profile is accurate. </p>
-          <p>You agree to only provide content or information that is not illegal and does not violate the rights of others, including intellectual property rights. You also agree that your profile information is true. Optmeal may need to remove some content in some countries to comply with local laws. </p>
+          <p>Please make sure you only provide information and content that you are authorized to share, and that the information in your MyFridge profile is accurate. </p>
+          <p>You agree to only provide content or information that is not illegal and does not violate the rights of others, including intellectual property rights. You also agree that your profile information is true. MyFridge may need to remove some content in some countries to comply with local laws. </p>
 
           <h4>3.2. Service availability</h4>
           <p>We may charge fees or discontinue any Services or modify prices in the future. </p>
           <p>We may change, discontinue or discontinue any of our Services. We may also revise prices with effect in the future after reasonable notice period as permitted by law. </p>
-          <p>We do not guarantee that any information and content you post will be stored or continuously displayed. Optmeal non-storage service. Except to the extent required by applicable law and our Privacy Policy, you agree that we have no obligation to store, retain or provide you with copies of any content or information provided by you or others. </p>
+          <p>We do not guarantee that any information and content you post will be stored or continuously displayed. MyFridge non-storage service. Except to the extent required by applicable law and our Privacy Policy, you agree that we have no obligation to store, retain or provide you with copies of any content or information provided by you or others. </p>
 
           <h4>3.3 Limitations</h4>
           <p>We reserve the right to limit how you establish relationships and interact with us on the Service. </p>
 
           <h4>3.4 Intellectual property rights</h4>
-          <p>We will provide notices regarding Optmeal's intellectual property rights. </p>
-          <p>We retain all intellectual property rights in the Service. Trademarks and logos used in the Service may be the trademarks of their respective owners. Optmeal, its logo and other related trademarks, service icons, images, and logos used in the Service are our trademarks or registered trademarks. </p>
+          <p>We will provide notices regarding MyFridge's intellectual property rights. </p>
+          <p>We retain all intellectual property rights in the Service. Trademarks and logos used in the Service may be the trademarks of their respective owners. MyFridge, its logo and other related trademarks, service icons, images, and logos used in the Service are our trademarks or registered trademarks. </p>
 
 
           <h3 class="mx-1">4. Disclaimer and Limitation of Liability</h3>
@@ -231,9 +223,9 @@
           <p>This Code and Terms (including other terms we provide when you use the "Service") are the only terms related to the Service and binding on both parties, and supersede all earlier "Service" agreements. </p>
           <p>If we do not take legal action for violations of the Code and Terms, it does not mean that we have waived our right to perform. </p>
 
-          <h3 class="mx-1">7. What Optmeal can and cannot do</h3>
+          <h3 class="mx-1">7. What MyFridge can and cannot do</h3>
           <h4>7.1. Can do</h4>
-          <p> Optmeal is a sales platform for healthy and high-quality protein products. This list regulates what you can and cannot do when using our Services. </p>
+          <p> MyFridge is a sales platform for healthy and high-quality protein products. This list regulates what you can and cannot do when using our Services. </p>
           <p>You agree that you will:</p>
           <ol>
             <li>Comply with all applicable laws, including but not limited to privacy laws, intellectual property laws, anti-spam laws, export administration regulations, tax laws, and regulatory requirements;</li>
@@ -245,15 +237,15 @@
           <h4>7.2 Can’t do</h4>
           <p>You agree that you will not:</p>
           <ol>
-            <li>Create a false identity on Optmeal, misrepresent your identity, create a member profile that is not your own (not a real person), or use or attempt to use another person's account;</li>
+            <li>Create a false identity on MyFridge, misrepresent your identity, create a member profile that is not your own (not a real person), or use or attempt to use another person's account;</li>
             <li>Develop, support or use software, devices, scripts, automated programs or other means or processes (including web crawlers, browser plug-ins and add-ons, or any other technology) to crawl the Service or otherwise Methods to copy profiles and other information from the Service;</li>
             <li>Override any security features, or circumvent or circumvent any access controls or usage restrictions on the Service (such as searching for keywords in capital letters or browsing profiles);</li>
             <li>Copy, use, disclose or distribute any information obtained from the Service (whether directly or indirectly through a third party (such as a search engine)) without our consent;</li>
             <li>Disclose information that you disclosed without your consent (such as another person's confidential information);</li>
             <li>Violate the intellectual property rights of others, including copyrights, patents, trademarks, trade secrets or other proprietary rights.</li>
-            <li>Violate our intellectual property rights or other rights, including but not limited to (i) copying or distributing our learning videos or other materials, or (ii) copying or distributing our technology, except for technology released under an open source license. This limit; (iii) use the word "Optmeal" or the logo in any business name, email or website;</li>
+            <li>Violate our intellectual property rights or other rights, including but not limited to (i) copying or distributing our learning videos or other materials, or (ii) copying or distributing our technology, except for technology released under an open source license. This limit; (iii) use the word "MyFridge" or the logo in any business name, email or website;</li>
             <li>Reverse engineer, decompile, interpret, crack or otherwise attempt to obtain the source code of the Service or any related technology that is not open source;</li>
-            <li>Imply or expressly imply that you are an Optmeal affiliate or that you are endorsed by Optmeal (e.g., indicating that you are an Optmeal-approved consultant) without our consent;</li>
+            <li>Imply or expressly imply that you are an MyFridge affiliate or that you are endorsed by MyFridge (e.g., indicating that you are an MyFridge-approved consultant) without our consent;</li>
             <li>Lease, mortgage, trade, sell/resell the Services or related information or access rights thereto without our consent, or otherwise use the Services or related information or access rights to earn income ;</li>
             <li>Use automated programs or other automated methods to use the Service, add or download contacts, send or redirect messages;</li>
             <li>Monitor the availability, performance or functionality of the Service for any competitive purposes;</li>
@@ -266,32 +258,32 @@
           <p>Complaint contact information is listed below. </p>
 
           <h3 class="mx-1">9. How to contact us</h3>
-          <div class="mx-1">Email: info@Optmeal.com</div>
+          <div class="mx-1">Email: info@fyfridgehk.com</div>
           <div class="mx-1">Tel/Whatsapp: 65657682</div>
         </template>
         <template v-else>
           <h3 class="mx-1">Effective time: January 1, 2017</h3>
-          <p> Optmeal's mission is to create healthy and high-protein foods for Hong Kong people. We are committed to helping you gain muscle, slim down, lose weight, and increase your intake of high-quality protein in a healthy diet. </p>
+          <p> MyFridge's mission is to create healthy and high-protein foods for Hong Kong people. We are committed to helping you gain muscle, slim down, lose weight, and increase your intake of high-quality protein in a healthy diet. </p>
           <p>We insist on fresh production every day and made in Hong Kong, so that local Hong Kong people can enjoy our products quickly and safely. Through stable low-temperature door-to-door delivery service, busy people can consume the highest quality protein at any time and place. </p>
           <p>We understand that a strict product manufacturing process and good delivery service can provide users with the best experience, so we will always adhere to this direction and promise to provide customers with the best products and services. </p>
 
           <h3 class="mx-1">1. Preface</h3>
           <h4>1.1 Code and Terms</h4>
-          <p>By using Optmeal's Services, you agree to all Terms and Conditions. Use of Optmeal's "Services" is also subject to the Privacy Policy, which governs how Optmeal collects, uses, shares and stores your personal information. </p>
-          <p>You agree that once you open an account at Optmeal (whether through the website or application) or use our "Services" through any means, you agree to all items in this Code and Terms (we will act accordingly based on the actual situation). Any of these rules or terms may be updated from time to time). If you do not agree with anything in these Terms and Conditions, please do not open an account with Optmeal and do not use our Services through any means. If you want to terminate your use of Optmeal's "Services", you can notify us by email or phone. </p>
-          <p>The "services" in these Terms and Conditions refer to any functions, information or products provided by Optmeal's applications or websites or other communication channels, including emails, products, delivery services, orders and offers, etc. </p>
-          <p> Optmeal is wholly owned and operated by 滿記凍肉有限公司 (in this privacy policy statement, each is referred to as "Optmeal", "we" or "the Company", as applicable depending on the situation). </p>
+          <p>By using MyFridge's Services, you agree to all Terms and Conditions. Use of MyFridge's "Services" is also subject to the Privacy Policy, which governs how MyFridge collects, uses, shares and stores your personal information. </p>
+          <p>You agree that once you open an account at MyFridge (whether through the website or application) or use our "Services" through any means, you agree to all items in this Code and Terms (we will act accordingly based on the actual situation). Any of these rules or terms may be updated from time to time). If you do not agree with anything in these Terms and Conditions, please do not open an account with MyFridge and do not use our Services through any means. If you want to terminate your use of MyFridge's "Services", you can notify us by email or phone. </p>
+          <p>The "services" in these Terms and Conditions refer to any functions, information or products provided by MyFridge's applications or websites or other communication channels, including emails, products, delivery services, orders and offers, etc. </p>
+          <p> MyFridge is wholly owned and operated by 滿記凍肉有限公司 (in this privacy policy statement, each is referred to as "MyFridge", "we" or "the Company", as applicable depending on the situation). </p>
           <p>These Terms and Conditions apply to members and visitors. </p>
-          <p>As a "Visitor" or "Member" of the Optmeal "Service", the collection, use and sharing of your personal information must comply with the Privacy Policy and its updates. </p>
+          <p>As a "Visitor" or "Member" of the MyFridge "Service", the collection, use and sharing of your personal information must comply with the Privacy Policy and its updates. </p>
 
           <h4>1.2 Members and Visitors</h4>
-          <p>When you register an account with Optmeal through any means, you become a member. If you choose not to register to use our Services, you may also be able to use certain features as a guest. </p>
+          <p>When you register an account with MyFridge through any means, you become a member. If you choose not to register to use our Services, you may also be able to use certain features as a guest. </p>
           <h4>1.3 Changes</h4>
           <p>Based on business development considerations, we may change the contents of this Code and Terms from time to time. </p>
           <p>We may modify these Terms and Conditions and the Privacy Policy at any time. If there are major changes, we will notify you through the "Service" or other means to give you the opportunity to read the changes in detail before they take effect. We agree that changes cannot be retroactive. If you do not agree with any changed content, you may close your account. If you continue to use our "Services" after we publish or transmit a notice of changes to the terms, you agree to abide by the updated terms from the effective date. </p>
           <h3 class="mx-1">2. Obligations</h3>
           <h4>2.1. Service applicability</h4>
-          <p> Optmeal's Services are not intended for use by anyone under the age of 16. </p>
+          <p> MyFridge's Services are not intended for use by anyone under the age of 16. </p>
 
           <h4>2.2 Your Account</h4>
           <p>You will keep your password confidential. </p>
@@ -326,20 +318,20 @@
           <p>You and we agree that if content contains personal data, it must comply with our privacy policy. </p>
           <p>You and we agree that we may access, store, process and use any information and personal data you provide in accordance with the Privacy Policy. </p>
           <p>By sending suggestions or other feedback related to our Services, you agree that we may use and share your comments (but not necessarily) for any purpose without paying any compensation. </p>
-          <p>Please make sure you only provide information and content that you are authorized to share, and that the information in your Optmeal profile is accurate. </p>
-          <p>You agree to only provide content or information that is not illegal and does not violate the rights of others, including intellectual property rights. You also agree that your profile information is true. Optmeal may need to remove some content in some countries to comply with local laws. </p>
+          <p>Please make sure you only provide information and content that you are authorized to share, and that the information in your MyFridge profile is accurate. </p>
+          <p>You agree to only provide content or information that is not illegal and does not violate the rights of others, including intellectual property rights. You also agree that your profile information is true. MyFridge may need to remove some content in some countries to comply with local laws. </p>
 
           <h4>3.2. Service availability</h4>
           <p>We may charge fees or discontinue any Services or modify prices in the future. </p>
           <p>We may change, discontinue or discontinue any of our Services. We may also revise prices with effect in the future after reasonable notice period as permitted by law. </p>
-          <p>We do not guarantee that any information and content you post will be stored or continuously displayed. Optmeal non-storage service. Except to the extent required by applicable law and our Privacy Policy, you agree that we have no obligation to store, retain or provide you with copies of any content or information provided by you or others. </p>
+          <p>We do not guarantee that any information and content you post will be stored or continuously displayed. MyFridge non-storage service. Except to the extent required by applicable law and our Privacy Policy, you agree that we have no obligation to store, retain or provide you with copies of any content or information provided by you or others. </p>
 
           <h4>3.3 Limitations</h4>
           <p>We reserve the right to limit how you establish relationships and interact with us on the Service. </p>
 
           <h4>3.4 Intellectual property rights</h4>
-          <p>We will provide notices regarding Optmeal's intellectual property rights. </p>
-          <p>We retain all intellectual property rights in the Service. Trademarks and logos used in the Service may be the trademarks of their respective owners. Optmeal, its logo and other related trademarks, service icons, images, and logos used in the Service are our trademarks or registered trademarks. </p>
+          <p>We will provide notices regarding MyFridge's intellectual property rights. </p>
+          <p>We retain all intellectual property rights in the Service. Trademarks and logos used in the Service may be the trademarks of their respective owners. MyFridge, its logo and other related trademarks, service icons, images, and logos used in the Service are our trademarks or registered trademarks. </p>
 
           <h3 class="mx-1">4. Disclaimer and Limitation of Liability</h3>
           <h4>4.1. No guarantee</h4>
@@ -363,9 +355,9 @@
           <p>This Code and Terms (including other terms we provide when you use the "Service") are the only terms related to the Service and binding on both parties, and supersede all earlier "Service" agreements. </p>
           <p>If we do not take legal action for violations of the Code and Terms, it does not mean that we have waived our right to perform. </p>
 
-          <h3 class="mx-1">7. What Optmeal can and cannot do</h3>
+          <h3 class="mx-1">7. What MyFridge can and cannot do</h3>
           <h4>7.1. Can do</h4>
-          <p> Optmeal is a sales platform for healthy and high-quality protein products. This list regulates what you can and cannot do when using our Services. </p>
+          <p> MyFridge is a sales platform for healthy and high-quality protein products. This list regulates what you can and cannot do when using our Services. </p>
           <p>You agree that you will:</p>
           <ol>
             <li>Comply with all applicable laws, including but not limited to privacy laws, intellectual property laws, anti-spam laws, export administration regulations, tax laws, and regulatory requirements;</li>
@@ -377,15 +369,15 @@
           <h4>7.2 Can’t do</h4>
           <p>You agree that you will not:</p>
           <ol>
-            <li>Create a false identity on Optmeal, misrepresent your identity, create a member profile that is not your own (not a real person), or use or attempt to use another person's account;</li>
+            <li>Create a false identity on MyFridge, misrepresent your identity, create a member profile that is not your own (not a real person), or use or attempt to use another person's account;</li>
             <li>Develop, support or use software, devices, scripts, automated programs or other means or processes (including web crawlers, browser plug-ins and add-ons, or any other technology) to crawl the Service or otherwise Methods to copy profiles and other information from the Service;</li>
             <li>Override any security features, or circumvent or circumvent any access controls or usage restrictions on the Service (such as searching for keywords in capital letters or browsing profiles);</li>
             <li>Copy, use, disclose or distribute any information obtained from the Service (whether directly or indirectly through a third party (such as a search engine)) without our consent;</li>
             <li>Disclose information that you disclosed without your consent (such as another person's confidential information);</li>
             <li>Violate the intellectual property rights of others, including copyrights, patents, trademarks, trade secrets or other proprietary rights.</li>
-            <li>Violate our intellectual property rights or other rights, including but not limited to (i) copying or distributing our learning videos or other materials, or (ii) copying or distributing our technology, except for technology released under an open source license. This limit; (iii) use the word "Optmeal" or the logo in any business name, email or website;</li>
+            <li>Violate our intellectual property rights or other rights, including but not limited to (i) copying or distributing our learning videos or other materials, or (ii) copying or distributing our technology, except for technology released under an open source license. This limit; (iii) use the word "MyFridge" or the logo in any business name, email or website;</li>
             <li>Reverse engineer, decompile, interpret, crack or otherwise attempt to obtain the source code of the Service or any related technology that is not open source;</li>
-            <li>Imply or expressly imply that you are an Optmeal affiliate or that you are endorsed by Optmeal (e.g., indicating that you are an Optmeal-approved consultant) without our consent;</li>
+            <li>Imply or expressly imply that you are an MyFridge affiliate or that you are endorsed by MyFridge (e.g., indicating that you are an MyFridge-approved consultant) without our consent;</li>
             <li>Lease, mortgage, trade, sell/resell the Services or related information or access rights thereto without our consent, or otherwise use the Services or related information or access rights to earn income ;</li>
             <li>Use automated programs or other automated methods to use the Service, add or download contacts, send or redirect messages;</li>
             <li>Monitor the availability, performance or functionality of the Service for any competitive purposes;</li>
@@ -398,7 +390,7 @@
           <p>Complaint contact information is listed below. </p>
 
           <h3 class="mx-1">9. How to contact us</h3>
-          <div class="mx-1">Email: info@Optmeal.com</div>
+          <div class="mx-1">Email: info@fyfridgehk.com</div>
           <div class="mx-1">Tel/Whatsapp: 65657682</div>
         </template>
       </v-col>
@@ -411,7 +403,7 @@ export default {
   name : "TermsAndConditions",
   head () {
     return {
-      title : this.$t('termsAndConditions') + ' Optmeal',
+      title : this.$t('termsAndConditions') + ' MyFridge',
     }
   },
 }

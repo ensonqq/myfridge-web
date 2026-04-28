@@ -1,6 +1,6 @@
 <template>
   <v-autocomplete v-model="itemSku"
-                  class="ma-0 px-2 pt-md-0 pt-lg-0 pt-4 pb-6"
+                  class="ma-0 px-2 pt-md-0 pt-lg-0 pt-4 pb-6 searchItem"
                   color="secondary"
                   :loading="searchLoading"
                   :items="resultSearchItem"
@@ -9,6 +9,7 @@
                   hide-details
                   hide-selected
                   outlined
+                  attach
                   ref="autocomplete"
                   :cache-items="true"
                   :item-text="`name[${$i18n.locale}]`"
@@ -27,7 +28,7 @@
         <img :src="item.images.length? item.images[0].medium.path: 'https://placehold.co/400'" alt="Avatar">
       </v-list-item-avatar>
       <v-list-item-content>
-        <v-list-item-title v-html="item.name[$i18n.locale]"></v-list-item-title>
+        <v-list-item-title  v-html="item.name[$i18n.locale]"></v-list-item-title>
       </v-list-item-content>
     </template>
     <template v-slot:append>

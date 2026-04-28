@@ -45,7 +45,7 @@
             <li class="py-3">
               會員每次落單成功 (包括積分增值)，可獲得成長值
               <ul>
-                <li>消費滿$1500即自動成為
+                <li>消費滿$3000即自動成為
                   <v-icon class="amber--text text--accent-4 mb-1">{{ icons.mdiCrown }}</v-icon>
                   <b>黃金級會員：</b>
                   <ul>
@@ -53,7 +53,7 @@
                     </li>
                   </ul>
                 </li>
-                <li>消費滿$5000即自動成為
+                <li>消費滿$6000即自動成為
                   <v-icon class="deep-purple--text text--lighten-1 mb-1">{{ icons.mdiDiamondStone }}</v-icon>
                   <b>鑽石級會員：</b>
                   <ul>
@@ -119,7 +119,7 @@
             <li class="py-3">
               Each time a member successfully places an order (including credit top up), he or she will receive growth values.
               <ul>
-                <li>You will automatically become a golden member after spending $1500 or more.
+                <li>You will automatically become a golden member after spending $3000 or more.
                   <v-icon class="amber--text text--accent-4 mb-1">{{ icons.mdiCrown }}</v-icon>
                   <b>Golden membership:</b>
                   <ul>

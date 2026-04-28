@@ -1269,7 +1269,7 @@ del {
   left: -4px;
   top: -4px;
   background: linear-gradient(45deg, #ae961b, #efefef, #ae961b, #efefef, #4b4193, #6fc7d8,
-    #efefef, #ae961b, #efefef, #da9446);
+  #efefef, #ae961b, #efefef, #da9446);
   background-size: 500%;
   width: calc(100% + 8px);
   height: calc(100% + 8px);
@@ -1637,6 +1637,7 @@ del {
 
 .about-mileage {
   padding-left: 0 !important;
+
   li {
     display: flex;
     align-items: center;
@@ -1651,4 +1652,11 @@ del {
     margin-right: 0.5rem;
   }
 
+}
+
+.v-autocomplete.searchItem {
+  .v-list-item__title {
+    word-break: break-all !important;
+    white-space: wrap;
+  }
 }

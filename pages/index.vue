@@ -104,6 +104,29 @@
                         </v-row>
                       </v-col>
 
+                      <v-col cols="12" class="pa-4 px-1 ma-0">
+                        <v-row class="rowMain justify-lg-start">
+                          <v-col cols="12" class="my-0 py-0 d-flex align-center">
+                            <div class="mr-2">
+                              <b>{{ $t('sortBy') }}:</b>
+                            </div>
+                            <div style="width: 200px">
+                              <v-select :items="sortByItems[$i18n.locale]"
+                                        item-text="text"
+                                        item-value="value"
+                                        color="secondary"
+                                        @change="sortChange"
+                                        smallChips
+                                        :append-icon="icons.mdiMenuDown"
+                                        dense
+                                        hide-details
+                                        outlined
+                              ></v-select>
+                            </div>
+                          </v-col>
+                        </v-row>
+                      </v-col>
+
                       <template v-for="(item, groupName) in val.products">
                         <!-- Normal -->
                         <v-col cols="12" lg="4" md="6" class="productCardContainer" sm="12" v-if="item.publish && !item.archive">
@@ -183,7 +206,7 @@ export default {
       })
       grouped = Object.values(grouped)
 
-      const catSort = ['燒烤專區', '冰鮮類', '牛肉類', '豬肉類', '家禽類', '羊肉類', '海產類', '雜類']
+      const catSort = ['燒烤專區', '冰鮮類', '牛肉類', '豬肉類', '家禽類', '羊肉類', '海產類', '雜類', '寵物專區']
       grouped = _.sortBy(grouped, item => {
         return catSort.indexOf(item.name.zh)
       })
@@ -250,6 +273,21 @@ export default {
   },
   methods : {
     ...mapMutations(['setUser', 'setCatDiscount', 'enableTrial', 'toggleTopUpCreditsDialog']),
+    sortChange (value) {
+      this.categoriesWithProducts.forEach(cat => {
+        if (cat.name.en === this.tab) {
+          if (value.startsWith('-')) {
+            console.log(value.replace('-', ''), 'desc')
+            cat.products = _.orderBy(cat.products, ['soldOut', 'featured', value.replace('-', '')], ['asc', 'desc',
+              'desc'])
+          } else {
+            console.log(value, 'asc')
+            cat.products = _.orderBy(cat.products, ['soldOut', 'featured', value], ['asc', 'desc', 'asc'])
+          }
+        }
+      })
+
+    },
     isItemActive (url) {
       // Ensure both URLs are handled the same way (e.g., encoded)
       const currentPath = this.$route.path;
@@ -376,6 +414,22 @@ export default {
         mdiMenuUp,
         mdiMagnify,
         mdiClose
+      },
+      sortByItems            : {
+        zh : [
+          { text : '最新', value : '-createdAt' },
+          { text : '價格 (從低到高) ', value : 'price' },
+          { text : '價格 (從高到低) ', value : '-price' },
+          { text : '名稱 (A-Z) ', value : 'name.en' },
+          { text : '名稱 (Z-A) ', value : '-name.en' },
+        ],
+        en : [
+          { text : 'Newest', value : '-createdAt' },
+          { text : 'Prices (Low to High)', value : 'price' },
+          { text : 'Prices (High to Low)', value : '-price' },
+          { text : 'Name A-Z', value : 'name.en' },
+          { text : 'Name Z-A', value : '-name.en' },
+        ]
       }
     }
   }

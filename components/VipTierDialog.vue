@@ -11,7 +11,7 @@
                 <v-icon size="20" class="amber--text text--accent-4">{{ icons.mdiCrown }}</v-icon>
               </div>
               <ol style="list-style-type: upper-roman;">
-                <li class="my-2">消費滿<b>HKD$1500</b>即自動成為黃金會員 (包括積分增值)。</li>
+                <li class="my-2">消費滿<b>HKD$3000</b>即自動成為黃金會員 (包括積分增值)。</li>
                 <li class="my-2">所有貨品享有<b>永久減$1優惠</b>，可與其他優惠同時使用，例如多買多減／優惠碼折扣等。</li>
               </ol>
             </li>
@@ -21,7 +21,7 @@
                 <v-icon size="20" class="deep-purple--text text--lighten-1">{{ icons.mdiDiamondStone }}</v-icon>
               </div>
               <ol style="list-style-type: upper-roman;">
-                <li class="my-2">消費滿<b>HKD$5000</b>即自動成為鑽石會員 (包括積分增值)。</li>
+                <li class="my-2">消費滿<b>HKD$6000</b>即自動成為鑽石會員 (包括積分增值)。</li>
                 <li class="my-2">享有黃金會員待遇。</li>
                 <li class="my-2">每次下單獲得3倍積分，相當於額外97折。</li>
               </ol>
@@ -37,7 +37,7 @@
                 <v-icon size="20" class="amber--text text--accent-4">{{ icons.mdiCrown }}</v-icon>
               </div>
               <ol style="list-style-type: upper-roman;">
-                <li class="my-2">When you spend <b>HKD$1500</b>, you will automatically become a golden member (including credit top up). </li>
+                <li class="my-2">When you spend <b>HKD$3000</b>, you will automatically become a golden member (including credit top up). </li>
                 <li class="my-2">All products enjoy a <b>permanent $1 discount</b>, which can be used in conjunction with other offers, such as buy more, get more discounts/coupon code discounts, etc. </li>
               </ol>
             </li>
@@ -47,7 +47,7 @@
                 <v-icon size="20" class="deep-purple--text text--lighten-1">{{ icons.mdiDiamondStone }}</v-icon>
               </div>
               <ol style="list-style-type: upper-roman;">
-                <li class="my-2">You will automatically become a diamond member when you spend <b>HKD$5000</b> (including credit top up). </li>
+                <li class="my-2">You will automatically become a diamond member when you spend <b>HKD$6000</b> (including credit top up). </li>
                 <li class="my-2">Enjoy gold membership benefits. </li>
                 <li class="my-2">Earn 3 times credits for ordering, which is equivalent to an additional 3% off. </li>
               </ol>
