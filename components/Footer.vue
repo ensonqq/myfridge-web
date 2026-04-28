@@ -4,7 +4,7 @@
       <v-row>
         <v-col cols="12" lg="3">
           <a href="/">
-            <img class="py-4" src="~/assets/images/logo.png" alt=""/>
+            <img class="py-4" src="~/assets/images/logo.png" width="200px" alt=""/>
           </a>
           <h5 class="mb-1 font-weight-regular footer-color ">{{ $t('slogan') }}</h5>
           <div class="text-12 footer-color">{{ $t('slogan2') }}</div>
