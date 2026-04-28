@@ -112,6 +112,7 @@
                             </div>
                             <div style="width: 200px">
                               <v-select :items="sortByItems[$i18n.locale]"
+                                        v-model="sortBy"
                                         item-text="text"
                                         item-value="value"
                                         color="secondary"
@@ -415,16 +416,17 @@ export default {
         mdiMagnify,
         mdiClose
       },
+      sortBy                 : '-updatedAt',
       sortByItems            : {
         zh : [
-          { text : '最新', value : '-createdAt' },
+          { text : '最新', value : '-updatedAt' },
           { text : '價格 (從低到高) ', value : 'price' },
           { text : '價格 (從高到低) ', value : '-price' },
           { text : '名稱 (A-Z) ', value : 'name.en' },
           { text : '名稱 (Z-A) ', value : '-name.en' },
         ],
         en : [
-          { text : 'Newest', value : '-createdAt' },
+          { text : 'Newest', value : '-updatedAt' },
           { text : 'Prices (Low to High)', value : 'price' },
           { text : 'Prices (High to Low)', value : '-price' },
           { text : 'Name A-Z', value : 'name.en' },
