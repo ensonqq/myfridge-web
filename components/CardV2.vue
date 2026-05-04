@@ -24,7 +24,7 @@
         <!--        <div v-if="moment(item.createdAt).add(30, 'days').isAfter(moment())" class="new-stamp shake"></div>-->
       </v-col>
 
-      <v-col class="position-relative pa-1" cols="8">
+      <v-col class="position-relative pa-1 py-4" cols="8">
         <v-row class="px-2 pl-3 py-0">
           <v-col class="pa-0 ma-0" cols="12">
             <div class="d-block me-3 f-600 text-md-18 text-14 text-lg-h5">
