@@ -58,7 +58,7 @@
 
           <p class="py-2">My Fridge's parent company, Moon Kee Frozen Meat Limited, is a limited company registered in Hong Kong, which has been established in Fo Tan District for many years. It is closely cooperating with many local chain restaurants and restaurants and has rich experience in handling frozen meat and seafood. The shop is licensed by the Food and Environmental Hygiene Department and has recently obtained ISO 22000:2018 and HACCP certifications, which ensure food sourcing and uphold high hygiene standards.</p>
 
-          <h1 class="py-2 pt-5 amber--text text--darken-3">Brand milestone</h1>
+          <h1 class="py-2 pt-5 amber--text text--darken-3">Brand Milestone</h1>
           <ul class="about-milestone">
             <li>1997 Moon Kee Frozen Meat was established</li>
             <li>2012 Set up the new production plant</li>
