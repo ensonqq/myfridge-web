@@ -515,5 +515,6 @@ module.exports = {
   'AddOnItemsOnTextFieldClicked'        : '因為產品有附加項目，只能透過加減按鈕調整數量。',
   'addon'                               : '附加',
   'nodata'                              : '沒有資料。',
-  'sortBy'                              : '排序'
+  'sortBy'                              : '排序',
+  'hasAddons'                           : '有附加選項'
 }

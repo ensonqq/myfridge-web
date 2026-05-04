@@ -27,12 +27,12 @@
       <v-col class="position-relative pa-1 py-4" cols="8">
         <v-row class="px-2 pl-3 py-0">
           <v-col class="pa-0 ma-0" cols="12">
-            <div class="d-block me-3 f-600 text-md-18 text-14 text-lg-h5">
+            <div class="d-block me-3 text-md-18 text-14 text-lg-h5">
               <div class="d-flex justify-space-between">
                 <div>
               <span class="red--text text--darken-4 mr-1" v-if="item.featured">{{ $t('featured') }}
                 <v-icon size="16" color="red fewdarken-4">{{ icons.mdiCreation }}</v-icon>
-              </span><span v-html="getProductName(item.name[$i18n.locale])"></span>
+              </span><span class="text-lg-h6 text-md-18 text-14" v-html="getProductName(item.name[$i18n.locale])"></span>
                 </div>
                 <!--            <div class="ml-1">-->
                 <!--              <v-icon small color="yellow darken-2">{{ icons.mdiStar }}</v-icon>-->
@@ -41,7 +41,7 @@
               </div>
               <div class="d-flex flex-wrap justify-space-between">
                 <div class="col-12 pa-0 py-1 ma-0 text-14 grey--text text--darken-3" v-if="item.addons && item.addons.length">
-                  *有附加選項
+                  *{{ $t('hasAddons') }}
                 </div>
                 <div>
                 <span v-if="user.vipTier === 'gold' || user.vipTier === 'diamond'" class="d-flex align-center">

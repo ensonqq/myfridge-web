@@ -514,5 +514,6 @@ module.exports = {
   'AddOnItemsOnTextFieldClicked'        : 'Because the product has additional items, the quantity can only be adjusted using the plus and minus buttons.',
   'addon'                               : 'Addon',
   'nodata'                              : 'No data.',
-  'sortBy'                              : 'Sort'
+  'sortBy'                              : 'Sort',
+  'hasAddons'                           : 'Has addons',
 }
