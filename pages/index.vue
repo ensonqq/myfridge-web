@@ -130,7 +130,7 @@
 
                       <template v-for="(item, groupName) in val.products">
                         <!-- Normal -->
-                        <v-col cols="12" lg="4" md="6" class="productCardContainer" sm="12" v-if="item.publish && !item.archive">
+                        <v-col cols="12" lg="6" md="6" class="productCardContainer" sm="12" v-if="item.publish && !item.archive">
                           <CardV2 :item="item" :productName="$route.params.productName" @openProductDetail="value => activeProductName = value"/>
                           <hr color="#ddd">
                         </v-col>
