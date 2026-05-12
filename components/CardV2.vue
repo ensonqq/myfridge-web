@@ -1,7 +1,7 @@
 <template>
   <v-card elevation="0" class="mb-3">
     <v-row class="pa-0 pb-6 pt-4">
-      <v-col class="position-relative pa-1" cols="5">
+      <v-col class="position-relative pa-1" cols="5" lg="6">
         <div class="position-relative">
           <div class="featured" :class="{'br-28': item.category.name.zh !== '奶粉' && item.category.name.zh !== '雞胸'}" v-if="item.featured === true"></div>
           <v-img position="center center"
@@ -24,7 +24,7 @@
         <!--        <div v-if="moment(item.createdAt).add(30, 'days').isAfter(moment())" class="new-stamp shake"></div>-->
       </v-col>
 
-      <v-col class="position-relative pa-1 py-4" cols="7">
+      <v-col class="position-relative pa-1 py-4" cols="7" lg="6">
         <v-row class="px-2 pl-3 py-0">
           <v-col class="pa-0 ma-0" cols="12">
             <div class="d-block me-3 text-md-18 text-14 text-lg-h5">
@@ -32,7 +32,7 @@
                 <div>
               <span class="red--text text--darken-4 mr-1" v-if="item.featured">{{ $t('featured') }}
                 <v-icon size="16" color="red fewdarken-4">{{ icons.mdiCreation }}</v-icon>
-              </span><span class="text-lg-h6 text-md-18 text-14" v-html="getProductName(item.name[$i18n.locale])"></span>
+              </span><span class="text-lg-subtitle-1 text-md-18 text-14" v-html="getProductName(item.name[$i18n.locale])"></span>
                 </div>
                 <!--            <div class="ml-1">-->
                 <!--              <v-icon small color="yellow darken-2">{{ icons.mdiStar }}</v-icon>-->
@@ -92,7 +92,8 @@ export default {
   props   : ['item'],
   methods : {
     getProductName (name) {
-      return name.replace('(', '<br>(')
+      // return name.replace('(', '<br>(')
+      return name
     },
     ...mapMutations(['addToCart']),
     productImageClicked (item) {
