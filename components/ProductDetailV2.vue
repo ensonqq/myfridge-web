@@ -315,7 +315,6 @@ export default {
         if (product.data) {
           this.product = product.data
           this.setStructuredData()
-          this.viewProductDetailTracker()
         } else {
           this.confirm()
         }
@@ -324,33 +323,6 @@ export default {
       }
     },
 
-    viewProductDetailTracker () {
-      try {
-        // google tag manager
-        window.dataLayer = window.dataLayer || []
-        dataLayer.push({ ecommerce : null });  // Clear the previous ecommerce object.
-        dataLayer.push({
-          event     : "view_item",
-          ecommerce : {
-            currency : "HKD",
-            value    : this.product.discountPrice || this.product.price,
-            items    : [
-              {
-                item_id        : this.product.id,
-                item_name      : this.product.name.zh,
-                item_brand     : "MyFridge",
-                item_category  : this.product.category.name.zh,
-                item_category2 : this.product.category.name.en,
-                price          : this.product.discountPrice || this.product.price,
-                quantity       : 1
-              }
-            ]
-          }
-        });
-      } catch (e) {
-        // wrapped error
-      }
-    },
     confirm () {
       this.$emit('ok')
       this.$router.go(-1)

@@ -61,40 +61,6 @@ export default {
     getCategoryDetail (catId) {
       return this.categories.filter(item => item.id === catId)[0]
     },
-    addToCartTracker (item) {
-      try {
-        // facebook pixel tracker
-        if (fbq) {
-          fbq('track', 'AddToCart')
-        }
-
-        // google tag manager
-        const category = this.getCategoryDetail(item.product.category)
-        window.dataLayer = window.dataLayer || []
-        window.dataLayer.push({ ecommerce : null })
-        window.dataLayer.push({
-          event     : "add_to_cart",
-          ecommerce : {
-            currency : "HKD",
-            value    : item.product.discountPrice || item.product.price,
-            items    : [
-              {
-                item_id        : item.product.id,
-                item_name      : item.product.name.zh,
-                item_brand     : 'MyFridge',
-                item_category  : category.name.zh,
-                item_category2 : category.name.en,
-                price          : item.product.discountPrice || item.product.price,
-                quantity       : item.quantity
-              }
-            ]
-          }
-        });
-      } catch (error) {
-        // wrapped
-        // console.log(error)
-      }
-    },
     async customQuantity (event, itemId, byButton) {
       let addons = null
       if (this.addons && this.addons.length && event > 0) {
@@ -156,7 +122,6 @@ export default {
       // after cart array update in backend, initiate tracker
       if (indexInCart && pureCartItemToApi[indexInCart] && pureCartItemToApi[indexInCart].quantity > 0) {
         const product = this.cart[indexInCart]
-        this.addToCartTracker(product)
       }
     },
   }

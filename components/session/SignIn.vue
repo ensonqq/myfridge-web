@@ -374,8 +374,6 @@ export default {
           this.setTokens(response.data.tokens)
           this.toggleLoginModal(false)
 
-          await this.registrationTracker()
-
           //initialize user shopping cart when logged in
           await this.$api.myCart()
           await this.$api.getMyPrize()
@@ -399,23 +397,6 @@ export default {
         this.loadingRegistration = false
       }
     },
-
-    async registrationTracker () {
-      try {
-        // facebook pixel tracker
-        if (fbq) {
-          fbq('track', 'CompleteRegistration')
-        }
-
-        //google tag manager
-        window.dataLayer = window.dataLayer || []
-        dataLayer.push({ event : "registration", value : 1 });
-
-      } catch (error) {
-        // wrapped
-      }
-      return true
-    }
   }
 }
 </script>

@@ -232,45 +232,10 @@ export default {
       // after cart array update in backend, initiate tracker
       if (indexInCart && pureCartItemToApi[indexInCart] && pureCartItemToApi[indexInCart].quantity > 0) {
         const product = this.cart[indexInCart]
-        this.addToCartTracker(product)
       }
     },
     getCategoryDetail (catId) {
       return this.categories.filter(item => item.id === catId)[0]
-    },
-    addToCartTracker (item) {
-      try {
-        // facebook pixel tracker
-        if (fbq) {
-          fbq('track', 'AddToCart')
-        }
-
-        // google tag manager
-        const category = this.getCategoryDetail(item.product.category)
-        window.dataLayer = window.dataLayer || []
-        window.dataLayer.push({ ecommerce : null })
-        window.dataLayer.push({
-          event     : "add_to_cart",
-          ecommerce : {
-            currency : "HKD",
-            value    : item.product.discountPrice || item.product.price,
-            items    : [
-              {
-                item_id        : item.product.id,
-                item_name      : item.product.name.zh,
-                item_brand     : 'MyFridge',
-                item_category  : category.name.zh,
-                item_category2 : category.name.en,
-                price          : item.product.discountPrice || item.product.price,
-                quantity       : item.quantity
-              }
-            ]
-          }
-        });
-      } catch (error) {
-        // wrapped
-        console.log(error)
-      }
     },
     setStructuredData () {
       if (this.product) {
@@ -317,41 +282,12 @@ export default {
         if (product.data) {
           this.product = product.data
           this.setStructuredData()
-          this.viewProductDetailTracker()
         } else {
           this.confirm()
         }
       } catch (e) {
         console.log('in error')
         this.confirm()
-      }
-    },
-
-    viewProductDetailTracker () {
-      try {
-        // google tag manager
-        window.dataLayer = window.dataLayer || []
-        dataLayer.push({ ecommerce : null });  // Clear the previous ecommerce object.
-        dataLayer.push({
-          event     : "view_item",
-          ecommerce : {
-            currency : "HKD",
-            value    : this.product.discountPrice || this.product.price,
-            items    : [
-              {
-                item_id        : this.product.id,
-                item_name      : this.product.name.zh,
-                item_brand     : "MyFridge",
-                item_category  : this.product.category.name.zh,
-                item_category2 : this.product.category.name.en,
-                price          : this.product.discountPrice || this.product.price,
-                quantity       : 1
-              }
-            ]
-          }
-        });
-      } catch (e) {
-        // wrapped error
       }
     },
     confirm () {

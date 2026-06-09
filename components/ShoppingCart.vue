@@ -1701,103 +1701,8 @@ export default {
       const order = await this.$api.get('/v1/orders/status/' + orderNumber, { params })
       if (order.data && order.data.orderStatus === 'confirmed') {
         await this.$api.getMyPrize()
-        // pixel tracker
-        await this.purchaseTracker(order.data)
       }
       return order
-    },
-
-    async purchaseTracker (order) {
-      // skip of local testing
-
-      const hostname = window.location.hostname
-      if (hostname.indexOf('localhost') > -1) return true
-
-      // use cookies to store temporary store success order to prevent multi triggering
-      const orderCookieName = 'order' + order.orderNumber
-      const cookie = Cookies.get(orderCookieName)
-      if (cookie) {
-        return true
-      } else {
-        Cookies.set(orderCookieName, 1, { expires : 1 / 144 })
-      }
-
-      try {
-        if (order.orderStatus !== 'confirmed') return
-        // pixel tracker
-        if (fbq) {
-          fbq('track', 'Purchase', {
-            value    : order.paidTotal,
-            currency : 'HKD',
-          })
-        }
-
-        // google tag manager
-        window.dataLayer = window.dataLayer || []
-        window.dataLayer.push({ ecommerce : null })
-        window.dataLayer.push({
-          event     : 'purchase',
-          ecommerce : {
-            email          : order.email,
-            transaction_id : order.orderNumber,
-            value          : order.paidTotal,
-            tax            : 0,
-            shipping       : 0,
-            currency       : "HKD",
-            coupon         : order.voucherUsed ? order.voucherUsed.code : '',
-            items          : order.items.map(item => ({
-                item_id        : item.product.id,
-                item_name      : item.product.name.zh,
-                item_brand     : "Optmeal",
-                item_category  : item.product.category.name.zh,
-                item_category2 : item.product.category.name.en,
-                price          : item.unitPrice,
-                quantity       : item.quantity
-              })
-            )
-          }
-        });
-
-      } catch (error) {
-        // wrapper
-        // console.log(error)
-      }
-      return true
-    },
-
-    async placeOrderTracker () {
-      try {
-        // facebook pixel
-        if (fbq) {
-          fbq('track', 'InitiateCheckout')
-        }
-
-        // google tag manager
-        window.dataLayer = window.dataLayer || []
-        window.dataLayer.push({ ecommerce : null })
-        window.dataLayer.push({
-          event     : 'begin_checkout',
-          ecommerce : {
-            currency : "HKD",
-            value    : this.order.paidTotal,
-            coupon   : this.order.voucherUsed ? this.order.voucherUsed.code : '',
-            items    : this.order.items.map(item => ({
-                item_id        : item.product.id,
-                item_name      : item.product.name.zh,
-                item_brand     : "Optmeal",
-                item_category  : item.product.category.name.zh,
-                item_category2 : item.product.category.name.en,
-                price          : item.unitPrice,
-                quantity       : item.quantity
-              })
-            )
-          }
-        })
-      } catch (error) {
-        console.log(error)
-        // wrapped
-      }
-      return true
     },
 
     async placeOrder () {
@@ -1871,7 +1776,6 @@ export default {
             // pixel tracker
             this.order = result.data.order
             await this.$api.myProfile(true)
-            await this.placeOrderTracker()
             switch (order.payment.paymentType) {
               case 'payme':
               case 'alipay':
