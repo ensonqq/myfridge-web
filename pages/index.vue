@@ -185,7 +185,6 @@ export default {
       }
     },
     tab () {
-      console.log('in')
       this.setStructuredData()
       this.sortChange(this.sortBy)
     },
@@ -280,11 +279,9 @@ export default {
       this.categoriesWithProducts.forEach(cat => {
         if (cat.name.en === this.tab) {
           if (value.startsWith('-')) {
-            console.log(value.replace('-', ''), 'desc')
             cat.products = _.orderBy(cat.products, ['soldOut', 'featured', value.replace('-', '')], ['asc', 'desc',
               'desc'])
           } else {
-            console.log(value, 'asc')
             cat.products = _.orderBy(cat.products, ['soldOut', 'featured', value], ['asc', 'desc', 'asc'])
           }
         }
