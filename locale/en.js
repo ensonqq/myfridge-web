@@ -105,7 +105,6 @@ module.exports = {
   'paymentMethodPrompt'           : 'Please select payment method',
   'pickupAddressPrompt'           : 'Please select self-pickup address',
   'deliveryAddressPrompt'         : 'Please enter delivery address',
-  'redirectingToPaypal'           : 'Redirecting to Paypal',
   'paymentReceived'               : 'Payment received HKD$',
   'successfulTopupMsg'            : 'Top up succeed: <b>%{value} credits</b> is added to your account.',
   'yourOrderIdIs'                 : 'Your order ID is',

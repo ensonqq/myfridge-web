@@ -84,7 +84,6 @@
           <v-img max-width="39" class="mr-2 mb-2" contain :src="require('~/assets/images/payment_icons/jcb_icon.png')"></v-img>
           <v-img max-width="39" class="mr-2 mb-2" contain :src="require('~/assets/images/payment_icons/applepay.png')"></v-img>
           <v-img max-width="39" class="mr-2 mb-2" contain :src="require('~/assets/images/payment_icons/googlepay.png')"></v-img>
-          <v-img max-width="39" class="mr-2 mb-2" contain :src="require('~/assets/images/payment_icons/paypal.png')"></v-img>
           <v-img max-width="39" class="mr-2 mb-2" contain :src="require('~/assets/images/payment_icons/payme.png')"></v-img>
           <v-img max-width="39" class="mr-2 mb-2" contain :src="require('~/assets/images/payment_icons/wechatpay.png')"></v-img>
           <v-img max-width="39" class="mr-2 mb-2" contain :src="require('~/assets/images/payment_icons/alipay.png')"></v-img>

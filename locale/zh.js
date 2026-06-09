@@ -106,7 +106,6 @@ module.exports = {
   'paymentMethodPrompt'           : '請選擇付款方式',
   'pickupAddressPrompt'           : '請填寫自取點',
   'deliveryAddressPrompt'         : '請填寫送貨地址',
-  'redirectingToPaypal'           : '您將被導向至Paypal進行付款動作',
   'paymentReceived'               : '已收到付款HKD$',
   'successfulTopupMsg'            : '成功增值<b>%{value}積分</b>，已即時入賬。',
   'yourOrderIdIs'                 : '您的訂單號為',

@@ -113,23 +113,6 @@
                                                                     </v-col>
                                                                   </v-col>
                                                                 </v-row>-->
-                                <v-row class="align-center pb-1-eee" @click="payment.paymentType = 'paypal'">
-                                  <v-col cols="1">
-                                    <v-radio :on-icon="icons.mdiRadioboxMarked"
-                                             color="secondary"
-                                             value="paypal"
-                                             class="ma-0"
-                                             :off-icon="icons.mdiRadioboxBlank"></v-radio>
-                                  </v-col>
-                                  <v-col cols="11" class="d-flex align-center pa-0">
-                                    <v-col cols="5">
-                                      Paypal
-                                    </v-col>
-                                    <v-col cols="7" class="d-flex align-center">
-                                      <v-img max-width="45" contain :src="require('~/assets/images/payment_icons/paypal.png')"></v-img>
-                                    </v-col>
-                                  </v-col>
-                                </v-row>
                                 <v-row class="align-center pb-1-eee" @click="payment.paymentType = 'payme'">
                                   <v-col cols="1">
                                     <v-radio :on-icon="icons.mdiRadioboxMarked"
@@ -234,12 +217,7 @@
                       *{{ $t('securePaymentMsg') }}
                     </span>
                   </h3>
-                  <v-row class="pt-0 no-border" v-show="order && order.payment.paymentType === 'stripe'">
-                    <StripeForTopup ref="StripeForTopup"></StripeForTopup>
-                  </v-row>
-                  <v-row class="pt-0 no-border" v-show="order && order.payment.paymentType === 'paypal'">
-                    <v-col cols="12" class="font-weight-bold">{{ $t('redirectingToPaypal') }}．．．</v-col>
-                  </v-row>
+
                 </div>
               </v-stepper-content>
 
@@ -438,15 +416,6 @@ export default {
         document.body.classList.remove('loading')
       }
     }
-    // digital wallet availability
-    try {
-      const walletsAvailability = await this.$refs.StripeForTopup.checkPaymentRequestButton()
-      if (walletsAvailability) {
-        this.walletsAvailability = walletsAvailability
-      }
-    } catch (e) {
-      console.log('wallet error')
-    }
   },
   methods : {
     ...mapMutations(['pushSnackbarMessages', 'toggleLoginModal']),
@@ -469,26 +438,6 @@ export default {
       try {
         this.loadingConfirmation = true
 
-        // stripe
-        if (this.payment.paymentType === 'stripe') {
-          const result = await this.$refs.StripeForTopup.submit()
-          if (result) {
-            let order = await this.confirmMyOrder(this.order.orderNumber, { accessCode : this.order.accessCode })
-            if (order) {
-              this.order = order.data
-            }
-            setTimeout(() => {
-              this.$api.myProfile()
-            }, 2000)
-          }
-          this.step = 4
-          document.body.classList.remove('loading')
-        }
-
-        // paypal
-        if (this.payment.paymentType === 'paypal') {
-          window.location.replace(this.payPalRedirectUrl)
-        }
         // asia pay
         if (['alipay', 'payme', 'wechatpay', 'fps', 'octopus'].includes(this.payment.paymentType)) {
           const params = this.asiapay
@@ -560,15 +509,6 @@ export default {
             // pixel tracker
             this.order = result.data.order
             switch (order.payment.paymentType) {
-              case 'stripe':
-                this.$refs.StripeForTopup.initialize(result.data)
-                this.step = 3
-                break
-              case 'paypal':
-                this.payPalRedirectUrl = result.data.payPalRedirectUrl
-                // this.step = 4
-                await this.pay()
-                break
               case 'payme':
               case 'alipay':
               case 'wechatpay':
@@ -605,7 +545,6 @@ export default {
   data    : () => ({
     loadingConfirmation : false,
     order               : null,
-    walletsAvailability : {},
     payment             : {
       paymentType : null
     },

@@ -898,12 +898,7 @@
                 *{{ $t('securePaymentMsg') }}
               </span>
             </h3>
-            <v-row class="pt-0 no-border" v-show="order && order.payment.paymentType === 'stripe'">
-              <Stripe ref="Stripe"></Stripe>
-            </v-row>
-            <v-row class="pt-0 no-border" v-show="order && order.payment.paymentType === 'paypal'">
-              <v-col cols="12" class="font-weight-bold">{{ $t('redirectingToPaypal') }}．．．</v-col>
-            </v-row>
+
           </div>
         </v-stepper-content>
 
@@ -1165,15 +1160,7 @@ export default {
       }
     }
 
-    // digital wallet availability
-    try {
-      const walletsAvailability = await this.$refs.Stripe.checkPaymentRequestButton()
-      if (walletsAvailability) {
-        this.walletsAvailability = walletsAvailability
-      }
-    } catch (e) {
-      console.log('wallet error')
-    }
+    // digital wallet availability check removed
   },
 
   computed : {
@@ -1523,7 +1510,6 @@ export default {
   },
   data : () => ({
     giftReqeusted       : false,
-    walletsAvailability : {},
     useCredits          : true,
     order               : null,
     valid               : true,
@@ -1685,27 +1671,6 @@ export default {
         this.loadingConfirmation = true
 
         this.setLatestOrder(this.order)
-        // stripe
-        if (this.payment.paymentType === 'stripe') {
-          const result = await this.$refs.Stripe.submit()
-          if (result) {
-            let order = await this.confirmMyOrder(this.order.orderNumber, { accessCode : this.order.accessCode })
-            if (order) {
-              this.order = order.data
-              this.clearCart()
-            }
-            setTimeout(() => {
-              this.$api.myProfile()
-            }, 2000)
-          }
-          this.stepper = 4
-          document.body.classList.remove('loading')
-        }
-
-        // paypal
-        if (this.payment.paymentType === 'paypal') {
-          window.location.replace(this.payPalRedirectUrl)
-        }
         // asia pay
         if (['alipay', 'payme', 'wechatpay', 'fps', 'octopus', 'cc'].includes(this.payment.paymentType)) {
           const params = this.asiapay
@@ -1908,15 +1873,6 @@ export default {
             await this.$api.myProfile(true)
             await this.placeOrderTracker()
             switch (order.payment.paymentType) {
-              case 'stripe':
-                this.$refs.Stripe.initialize(result.data)
-                this.stepper = 3
-                break
-              case 'paypal':
-                this.payPalRedirectUrl = result.data.payPalRedirectUrl
-                // this.stepper = 4
-                await this.pay()
-                break
               case 'payme':
               case 'alipay':
               case 'wechatpay':
