@@ -311,14 +311,14 @@ export default {
           pickupAddresses[selectAddressIndex] = this.deliveryInfo
         } else {
           //new address
-          selectAddressIndex = pickupAddresses.push(this.deliveryInfo) - 1
+          selectAddressIndex = pickupAddresses.push({
+            ...this.deliveryInfo, latitude : undefined, longitude : undefined
+          }) - 1
         }
 
 
         if (this.user.id) {
-          const result = await this.$api.patch('/v1/users/me', {
-            ...pickupAddresses, latitude : undefined, longitude : undefined
-          })
+          const result = await this.$api.patch('/v1/users/me', { pickupAddresses })
 
           //update user info (including new address) and return new added address index: selectAddressIndex
           if (result && result.data) {
