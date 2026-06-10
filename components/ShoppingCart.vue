@@ -180,7 +180,10 @@
             </template>
 
             <!--      below $100      -->
-            <template v-if="getPureCartTotal < 200">
+            <template v-if="isPickupPoint0000">
+              <p class="ma-0 green--text text--darken-2">- {{ $t('deliveryFee') }} {{ $t('free') }}</p>
+            </template>
+            <template v-else-if="getPureCartTotal < 200">
               <p class="ma-0">- {{ $t('minFreeDeliveryTotal') }}</p>
             </template>
             <template v-else-if="getPureCartTotal < 300">
@@ -358,7 +361,7 @@
                 <v-col cols="3" class="py-0">$60</v-col>
               </v-row>
               <v-row v-else class="pb-1-eee">
-                <v-col cols="9" class="py-0 green--text text--darken-2">{{ $t('deliveryFee') }}</v-col>
+                <v-col cols="9" class="py-0 green--text text--darken-2">{{ $t('deliveryFee') }}{{ isPickupPoint0000 ? '' : (' (' + $t('deliveryFeeNote') + ')') }}</v-col>
                 <v-col cols="3" class="py-0 green--text text--darken-2">{{ $t('free') }}</v-col>
               </v-row>
 
@@ -1283,7 +1286,16 @@ export default {
       return false
     },
 
+    isPickupPoint0000 () {
+      if (this.deliveryType === 'pickup' && _.isNumber(this.selectedAddressIndex)) {
+        const address = this.user.pickupAddresses && this.user.pickupAddresses[this.selectedAddressIndex]
+        return !!(address && address.code === '0000')
+      }
+      return false
+    },
+
     deliveryFee () {
+      if (this.isPickupPoint0000) return 0
       return this.getPureCartTotal >= 300 ? 0 : 60
     },
 
