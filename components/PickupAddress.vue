@@ -316,7 +316,9 @@ export default {
 
 
         if (this.user.id) {
-          const result = await this.$api.patch('/v1/users/me', { pickupAddresses })
+          const result = await this.$api.patch('/v1/users/me', {
+            ...pickupAddresses, latitude : undefined, longitude : undefined
+          })
 
           //update user info (including new address) and return new added address index: selectAddressIndex
           if (result && result.data) {
