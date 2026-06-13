@@ -172,7 +172,7 @@ import _                                                                        
 export default {
   head () {
     return {
-      title : this.categoriesWithProducts.filter(item => item.name.en === this.tab)[0] ? this.categoriesWithProducts.filter(item => item.name.en === this.tab)[0].name.zh + ' Optmeal' : '',
+      title : this.categoriesWithProducts.filter(item => item.name.en === this.tab)[0] ? this.categoriesWithProducts.filter(item => item.name.en === this.tab)[0].name.zh + ' MyFridge' : '',
     }
   },
 

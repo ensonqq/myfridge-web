@@ -90,7 +90,7 @@
             We understand our responsibilities under the Personal Data (Privacy) Ordinance, Chapter 486, Laws of Hong Kong (the "Ordinance") in relation to the collection, holding, processing, use and/or transfer of personal data. Personal data will only be collected for lawful and relevant purposes and all practicable methods will be taken to ensure that the personal data we hold is accurate. We will use your personal information collected from time to time in accordance with this Privacy Policy Statement.
           </p>
           <p>
-            We regularly review this privacy policy statement and may amend it or add specific instructions, policies and terms from time to time. If there are any important revisions to this Privacy Policy Statement, we will notify you through the contact information you provided to us. We will also, in accordance with the provisions of the Ordinance, allow you to choose to refuse to receive such revisions through the channels notified to you at that time. notify. Otherwise, your continued use of the Optmeal App or website or your continued relationship with us will be deemed to agree to and accept this Privacy Policy Statement (without (revised from time to time).
+            We regularly review this privacy policy statement and may amend it or add specific instructions, policies and terms from time to time. If there are any important revisions to this Privacy Policy Statement, we will notify you through the contact information you provided to us. We will also, in accordance with the provisions of the Ordinance, allow you to choose to refuse to receive such revisions through the channels notified to you at that time. notify. Otherwise, your continued use of the My Fridge App or website or your continued relationship with us will be deemed to agree to and accept this Privacy Policy Statement (without (revised from time to time).
           </p>
 
           <p>If you have any questions about this privacy policy statement or how we use your personal data, please contact us through any of the communication channels listed in "Contact Us" below. </p>
@@ -131,7 +131,7 @@
           <h4 class="mx-1">How we use cookies</h4>
           <p>When you access our information or services through our website, you should note that the website uses cookies. Cookies are data files stored in your browser. When you enter the website, the website automatically installs and uses cookies in your browser. Our website uses two types of cookies. </p>
 
-          <p>Session Cookies: A short-lived cookie that only remains in your browser while you are browsing Optmeal and our website. It is used to obtain and store configuration information and manage the website, including "carrying" information to accompany you as you browse the website. Different pages, for example, to avoid having to re-enter information every time you go to a page. Session cookies are also used to compile anonymous statistics about the use of the Optmeal website. </p>
+          <p>Session Cookies: A short-lived cookie that only remains in your browser while you are browsing My Fridge and our website. It is used to obtain and store configuration information and manage the website, including "carrying" information to accompany you as you browse the website. Different pages, for example, to avoid having to re-enter information every time you go to a page. Session cookies are also used to compile anonymous statistics about the use of the My Fridge website. </p>
 
           <p>Persistent Cookies: Cookies that remain in your browser for a longer period of time and are used to compile anonymous statistics about the use of our website or to track and record user preferences. </p>
 
@@ -156,7 +156,7 @@
           <p>If your account or relationship with us is canceled or terminated at any time, we will immediately cease processing your personal data as soon as reasonably possible, but may also retain the relevant data for as long as reasonably necessary. Including: archiving of data; resolving actual or potential disputes; complying with applicable laws and regulations; performing any agreements with you; protecting the rights, property or safety of us and our employees; and performing or performing our functions, obligations and responsibilities, etc. . </p>
 
           <h4 class="mx-1">Contact us</h4>
-          <div class="mx-1">Email: info@Optmeal.com</div>
+          <div class="mx-1">Email: info@myfridgehk.com</div>
           <div class="mx-1">Tel: 65657682</div>
         </template>
       </v-col>
@@ -169,7 +169,7 @@ export default {
   name : "PrivacyPolicy",
   head () {
     return {
-      title : this.$t('privacyPolicy') + ' Optmeal',
+      title : this.$t('privacyPolicy') + ' MyFridge',
     }
   },
 }
