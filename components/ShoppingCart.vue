@@ -350,10 +350,10 @@
               </v-row>
 
               <!--周末送貨+$10-->
-              <v-row v-if="isWeekendDelivery" class="pb-1-eee">
-                <v-col cols="9" class="py-0">*{{ $t('weekendDelivery') }}</v-col>
-                <v-col cols="3" class="py-0">$10</v-col>
-              </v-row>
+              <!--              <v-row v-if="isWeekendDelivery" class="pb-1-eee">-->
+              <!--                <v-col cols="9" class="py-0">*{{ $t('weekendDelivery') }}</v-col>-->
+              <!--                <v-col cols="3" class="py-0">$10</v-col>-->
+              <!--              </v-row>-->
 
               <!--運費 delivery fee-->
               <v-row v-if="deliveryFee > 0" class="pb-1-eee">
@@ -615,7 +615,7 @@
                                             single-line outlined hide-details></v-select>
                                 </v-col>-->
                 <!--                <v-col v-if="isWeekendDelivery" cols="12" class="text-12 text-right weekend-delivery px-4">*{{ $t('weekendDelivery') }}+$10</v-col>-->
-                <v-col v-if="isWeekendDelivery" cols="6" class="text-12 text-left px-4 d-flex align-center">*{{ $t('weekendDelivery') }}+$10</v-col>
+                <!--                <v-col v-if="isWeekendDelivery" cols="6" class="text-12 text-left px-4 d-flex align-center">*{{ $t('weekendDelivery') }}+$10</v-col>-->
               </v-row>
 
 
@@ -1335,7 +1335,7 @@ export default {
 
       })
 
-      total += this.isWeekendDelivery ? 10 : 0
+      // total += this.isWeekendDelivery ? 10 : 0
       total += this.deliveryFee
 
       return total
