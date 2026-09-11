@@ -138,7 +138,7 @@ export default {
         }
       }
     ],
-    ['@nuxtjs/google-tag-manager', { id : 'GTM-P32F3P3', pageTracking : true }]
+    ['@nuxtjs/google-tag-manager', { id : 'GTM-PPWQDS2R', pageTracking : true }]
   ],
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify : {
