@@ -34,34 +34,34 @@
   </div>
 </template>
 <script>
-import {mdiPlus, mdiMinus}      from '@mdi/js'
+import {mdiPlus, mdiMinus} from '@mdi/js'
 import {mapMutations, mapState} from "vuex"
-import _                        from 'lodash'
-import {mdiCartOutline}         from '@mdi/js'
-import SelectAddons             from "@/components/SelectAddons";
+import _ from 'lodash'
+import {mdiCartOutline} from '@mdi/js'
+import SelectAddons from "@/components/SelectAddons";
 
 export default {
-  name       : "AddToCartV3",
-  props      : ['itemId', 'fixed', 'soldOut', 'addons'],
-  data       : () => ({
-    icons : { mdiPlus, mdiMinus, mdiCartOutline }
+  name: "AddToCartV3",
+  props: ['itemId', 'fixed', 'soldOut', 'addons'],
+  data: () => ({
+    icons: {mdiPlus, mdiMinus, mdiCartOutline}
   }),
-  components : {
+  components: {
     SelectAddons
   },
-  computed   : {
+  computed: {
     ...mapState(['cart', 'categories']),
-    getValueFromCart () {
+    getValueFromCart() {
       return this.cart.filter(item => item.product.id === this.itemId).map(item => item.quantity)
-                 .reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+        .reduce((accumulator, currentValue) => accumulator + currentValue, 0);
     }
   },
-  methods    : {
+  methods: {
     ...mapMutations(['setCart', 'pushSnackbarMessages']),
-    getCategoryDetail (catId) {
+    getCategoryDetail(catId) {
       return this.categories.filter(item => item.id === catId)[0]
     },
-    async customQuantity (event, itemId, byButton) {
+    async customQuantity(event, itemId, byButton) {
       let addons = null
       if (this.addons && this.addons.length && event > 0) {
         const selectedAddonIndex = await this.$refs.SelectAddons.open(null, this.addons)
@@ -75,7 +75,7 @@ export default {
       if (!Number.isInteger(parseInt(event))) return;
 
       const pureCartItemToApi = this.cart.map(item => ({
-        product : item.product.id, quantity : item.quantity, addons : item.addons
+        product: item.product.id, quantity: item.quantity, addons: item.addons
       }))
 
       let indexInCart = _.findIndex(this.cart, (item) => {
@@ -97,9 +97,9 @@ export default {
       // add item to cart api object
       if (indexInCart < 0) {
         if (addons) {
-          indexInCart = pureCartItemToApi.push({ product : itemId, quantity : 0, addons }) - 1
+          indexInCart = pureCartItemToApi.push({product: itemId, quantity: 0, addons}) - 1
         } else {
-          indexInCart = pureCartItemToApi.push({ product : itemId, quantity : 0 }) - 1
+          indexInCart = pureCartItemToApi.push({product: itemId, quantity: 0}) - 1
         }
       }
 
@@ -122,8 +122,16 @@ export default {
       // after cart array update in backend, initiate tracker
       if (indexInCart && pureCartItemToApi[indexInCart] && pureCartItemToApi[indexInCart].quantity > 0) {
         const product = this.cart[indexInCart]
+
+        await this.addToCartTracker()
       }
     },
+    async addToCartTracker() {
+      if (window.dataLayer) {
+        window.dataLayer.push({event: 'AddToCart'})
+      }
+      return true
+    }
   }
 }
 </script>

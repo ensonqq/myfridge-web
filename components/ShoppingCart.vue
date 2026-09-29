@@ -1,5 +1,7 @@
 <template>
-  <v-navigation-drawer width="750" v-model="shoppingCartDrawer" :stateless="!!(loginModal || snackbarMessages.length || loadingPayment || loadingConfirmation || prizeDrawer)" temporary fixed right id="shopping-cart" class="shopping-cart" @close="complete">
+  <v-navigation-drawer width="750" v-model="shoppingCartDrawer"
+                       :stateless="!!(loginModal || snackbarMessages.length || loadingPayment || loadingConfirmation || prizeDrawer)"
+                       temporary fixed right id="shopping-cart" class="shopping-cart" @close="complete">
     <div class="d-flex justify-space-between align-center ps-4 pe-3 mt-3 mb-2 cart-header">
       <div class="d-flex align-center">
         <v-icon class="me-1">{{ icons.mdiShoppingOutline }}</v-icon>
@@ -29,16 +31,22 @@
                     <v-icon small>{{ icons.mdiClose }}</v-icon>
                   </v-btn>
                   <v-avatar size="90" tile class="me-4">
-                    <v-img v-if="item.product.images[0]" contain class="br-10" :src="item.product.images[0].small.path" alt=""></v-img>
+                    <v-img v-if="item.product.images[0]" contain class="br-10" :src="item.product.images[0].small.path"
+                           alt=""></v-img>
                   </v-avatar>
                   <div>
                     <!--          name          -->
-                    <div class="d-inline-block mb-0 f-600 text-lg-h6 text-md-h6 text-15">{{ item.product.name[$i18n.locale] }}</div>
+                    <div class="d-inline-block mb-0 f-600 text-lg-h6 text-md-h6 text-15">
+                      {{ item.product.name[$i18n.locale] }}
+                    </div>
                     <!--          quantity x price          -->
                     <p class="text-12 mb-0 d-flex align-center" v-if="user.vipTier === 'diamond'">
                       <span>{{ $t('unitPrice') }}: </span>
                       <del class="text-11 mr-1">${{ item.product.discountPrice || item.product.price }}</del>
-                      <v-icon class="text-12 deep-purple--text text--lighten-1" small>{{ icons.mdiDiamondStone }}</v-icon>
+                      <v-icon class="text-12 deep-purple--text text--lighten-1" small>{{
+                          icons.mdiDiamondStone
+                        }}
+                      </v-icon>
                       ${{ (item.product.discountPrice || item.product.price) - 1 }}
                     </p>
                     <p class="text-12 mb-0 d-flex align-center" v-else-if="user.vipTier === 'gold'">
@@ -56,10 +64,14 @@
 
                     <!--          price          -->
                     <h5 class="primary--text" v-if="user.vipTier === 'gold' || user.vipTier === 'diamond'">
-                      ${{ (((item.product.discountPrice || item.product.price) - 1) + (item.addons ? item.addons.price : 0)) * item.quantity }}
+                      ${{
+                        (((item.product.discountPrice || item.product.price) - 1) + (item.addons ? item.addons.price : 0)) * item.quantity
+                      }}
                     </h5>
                     <h5 class="primary--text" v-else>
-                      ${{ ((item.product.discountPrice || item.product.price) + (item.addons ? item.addons.price : 0)) * item.quantity }}
+                      ${{
+                        ((item.product.discountPrice || item.product.price) + (item.addons ? item.addons.price : 0)) * item.quantity
+                      }}
                     </h5>
                   </div>
                 </div>
@@ -71,7 +83,9 @@
                     <v-btn icon color="secondary" x-small outlined @click="customQuantity(1, index, true)">
                       <v-icon>{{ icons.mdiPlus }}</v-icon>
                     </v-btn>
-                    <v-text-field @submit.prevent hide-details :value="item.quantity" @change="customQuantity($event, index)" single-line size="3" class="centered-input customized py-0 my-2 px-2 px-lg-0"></v-text-field>
+                    <v-text-field @submit.prevent hide-details :value="item.quantity"
+                                  @change="customQuantity($event, index)" single-line size="3"
+                                  class="centered-input customized py-0 my-2 px-2 px-lg-0"></v-text-field>
                     <v-btn icon color="secondary" x-small outlined @click="customQuantity(-1, index, true)">
                       <v-icon>{{ icons.mdiMinus }}</v-icon>
                     </v-btn>
@@ -89,7 +103,8 @@
                     </div>
                     <v-avatar size="60" tile class="mr-2">
                       <template v-if="myPrize.item.type === 'item'">
-                        <v-img v-if="myPrize.item.product.images[0]" contain class="br-10" :src="myPrize.item.product.images[0].small.path" alt=""></v-img>
+                        <v-img v-if="myPrize.item.product.images[0]" contain class="br-10"
+                               :src="myPrize.item.product.images[0].small.path" alt=""></v-img>
                       </template>
                       <template v-else>
                         <v-img contain class="br-10" :src="require('~/assets/images/fuk.png')" alt=""></v-img>
@@ -142,10 +157,12 @@
                 <div class="d-flex align-center w100p pa-3">
                   <v-avatar size="60" tile class="mr-3">
                     <template v-if="gift.item.type === 'item'">
-                      <v-img v-if="gift.item.product.images[0]" contain class="br-10" :src="gift.item.product.images[0].small.path" alt=""></v-img>
+                      <v-img v-if="gift.item.product.images[0]" contain class="br-10"
+                             :src="gift.item.product.images[0].small.path" alt=""></v-img>
                     </template>
                     <template v-else>
-                      <v-img v-if="gift.images[0]" contain class="br-10" :src="gift.images[0].small.path" alt=""></v-img>
+                      <v-img v-if="gift.images[0]" contain class="br-10" :src="gift.images[0].small.path"
+                             alt=""></v-img>
                     </template>
                   </v-avatar>
                   <div class="flex-fill">
@@ -157,17 +174,25 @@
                         </b>
                         <div>
                           <template v-if="gift.item.type === 'item'">
-                            {{ gift.autoChecked ? $t('receiving') : $t('selectable') }} {{ gift.item.product.name[$i18n.locale] }} x{{ gift.item.amount }}{{ $t('pieces') }}
+                            {{ gift.autoChecked ? $t('receiving') : $t('selectable') }}
+                            {{ gift.item.product.name[$i18n.locale] }} x{{ gift.item.amount }}{{ $t('pieces') }}
                           </template>
                           <template v-else>
-                            {{ gift.autoChecked ? $t('receiving') : $t('selectable') }} {{ gift.name[$i18n.locale] }} x{{ gift.item.amount }}{{ $t('pieces') }}
+                            {{ gift.autoChecked ? $t('receiving') : $t('selectable') }} {{ gift.name[$i18n.locale] }}
+                            x{{ gift.item.amount }}{{ $t('pieces') }}
                           </template>
                         </div>
                       </div>
                     </h5>
                     <h5 class="blue--text text--darken-4 text-14">
-                      <div v-if="gift.rules.total > 0">*{{ $t('totalRequiredAfterDiscount') }}${{ gift.rules.total }}{{ (gift.rules.total > 0 && gift.rules.quantity > 0) ? $t('and') : '' }}</div>
-                      <div v-if="gift.rules.quantity > 0">*{{ $t('quantityRequired', { value : gift.rules.quantity }) }}</div>
+                      <div v-if="gift.rules.total > 0">*{{ $t('totalRequiredAfterDiscount') }}${{
+                          gift.rules.total
+                        }}{{ (gift.rules.total > 0 && gift.rules.quantity > 0) ? $t('and') : '' }}
+                      </div>
+                      <div v-if="gift.rules.quantity > 0">*{{
+                          $t('quantityRequired', {value: gift.rules.quantity})
+                        }}
+                      </div>
                     </h5>
                   </div>
                 </div>
@@ -216,7 +241,8 @@
 
               <!-- CAT DISCOUNT TIER -->
               <div class="d-flex" v-for="(tier,catId) in autoDiscountTiersAdopted">
-                <div :class="{'col-6': !!tier.nextTier.length, 'col-12': !tier.nextTier.length}" class="pb-1 flex-nowrap py-0 px-0" v-if="tier.completedTier" :key="catId">
+                <div :class="{'col-6': !!tier.nextTier.length, 'col-12': !tier.nextTier.length}"
+                     class="pb-1 flex-nowrap py-0 px-0" v-if="tier.completedTier" :key="catId">
                   <v-progress-linear color="green lighten-1"
                                      height="18"
                                      value="100"
@@ -227,14 +253,15 @@
                       {{ catDiscount[catId].name[$i18n.locale] }}:
                       {{
                         $t('catTiers', {
-                          quantity : tier.completedTier.quantity, value : tier.completedTier.value * -1
+                          quantity: tier.completedTier.quantity, value: tier.completedTier.value * -1
                         })
                       }}
                       <!--                      (-${{ tier.completedTier.current * tier.completedTier.value * -1 }})-->
                     </div>
                   </v-progress-linear>
                 </div>
-                <div :class="{'col-12': !tier.completedTier, 'col-6': !!tier.completedTier}" class="pb-1 flex-nowrap py-0 px-0 position-relative" v-for="(nextIter,index) in tier.nextTier">
+                <div :class="{'col-12': !tier.completedTier, 'col-6': !!tier.completedTier}"
+                     class="pb-1 flex-nowrap py-0 px-0 position-relative" v-for="(nextIter,index) in tier.nextTier">
                   <v-progress-linear color="green lighten-4"
                                      style="border: 1px solid #c8e6c9;"
                                      height="18"
@@ -245,7 +272,7 @@
                       {{ tier.completedTier ? '' : catDiscount[catId].name[$i18n.locale] + ':' }}
                       {{
                         $t('catTiers', {
-                          quantity : nextIter.quantity, value : nextIter.value * -1
+                          quantity: nextIter.quantity, value: nextIter.value * -1
                         })
                       }}
                       <span class="">({{ nextIter.current }}/{{ nextIter.quantity }})</span>
@@ -256,7 +283,9 @@
 
               <!-- BUY X GET Y FREE -->
               <div class="d-flex flex-wrap" v-for="(tier,catId) in autoBuyXGetYFreeAdopted">
-                <div :class="{'col-6': !!tier.nextTier.length, 'col-12': !tier.nextTier.length || $i18n.locale === 'en'}" class="pb-1 flex-nowrap py-0 px-0" v-if="tier.completedTier" :key="'_'+catId">
+                <div
+                  :class="{'col-6': !!tier.nextTier.length, 'col-12': !tier.nextTier.length || $i18n.locale === 'en'}"
+                  class="pb-1 flex-nowrap py-0 px-0" v-if="tier.completedTier" :key="'_'+catId">
                   <v-progress-linear color="green lighten-1"
                                      height="18"
                                      value="100"
@@ -267,14 +296,19 @@
                       {{ buyXGetYFree[catId].name[$i18n.locale] }}:
                       {{
                         $t('buyXGetYFree', {
-                          x : tier.completedTier.x, y : tier.completedTier.y
+                          x: tier.completedTier.x, y: tier.completedTier.y
                         })
-                      }} ({{ $t('free') }}{{ Math.floor(tier.completedTier.current / (tier.completedTier.x + tier.completedTier.y)) * tier.completedTier.y }}{{ $t('pieces') }}
+                      }} ({{
+                        $t('free')
+                      }}{{
+                        Math.floor(tier.completedTier.current / (tier.completedTier.x + tier.completedTier.y)) * tier.completedTier.y
+                      }}{{ $t('pieces') }}
                       <span v-if="!tier.nextTier.length" v-html="suggestBuyMore(tier)"></span>)
                     </div>
                   </v-progress-linear>
                 </div>
-                <div :class="{'col-12': !tier.completedTier || $i18n.locale === 'en', 'col-6': !!tier.completedTier}" class="pb-1 flex-nowrap py-0 px-0 position-relative" v-for="(nextIter,index) in tier.nextTier">
+                <div :class="{'col-12': !tier.completedTier || $i18n.locale === 'en', 'col-6': !!tier.completedTier}"
+                     class="pb-1 flex-nowrap py-0 px-0 position-relative" v-for="(nextIter,index) in tier.nextTier">
                   <v-progress-linear color="green lighten-4"
                                      style="border: 1px solid #c8e6c9;"
                                      height="18"
@@ -285,7 +319,7 @@
                       {{ tier.completedTier ? '' : buyXGetYFree[catId].name[$i18n.locale] + ':' }}
                       {{
                         $t('buyXGetYFree', {
-                          x : nextIter.x, y : nextIter.y
+                          x: nextIter.x, y: nextIter.y
                         })
                       }}
                       <span class="ml-1">({{ nextIter.current }}/{{ nextIter.x + nextIter.y }})</span>
@@ -301,7 +335,8 @@
           <div class="navbar-scroll cart">
             <div class="no-border mb-1">
               <h3>{{ $t('order') }}</h3>
-              <span class="text-12">*{{ $t('deliveryReminder') }} <a :href="$t('sfCoverageUrl')" target="_blank">{{ $t('learnMore') }}</a></span>
+              <span class="text-12">*{{ $t('deliveryReminder') }} <a :href="$t('sfCoverageUrl')"
+                                                                     target="_blank">{{ $t('learnMore') }}</a></span>
             </div>
             <v-form @submit.prevent ref="orderForm" v-model="valid" lazy-validation>
               <!-- door to door or self pick up points -->
@@ -316,7 +351,8 @@
                 <v-col cols="1" class="py-0 font-weight-bold text-13 px-0">{{ $t('quantity') }}</v-col>
                 <v-col cols="3" class="py-0 font-weight-bold text-13 text-left">{{ $t('price') }}</v-col>
               </v-row>
-              <v-row v-for="(item, index) in cart" v-if="item.product.publish && !item.product.soldOut" :key="index" class="item-table py-1 pb-1-eee">
+              <v-row v-for="(item, index) in cart" v-if="item.product.publish && !item.product.soldOut" :key="index"
+                     class="item-table py-1 pb-1-eee">
                 <!--        產品        -->
                 <v-col cols="6" class="py-0">
                   {{ item.product.name[$i18n.locale] }}
@@ -326,8 +362,13 @@
                 </v-col>
                 <!--        單價        -->
                 <v-col cols="2" class="py-0 px-0" v-if="user.vipTier === 'gold' || user.vipTier === 'diamond'">
-                  <v-icon v-if="user.vipTier === 'gold'" class="text-12 amber--text text--accent-4" small>{{ icons.mdiCrown }}</v-icon>
-                  <v-icon v-else class="text-12 deep-purple--text text--lighten-1" small>{{ icons.mdiDiamondStone }}</v-icon>
+                  <v-icon v-if="user.vipTier === 'gold'" class="text-12 amber--text text--accent-4" small>
+                    {{ icons.mdiCrown }}
+                  </v-icon>
+                  <v-icon v-else class="text-12 deep-purple--text text--lighten-1" small>{{
+                      icons.mdiDiamondStone
+                    }}
+                  </v-icon>
                   ${{ (item.product.discountPrice || item.product.price) - 1 }}
                   <del>${{ item.product.discountPrice || item.product.price }}</del>
                   <template v-if="item.addons">
@@ -343,10 +384,16 @@
                 <!--        數量        -->
                 <v-col cols="1" class="py-0 px-0 d-flex align-center">x{{ item.quantity }}</v-col>
                 <!--        HKD        -->
-                <v-col cols="3" class="py-0 text-left d-flex align-center" v-if="user.vipTier === 'gold' || user.vipTier === 'diamond'">
-                  ${{ item.quantity * (((item.product.discountPrice || item.product.price) - 1) + (item.addons ? item.addons.price : 0)) }}
+                <v-col cols="3" class="py-0 text-left d-flex align-center"
+                       v-if="user.vipTier === 'gold' || user.vipTier === 'diamond'">
+                  ${{
+                    item.quantity * (((item.product.discountPrice || item.product.price) - 1) + (item.addons ? item.addons.price : 0))
+                  }}
                 </v-col>
-                <v-col cols="3" class="py-0 text-left d-flex align-center" v-else>${{ item.quantity * ((item.product.discountPrice || item.product.price) + (item.addons ? item.addons.price : 0)) }}</v-col>
+                <v-col cols="3" class="py-0 text-left d-flex align-center" v-else>${{
+                    item.quantity * ((item.product.discountPrice || item.product.price) + (item.addons ? item.addons.price : 0))
+                  }}
+                </v-col>
               </v-row>
 
               <!--周末送貨+$10-->
@@ -361,7 +408,10 @@
                 <v-col cols="3" class="py-0">$60</v-col>
               </v-row>
               <v-row v-else class="pb-1-eee">
-                <v-col cols="9" class="py-0 green--text text--darken-2">{{ $t('deliveryFee') }}{{ isPickupPoint0000 ? '' : (' (' + $t('deliveryFeeNote') + ')') }}</v-col>
+                <v-col cols="9" class="py-0 green--text text--darken-2">{{
+                    $t('deliveryFee')
+                  }}{{ isPickupPoint0000 ? '' : (' (' + $t('deliveryFeeNote') + ')') }}
+                </v-col>
                 <v-col cols="3" class="py-0 green--text text--darken-2">{{ $t('free') }}</v-col>
               </v-row>
 
@@ -380,7 +430,9 @@
                     {{ $t('voucherCode') }}:
                   </div>
                   <div style="width: 135px;" class="mr-lg-16 mr-4">
-                    <v-text-field class="discount-code-input" dense ref="voucherInput" :loading="loadingVoucher? 'secondary' : false" single-line outlined hide-details @input="validateVoucher($event)"></v-text-field>
+                    <v-text-field class="discount-code-input" dense ref="voucherInput"
+                                  :loading="loadingVoucher? 'secondary' : false" single-line outlined hide-details
+                                  @input="validateVoucher($event)"></v-text-field>
                     <span class="p-absolute text-12 info--text">{{ voucherMessage }}</span>
                   </div>
                 </v-col>
@@ -395,11 +447,16 @@
 
                   <div>
                     <div style="width: 150px">
-                      <v-switch hide-details style="display: inline-block" v-model="useCredits" v-if="user.credits > 0" color="orange darken-2"></v-switch>
+                      <v-switch hide-details style="display: inline-block" v-model="useCredits" v-if="user.credits > 0"
+                                color="orange darken-2"></v-switch>
                     </div>
-                    <div class="text-12">{{ $t('use') }} {{ creditsCanBeUsed }} {{ $t('credits') }} (-${{ creditsCanBeUsed }})</div>
+                    <div class="text-12">{{ $t('use') }} {{ creditsCanBeUsed }} {{ $t('credits') }}
+                      (-${{ creditsCanBeUsed }})
+                    </div>
                     <template v-if="useCredits && creditsUsed && creditsCanBeUsed && user.credits - creditsUsed >= 0">
-                      <div class="text-11">{{ $t('youHave') }} {{ user.credits }} {{ $t('credits') }} ({{ $t('remainingAfterUse') }}: {{ user.credits - creditsUsed }})</div>
+                      <div class="text-11">{{ $t('youHave') }} {{ user.credits }} {{ $t('credits') }}
+                        ({{ $t('remainingAfterUse') }}: {{ user.credits - creditsUsed }})
+                      </div>
                       <!--                <v-row class="justify-end my-0 py-0" style="margin-top: -5px !important;">-->
                       <!--                  <v-col cols="6 justify-end my-0 py-0" class="text-12 red&#45;&#45;text text&#45;&#45;darken-4">*{{ $t('useCreditsReminder') }}</v-col>-->
                       <!--                </v-row>-->
@@ -411,7 +468,9 @@
               <!--禮品-->
               <template v-if="gift">
                 <v-row class="no-border pt-1-eee">
-                  <v-col cols="12" class="font-weight-bold">{{ $t('gift') }} ({{ gift.autoChecked ? $t('auto') : $t('selectable') }}):</v-col>
+                  <v-col cols="12" class="font-weight-bold">{{ $t('gift') }}
+                    ({{ gift.autoChecked ? $t('auto') : $t('selectable') }}):
+                  </v-col>
                 </v-row>
                 <v-row>
                   <v-col cols="12" class="py-1 flex-nowrap d-flex align-center">
@@ -425,13 +484,16 @@
                       <template v-slot:label>
                         <v-avatar size="25" tile class="mr-1">
                           <template v-if="gift.item.type === 'item'">
-                            <v-img v-if="gift.item.product.images[0]" contain class="br-10" :src="gift.item.product.images[0].small.path" alt=""></v-img>
+                            <v-img v-if="gift.item.product.images[0]" contain class="br-10"
+                                   :src="gift.item.product.images[0].small.path" alt=""></v-img>
                           </template>
                           <template v-else>
-                            <v-img v-if="gift.images[0]" contain class="br-10" :src="gift.images[0].small.path" alt=""></v-img>
+                            <v-img v-if="gift.images[0]" contain class="br-10" :src="gift.images[0].small.path"
+                                   alt=""></v-img>
                           </template>
                         </v-avatar>
-                        <div :class="{'black--text': getTotalWithOutBeforeCredit >= gift.rules.total && getCheckOutQty >= gift.rules.quantity }">
+                        <div
+                          :class="{'black--text': getTotalWithOutBeforeCredit >= gift.rules.total && getCheckOutQty >= gift.rules.quantity }">
                           <template v-if="gift.item.type === 'item'">
                             {{ gift.item.product.name[$i18n.locale] }} x{{ gift.item.amount }}{{ $t('pieces') }}
                           </template>
@@ -439,10 +501,17 @@
                             {{ gift.name[$i18n.locale] }} x{{ gift.item.amount }}{{ $t('pieces') }}
                           </template>
                           <template v-if="giftReqeusted">({{ $t('selected') }})</template>
-                          <div class="text-12 red--text text--darken-3" v-if="getTotalWithOutBeforeCredit < gift.rules.total">
-                            *{{ $t('totalRequiredAfterDiscount') }}${{ gift.rules.total }}{{ (getTotalWithOutBeforeCredit < gift.rules.total && getCheckOutQty < gift.rules.quantity) ? $t('and') : '' }}
+                          <div class="text-12 red--text text--darken-3"
+                               v-if="getTotalWithOutBeforeCredit < gift.rules.total">
+                            *{{ $t('totalRequiredAfterDiscount') }}${{
+                              gift.rules.total
+                            }}{{
+                              (getTotalWithOutBeforeCredit < gift.rules.total && getCheckOutQty < gift.rules.quantity) ? $t('and') : ''
+                            }}
                           </div>
-                          <div class="text-12 red--text text--darken-3" v-if="getCheckOutQty < gift.rules.quantity">*{{ $t('quantityRequired', { value : gift.rules.quantity }) }}</div>
+                          <div class="text-12 red--text text--darken-3" v-if="getCheckOutQty < gift.rules.quantity">
+                            *{{ $t('quantityRequired', {value: gift.rules.quantity}) }}
+                          </div>
                         </div>
                       </template>
                     </v-checkbox>
@@ -483,7 +552,8 @@
               </template>
 
               <!--優惠-->
-              <template v-if="getCatDiscountTotal || getVoucherDiscountTotal || user.vipTier === 'gold' || user.vipTier === 'diamond' || creditsUsed || myPrize">
+              <template
+                v-if="getCatDiscountTotal || getVoucherDiscountTotal || user.vipTier === 'gold' || user.vipTier === 'diamond' || creditsUsed || myPrize">
                 <v-row class="pt-1-eee">
                   <v-col cols="12" class="font-weight-bold">{{ $t('discount') }}:</v-col>
                 </v-row>
@@ -497,11 +567,17 @@
                 <!--鑽石會員-->
                 <v-row v-if="user.vipTier === 'diamond'">
                   <v-col cols="12" class="py-0 pb-1 flex-nowrap text-14">
-                    <v-icon class="text-12 deep-purple--text text--lpushSnackbarMessages">{{ icons.mdiDiamondStone }}</v-icon>
+                    <v-icon class="text-12 deep-purple--text text--lpushSnackbarMessages">{{
+                        icons.mdiDiamondStone
+                      }}
+                    </v-icon>
                     {{ $t('diamondMemberDiscount') }}
                   </v-col>
                   <v-col cols="12" class="py-0 pb-1 flex-nowrap text-14">
-                    <v-icon class="text-12 deep-purple--text text--lpushSnackbarMessages">{{ icons.mdiDiamondStone }}</v-icon>
+                    <v-icon class="text-12 deep-purple--text text--lpushSnackbarMessages">{{
+                        icons.mdiDiamondStone
+                      }}
+                    </v-icon>
                     {{ $t('diamondMemberX3credits') }}
                   </v-col>
                 </v-row>
@@ -512,11 +588,13 @@
                     <v-icon color="green darken-4">{{ icons.mdiCheckCircle }}</v-icon>
                     {{ catDiscount[catId].name[$i18n.locale] }}：{{
                       $t('catTiers', {
-                        quantity : tier.completedTier.quantity, value : tier.completedTier.value * -1
+                        quantity: tier.completedTier.quantity, value: tier.completedTier.value * -1
                       })
                     }} ({{ $t('minus') }}{{ tier.completedTier.current }}{{ $t('pieces') }})
                   </v-col>
-                  <v-col cols="3" class="py-0 pb-1 text-14">-${{ tier.completedTier.value * -1 * tier.completedTier.current }}</v-col>
+                  <v-col cols="3" class="py-0 pb-1 text-14">
+                    -${{ tier.completedTier.value * -1 * tier.completedTier.current }}
+                  </v-col>
                 </v-row>
 
                 <!--多買多送 買X送Y Buy X get Y free cat buy more get more -->
@@ -525,11 +603,18 @@
                     <v-icon color="green darken-4">{{ icons.mdiCheckCircle }}</v-icon>
                     {{ buyXGetYFree[catId].name[$i18n.locale] }}：{{
                       $t('buyXGetYFree', {
-                        x : tier.completedTier.x, y : tier.completedTier.y
+                        x: tier.completedTier.x, y: tier.completedTier.y
                       })
-                    }} ({{ $t('free') }}{{ Math.floor(tier.completedTier.current / (tier.completedTier.x + tier.completedTier.y)) * tier.completedTier.y }}{{ $t('pieces') }})
+                    }} ({{
+                      $t('free')
+                    }}{{
+                      Math.floor(tier.completedTier.current / (tier.completedTier.x + tier.completedTier.y)) * tier.completedTier.y
+                    }}{{ $t('pieces') }})
                   </v-col>
-                  <v-col cols="3" class="py-0 pb-1 text-14">-${{ getBuyXGetYFreeDiscount(tier.completedTier, catId) * -1 }}</v-col>
+                  <v-col cols="3" class="py-0 pb-1 text-14">-${{
+                      getBuyXGetYFreeDiscount(tier.completedTier, catId) * -1
+                    }}
+                  </v-col>
                 </v-row>
 
                 <!--積分使用-->
@@ -560,7 +645,8 @@
               </v-row>
               <v-row class="mt-0 pt-0 text-12">
                 <v-col cols="9" class="text-right">
-                  <v-btn width="200" v-if="!user.id" class="my-1 px-0" color="secondary" @click="loginAndContinueShopping()">
+                  <v-btn width="200" v-if="!user.id" class="my-1 px-0" color="secondary"
+                         @click="loginAndContinueShopping()">
                     <span v-html="$t('loginOrRegToGetCreditsHTML')"></span>
                   </v-btn>
                 </v-col>
@@ -593,7 +679,8 @@
                           max-width="290"
                           offset-y>
                     <template v-slot:activator="{ on, attrs }">
-                      <v-text-field dense :value="displayDeliveryDayFormat" :rules="[$validations.required]" readonly single-line outlined hide-details v-bind="attrs" v-on="on"></v-text-field>
+                      <v-text-field dense :value="displayDeliveryDayFormat" :rules="[$validations.required]" readonly
+                                    single-line outlined hide-details v-bind="attrs" v-on="on"></v-text-field>
                     </template>
                     <v-date-picker v-model="deliveryDay"
                                    :next-icon="icons.mdiChevronRight"
@@ -625,7 +712,8 @@
               </v-row>
               <v-radio-group v-model="deliveryType" class="col-12" :rules="[$validations.required]" hide-details>
                 <v-row class="pt-3 no-border">
-                  <v-col md="6" cols="12" class="align-center d-flex cursor-pointer pa-0" @click="deliveryType = 'delivery'">
+                  <v-col md="6" cols="12" class="align-center d-flex cursor-pointer pa-0"
+                         @click="deliveryType = 'delivery'">
                     <v-col cols="2">
                       <v-radio :on-icon="icons.mdiRadioboxMarked"
                                color="secondary"
@@ -638,7 +726,8 @@
                       {{ $t('delivery') }}
                     </v-col>
                   </v-col>
-                  <v-col md="6" cols="12" class="align-center d-flex cursor-pointer pa-0" @click="deliveryType = 'pickup'">
+                  <v-col md="6" cols="12" class="align-center d-flex cursor-pointer pa-0"
+                         @click="deliveryType = 'pickup'">
                     <v-col cols="2">
                       <v-radio :on-icon="icons.mdiRadioboxMarked"
                                color="secondary"
@@ -662,9 +751,12 @@
                 </v-col>
               </v-row>
               <v-row class="pt-0 no-border">
-                <v-col cols="12" class="d-flex flex-column justify-center align-start" v-if="deliveryType === 'delivery'">
-                  <v-radio-group v-model="selectedAddressIndex" column class="col-12 address-radios" :rules="[$validations.required]" hide-details>
-                    <v-row class="align-center cursor-pointer" v-for="(address, index) in user.addresses" @click="selectedAddressIndex = index" :key="'delivery'+index">
+                <v-col cols="12" class="d-flex flex-column justify-center align-start"
+                       v-if="deliveryType === 'delivery'">
+                  <v-radio-group v-model="selectedAddressIndex" column class="col-12 address-radios"
+                                 :rules="[$validations.required]" hide-details>
+                    <v-row class="align-center cursor-pointer" v-for="(address, index) in user.addresses"
+                           @click="selectedAddressIndex = index" :key="'delivery'+index">
                       <v-col cols="1">
                         <v-radio :on-icon="icons.mdiRadioboxMarked"
                                  color="secondary"
@@ -673,7 +765,8 @@
                                  :off-icon="icons.mdiRadioboxBlank"></v-radio>
                       </v-col>
                       <v-col cols="9" class="text-break">
-                        {{ $t(address.area) }}, {{ $t(address.district) }}, {{ $t(address.subDistrict) }}, {{ address.fullAddress }} ({{ $t('receiver') }}: {{ address.recipient }}, {{ address.phone }})
+                        {{ $t(address.area) }}, {{ $t(address.district) }}, {{ $t(address.subDistrict) }},
+                        {{ address.fullAddress }} ({{ $t('receiver') }}: {{ address.recipient }}, {{ address.phone }})
                       </v-col>
                       <v-col cols="2">
                         <v-btn @click="openAddress(index)" icon>
@@ -689,8 +782,10 @@
                 </v-col>
 
                 <v-col cols="12" class="d-flex flex-column justify-center align-start" v-if="deliveryType === 'pickup'">
-                  <v-radio-group v-model="selectedAddressIndex" column class="col-12 address-radios" :rules="[$validations.required]" hide-details>
-                    <v-row class="align-center cursor-pointer" v-for="(address, index) in user.pickupAddresses" @click="selectedAddressIndex = index" :key="'pickup'+index">
+                  <v-radio-group v-model="selectedAddressIndex" column class="col-12 address-radios"
+                                 :rules="[$validations.required]" hide-details>
+                    <v-row class="align-center cursor-pointer" v-for="(address, index) in user.pickupAddresses"
+                           @click="selectedAddressIndex = index" :key="'pickup'+index">
                       <v-col cols="1">
                         <v-radio :on-icon="icons.mdiRadioboxMarked"
                                  color="secondary"
@@ -699,7 +794,8 @@
                                  :off-icon="icons.mdiRadioboxBlank"></v-radio>
                       </v-col>
                       <v-col cols="9" class="text-break">
-                        <span>{{ $t('pickup') }}:</span> {{ address.fullAddress }} ({{ $t('receiver') }}: {{ address.recipient }}, {{ address.phone }})
+                        <span>{{ $t('pickup') }}:</span> {{ address.fullAddress }} ({{ $t('receiver') }}:
+                        {{ address.recipient }}, {{ address.phone }})
                       </v-col>
                       <v-col cols="2">
                         <v-btn @click="openPickupAddress(index)" icon>
@@ -725,18 +821,23 @@
               </v-row>
               <v-row>
                 <v-col>
-                  <v-text-field v-model="email" :rules="[$validations.required, $validations.email]" single-line outlined hide-details></v-text-field>
+                  <v-text-field v-model="email" :rules="[$validations.required, $validations.email]" single-line
+                                outlined hide-details></v-text-field>
                 </v-col>
               </v-row>
 
               <v-divider class="my-6"></v-divider>
               <v-row class="no-border ">
                 <v-col><h4 class="mt-6 sub">6. {{ $t('paymentMethod') }}</h4></v-col>
-                <v-col cols="12" class="red--text text--darken-4 text-12 pt-0 mt-0">*{{ $t('paymentSucessMsg') }}</v-col>
+                <v-col cols="12" class="red--text text--darken-4 text-12 pt-0 mt-0">*{{
+                    $t('paymentSucessMsg')
+                  }}
+                </v-col>
               </v-row>
               <v-row class="pt-0 no-border pb-16">
                 <v-col cols="12" class="d-flex flex-column justify-center align-start pa-0">
-                  <v-radio-group class="col-12" v-model="payment.paymentType" column :rules="[$validations.required]" hide-details>
+                  <v-radio-group class="col-12" v-model="payment.paymentType" column :rules="[$validations.required]"
+                                 hide-details>
                     <v-row class="align-center pb-1-eee" @click="payment.paymentType = 'cc'">
                       <v-col cols="1">
                         <v-radio :on-icon="icons.mdiRadioboxMarked"
@@ -750,11 +851,16 @@
                           {{ $t('card') }}
                         </v-col>
                         <v-col cols="7" class="d-flex align-start flex-wrap">
-                          <v-img class="mr-1 mb-1" max-width="39" contain :src="require('~/assets/images/payment_icons/visa.png')"></v-img>
-                          <v-img class="mr-1" max-width="39" contain :src="require('~/assets/images/payment_icons/master.png')"></v-img>
-                          <v-img class="mr-1" max-width="39" contain :src="require('~/assets/images/payment_icons/americanexpress.png')"></v-img>
-                          <v-img class="mr-1" max-width="39" contain :src="require('~/assets/images/payment_icons/unoinpay_icon.png')"></v-img>
-                          <v-img class="mr-1" max-width="39" contain :src="require('~/assets/images/payment_icons/jcb_icon.png')"></v-img>
+                          <v-img class="mr-1 mb-1" max-width="39" contain
+                                 :src="require('~/assets/images/payment_icons/visa.png')"></v-img>
+                          <v-img class="mr-1" max-width="39" contain
+                                 :src="require('~/assets/images/payment_icons/master.png')"></v-img>
+                          <v-img class="mr-1" max-width="39" contain
+                                 :src="require('~/assets/images/payment_icons/americanexpress.png')"></v-img>
+                          <v-img class="mr-1" max-width="39" contain
+                                 :src="require('~/assets/images/payment_icons/unoinpay_icon.png')"></v-img>
+                          <v-img class="mr-1" max-width="39" contain
+                                 :src="require('~/assets/images/payment_icons/jcb_icon.png')"></v-img>
                         </v-col>
                       </v-col>
                     </v-row>
@@ -829,7 +935,8 @@
                           {{ $t('alipayhk') }}
                         </v-col>
                         <v-col cols="7" class="d-flex align-center">
-                          <v-img max-width="45" contain :src="require('assets/images/payment_icons/alipay.png')"></v-img>
+                          <v-img max-width="45" contain
+                                 :src="require('assets/images/payment_icons/alipay.png')"></v-img>
                         </v-col>
                       </v-col>
                     </v-row>
@@ -846,7 +953,8 @@
                           {{ $t('wechatpayhk') }}
                         </v-col>
                         <v-col cols="7" class="d-flex align-center">
-                          <v-img max-width="45" contain :src="require('assets/images/payment_icons/wechatpay.png')"></v-img>
+                          <v-img max-width="45" contain
+                                 :src="require('assets/images/payment_icons/wechatpay.png')"></v-img>
                         </v-col>
                       </v-col>
                     </v-row>
@@ -882,7 +990,8 @@
                           {{ $t('octupus') }}
                         </v-col>
                         <v-col cols="7" class="d-flex align-center">
-                          <v-img max-width="45" contain :src="require('assets/images/payment_icons/octopus_1.png')"></v-img>
+                          <v-img max-width="45" contain
+                                 :src="require('assets/images/payment_icons/octopus_1.png')"></v-img>
                         </v-col>
                       </v-col>
                     </v-row>
@@ -973,7 +1082,8 @@
               <!--step 1-->
               <template v-if="stepper === 1 && user.id">
                 <v-col>
-                  <v-btn class="mb-3" block color="secondary" @click="stepper=2" :disabled="!cart.length || getPureCartTotal < 200">
+                  <v-btn class="mb-3" block color="secondary" @click="stepper=2"
+                         :disabled="!cart.length || getPureCartTotal < 200">
                     {{ $t('nextStep') }}: {{ $t('order') }}
                   </v-btn>
                 </v-col>
@@ -985,7 +1095,8 @@
                   </v-btn>
                 </v-col>
                 <v-col cols="7">
-                  <v-btn class="mb-3" block color="secondary" @click="stepper = 2" :disabled="!cart.length || getPureCartTotal < 200">
+                  <v-btn class="mb-3" block color="secondary" @click="stepper = 2"
+                         :disabled="!cart.length || getPureCartTotal < 200">
                     {{ $t('nextStep') }}: {{ $t('order') }}({{ $t('nonMember') }})
                   </v-btn>
                 </v-col>
@@ -999,7 +1110,9 @@
                   </v-btn>
                 </v-col>
                 <v-col cols="7">
-                  <v-btn class="mb-3" block color="secondary" @click.native="placeOrder" :loading="loadingPayment">{{ $t('goToPayment') }}</v-btn>
+                  <v-btn class="mb-3" block color="secondary" @click.native="placeOrder" :loading="loadingPayment">
+                    {{ $t('goToPayment') }}
+                  </v-btn>
                   <div v-if="!valid" class="text-center text-12 red--text">{{ $t('orderInfoNotComplete') }}</div>
                 </v-col>
               </template>
@@ -1012,7 +1125,9 @@
                   </v-btn>
                 </v-col>
                 <v-col cols="7">
-                  <v-btn class="mb-3" block color="secondary" @click="pay()" :loading="loadingConfirmation">{{ $t('payment') }}HKD${{ getPaidTotal }}</v-btn>
+                  <v-btn class="mb-3" block color="secondary" @click="pay()" :loading="loadingConfirmation">
+                    {{ $t('payment') }}HKD${{ getPaidTotal }}
+                  </v-btn>
                 </v-col>
               </template>
 
@@ -1050,7 +1165,7 @@
 </template>
 <script>
 import {mapMutations, mapState} from "vuex";
-import moment                   from 'moment'
+import moment from 'moment'
 import {
   mdiShoppingOutline,
   mdiPlus,
@@ -1076,18 +1191,18 @@ import {
   mdiDelete,
   mdiGiftOutline,
   mdiDiamondStone
-}                               from "@mdi/js"
-import _                        from 'lodash'
-import logo                     from '~/assets/images/logo.png'
-import Cookies                  from "js-cookie";
+} from "@mdi/js"
+import _ from 'lodash'
+import logo from '~/assets/images/logo.png'
+import Cookies from "js-cookie";
 
 export default {
-  watch : {
-    stepper (val) {
+  watch: {
+    stepper(val) {
       this.scrollUp()
     },
 
-    getTotalWithOutBeforeCredit (val) {
+    getTotalWithOutBeforeCredit(val) {
       if (this.gift && this.gift.autoChecked && val >= this.gift.rules.total && this.getCheckOutQty >= this.gift.rules.quantity) {
         this.giftReqeusted = true
       } else {
@@ -1095,13 +1210,13 @@ export default {
       }
     },
 
-    user (val) {
+    user(val) {
       if (val.email) {
         this.email = val.email
       }
     },
 
-    async shoppingCartDrawer (val) {
+    async shoppingCartDrawer(val) {
       // step reset
       this.stepper = 1
       const root = document.getElementsByTagName('html')[0]
@@ -1120,7 +1235,7 @@ export default {
     },
   },
 
-  async mounted () {
+  async mounted() {
     const t = this
 
     //auto fill email
@@ -1166,16 +1281,16 @@ export default {
     // digital wallet availability check removed
   },
 
-  computed : {
+  computed: {
     ...mapState(['cart', 'catDiscount', 'buyXGetYFree', 'locations', 'user', 'loginModal', 'snackbarMessages',
       'holidays', 'myPrize',
       'prize', 'prizeDrawer', 'gift', 'systemTime']),
-    shoppingCartDrawer : {
-      ...mapState({ get : 'shoppingCartDrawer' }),
-      ...mapMutations({ set : 'toggleShoppingCartDrawer' }),
+    shoppingCartDrawer: {
+      ...mapState({get: 'shoppingCartDrawer'}),
+      ...mapMutations({set: 'toggleShoppingCartDrawer'}),
     },
 
-    getPrizeTotal () {
+    getPrizeTotal() {
       let prize = 0
       if (this.myPrize && this.myPrize.item && this.myPrize.item.type === 'cash') {
         prize = -this.myPrize.item.amount
@@ -1184,32 +1299,32 @@ export default {
       return prize
     },
 
-    displayDeliveryDayFormat () {
+    displayDeliveryDayFormat() {
       const dayLocale = {
-        zh : {
-          '0' : '日',
-          '1' : '一',
-          '2' : '二',
-          '3' : '三',
-          '4' : '四',
-          '5' : '五',
-          '6' : '六',
+        zh: {
+          '0': '日',
+          '1': '一',
+          '2': '二',
+          '3': '三',
+          '4': '四',
+          '5': '五',
+          '6': '六',
         },
-        en : {
-          '0' : 'Sun',
-          '1' : 'Mon',
-          '2' : 'Tue',
-          '3' : 'Wed',
-          '4' : 'Thu',
-          '5' : 'Fri',
-          '6' : 'Sat',
+        en: {
+          '0': 'Sun',
+          '1': 'Mon',
+          '2': 'Tue',
+          '3': 'Wed',
+          '4': 'Thu',
+          '5': 'Fri',
+          '6': 'Sat',
         }
       }
       const day = moment(this.deliveryDay).format('d')
-      return moment(this.deliveryDay).format('YYYY-MM-DD') + ` (${ dayLocale[this.$i18n.locale][day] })`
+      return moment(this.deliveryDay).format('YYYY-MM-DD') + ` (${dayLocale[this.$i18n.locale][day]})`
     },
 
-    creditsUsed () {
+    creditsUsed() {
       if (this.useCredits && this.creditsCanBeUsed) {
         const tobePaid = this.getTotal + this.getCatDiscountTotal + this.getVoucherDiscountTotal + this.getPrizeTotal + this.getBuyXGetYFreeDiscountTotal
         if (tobePaid - this.user.credits < 20) {
@@ -1221,7 +1336,7 @@ export default {
 
     },
 
-    creditsCanBeUsed () {
+    creditsCanBeUsed() {
       if (this.user && this.user.credits > 0) {
         const tobePaid = this.getTotal + this.getCatDiscountTotal + this.getVoucherDiscountTotal + this.getPrizeTotal + this.getBuyXGetYFreeDiscountTotal
         if (tobePaid - this.user.credits < 20) {
@@ -1232,7 +1347,7 @@ export default {
       return 0
     },
 
-    getTimeSlot () {
+    getTimeSlot() {
       // update to SF only
       return ['E: 09:00-18:00'] //updated 2023-03-24
 
@@ -1250,7 +1365,7 @@ export default {
       return []
     },
 
-    getVoucherDiscountTotal () {
+    getVoucherDiscountTotal() {
       let value = 0
       if (this.voucher) {
         let totalBeforeVoucher = this.getTotal + this.getCatDiscountTotal + this.getPrizeTotal + this.getBuyXGetYFreeDiscountTotal
@@ -1278,7 +1393,7 @@ export default {
       return value
     },
 
-    isWeekendDelivery () {
+    isWeekendDelivery() {
       if (this.deliveryDay) {
         const date = new Date(this.deliveryDay)
         return date.getDay() === 0 || date.getDay() === 6
@@ -1286,7 +1401,7 @@ export default {
       return false
     },
 
-    isPickupPoint0000 () {
+    isPickupPoint0000() {
       if (this.deliveryType === 'pickup' && _.isNumber(this.selectedAddressIndex)) {
         const address = this.user.pickupAddresses && this.user.pickupAddresses[this.selectedAddressIndex]
         return !!(address && address.code === '0000')
@@ -1294,16 +1409,16 @@ export default {
       return false
     },
 
-    deliveryFee () {
+    deliveryFee() {
       if (this.isPickupPoint0000) return 0
       return this.getPureCartTotal >= 300 ? 0 : 60
     },
 
-    getCatDiscountTotal () {
+    getCatDiscountTotal() {
       let value = 0
       const tiers = Object.values(this.autoDiscountTiersAdopted)
 
-      value = _.sumBy(tiers, function ({ completedTier }) {
+      value = _.sumBy(tiers, function ({completedTier}) {
         return completedTier ? completedTier.value * completedTier.current : 0
       })
 
@@ -1311,7 +1426,7 @@ export default {
 
     },
 
-    getBuyXGetYFreeDiscountTotal () {
+    getBuyXGetYFreeDiscountTotal() {
       let sum = 0
       for (let catId in this.autoBuyXGetYFreeAdopted) {
         const completedTier = this.autoBuyXGetYFreeAdopted[catId].completedTier
@@ -1321,7 +1436,7 @@ export default {
       return sum
     },
 
-    getTotal () {
+    getTotal() {
       const t = this
       let total = _.sumBy(this.cart, function (item) {
         if (!item.product.publish || item.product.soldOut) {
@@ -1341,7 +1456,7 @@ export default {
       return total
     },
 
-    getPureCartTotal () {
+    getPureCartTotal() {
       let total = _.sumBy(this.cart, function (item) {
         if (!item.product.publish || item.product.soldOut) {
           return 0
@@ -1352,16 +1467,16 @@ export default {
       return total
     },
 
-    getPaidTotal () {
+    getPaidTotal() {
       return this.getTotal + this.getCatDiscountTotal + this.getVoucherDiscountTotal + this.creditsUsed * -1 + this.getPrizeTotal + this.getBuyXGetYFreeDiscountTotal
       // return this.getTotal + this.getCatDiscountTotal + this.getVoucherDiscountTotal + this.creditsUsed * -1 + this.getPrizeTotal
     },
 
-    getTotalWithOutBeforeCredit () {
+    getTotalWithOutBeforeCredit() {
       return this.getTotal + this.getCatDiscountTotal + this.getVoucherDiscountTotal + this.getPrizeTotal
     },
 
-    getCheckOutQty () {
+    getCheckOutQty() {
       const qty = _.sumBy(this.cart, function (item) {
         if (!item.product.publish || item.product.soldOut) {
           return 0
@@ -1372,14 +1487,14 @@ export default {
       return qty
     },
 
-    hasCatDiscount () {
+    hasCatDiscount() {
       if (this.catDiscount && Object.values(this.catDiscount).length) {
         return Object.values(this.catDiscount).filter(item => item.discount.length > 0).length
       }
       return 0
     },
 
-    autoDiscountTiersAdopted () {
+    autoDiscountTiersAdopted() {
       const tiers = {}
       // get items count in cart by category
       if (this.catDiscount) {
@@ -1408,31 +1523,31 @@ export default {
 
               // completed tier
               if (qty >= discountObj.quantity) {
-                completedTier = { ...discountObj, current : qty }
+                completedTier = {...discountObj, current: qty}
               }
 
               // closest next tier
               if (qty < discountObj.quantity) {
                 if (!nextTier.length) {
-                  nextTier.push({ ...discountObj, current : qty })
+                  nextTier.push({...discountObj, current: qty})
                 }
               }
             })
-            tiers[catId] = { completedTier, nextTier }
+            tiers[catId] = {completedTier, nextTier}
           }
         })
       }
       return tiers
     },
 
-    hasCatBuyXGetYFree () {
+    hasCatBuyXGetYFree() {
       if (this.buyXGetYFree && Object.values(this.buyXGetYFree).length) {
         return Object.values(this.buyXGetYFree).filter(item => item.buyXGetYFree.length > 0).length
       }
       return 0
     },
 
-    autoBuyXGetYFreeAdopted () {
+    autoBuyXGetYFreeAdopted() {
       const tiers = {}
       // get items count in cart by category
       if (this.buyXGetYFree) {
@@ -1462,24 +1577,24 @@ export default {
               // completed tier
               const requireQty = discountObj.x + discountObj.y
               if (qty >= requireQty) {
-                completedTier = { ...discountObj, current : qty }
+                completedTier = {...discountObj, current: qty}
               }
 
               // closest next tier
               if (qty < requireQty) {
                 if (!nextTier.length) {
-                  nextTier.push({ ...discountObj, current : qty })
+                  nextTier.push({...discountObj, current: qty})
                 }
               }
             })
-            tiers[catId] = { completedTier, nextTier }
+            tiers[catId] = {completedTier, nextTier}
           }
         })
       }
       return tiers
     },
   },
-  async created () {
+  async created() {
     // select first available delivery day
     await this.setFirstAvailableDate()
 
@@ -1491,11 +1606,11 @@ export default {
       const buyXGetYFree = {}
       categoriesWithProducts.data.results.forEach(cat => {
         if (cat.discountTierEnabled && cat.discount && cat.discount.length) {
-          discount[cat.id] = { discount : cat.discount, name : cat.name }
+          discount[cat.id] = {discount: cat.discount, name: cat.name}
         }
 
         if (cat.buyXGetYFreeEnabled && cat.buyXGetYFree && cat.buyXGetYFree.length) {
-          buyXGetYFree[cat.id] = { buyXGetYFree : cat.buyXGetYFree, name : cat.name }
+          buyXGetYFree[cat.id] = {buyXGetYFree: cat.buyXGetYFree, name: cat.name}
         }
       })
       this.setCatDiscount(discount)
@@ -1514,22 +1629,22 @@ export default {
         const getVoucher = await this.$api.get('/v1/vouchers/validate/' + code)
         if (getVoucher.data) {
           this.voucher = getVoucher.data
-          this.pushSnackbarMessages(this.$t('successfulUsed') + this.voucher.name[this.$i18n.locale] + `${ this.$t('voucherCode') }: ` + code)
+          this.pushSnackbarMessages(this.$t('successfulUsed') + this.voucher.name[this.$i18n.locale] + `${this.$t('voucherCode')}: ` + code)
         }
       } catch (e) {
       }
     }
   },
-  data : () => ({
-    giftReqeusted       : false,
-    useCredits          : true,
-    order               : null,
-    valid               : true,
-    loadingConfirmation : false,
+  data: () => ({
+    giftReqeusted: false,
+    useCredits: true,
+    order: null,
+    valid: true,
+    loadingConfirmation: false,
 
-    deliveryType : 'delivery',
+    deliveryType: 'delivery',
 
-    icons : {
+    icons: {
       mdiShoppingOutline, mdiPlus, mdiMinus, mdiClose, mdiCheckCircle, mdiCheckboxBlankCircleOutline, mdiCheck,
       mdiRadioboxBlank, mdiRadioboxMarked, mdiTruckFast, mdiStore, mdiPencilOutline, mdiCartOutline, mdiChevronRight,
       mdiChevronLeft, mdiCrown, mdiClipboardCheckMultipleOutline, mdiShieldCheck, mdiCheckboxMarked,
@@ -1537,53 +1652,53 @@ export default {
     },
 
     //address
-    selectedAddressIndex : null,
+    selectedAddressIndex: null,
 
     //payment
-    loadingPayment : false,
+    loadingPayment: false,
 
     //stepper
-    stepper : 1,
+    stepper: 1,
 
     //voucher
-    loadingVoucher : false,
-    voucher        : null,
-    voucherMessage : '',
+    loadingVoucher: false,
+    voucher: null,
+    voucherMessage: '',
 
     //deliver day & timeslot
-    deliveryDay      : '',
-    deliveryTimeSlot : 'E: 09:00-18:00',
+    deliveryDay: '',
+    deliveryTimeSlot: 'E: 09:00-18:00',
 
     //non-member email
-    email : '',
+    email: '',
 
     //date picker menu
-    menu1 : false,
+    menu1: false,
 
-    payment : {
-      paymentType : null
+    payment: {
+      paymentType: null
     }
   }),
 
-  methods : {
+  methods: {
     ...mapMutations(['setCart', 'pushSnackbarMessages', 'toggleLoginModal', 'setCatDiscount', 'setBuyXGetYFree',
       'setLatestOrder',
       'togglePrizeDrawer', 'setSystemTime', 'setHolidays']),
 
-    suggestBuyMore (tier) {
+    suggestBuyMore(tier) {
       const currentIndex = tier.completedTier.current % (tier.completedTier.x + tier.completedTier.y)
       if (currentIndex > 0) {
         const nextLevel = Math.ceil(tier.completedTier.current / (tier.completedTier.x + tier.completedTier.y))
         const requiredQty = tier.completedTier.x + tier.completedTier.y
         const addMore = nextLevel * requiredQty - tier.completedTier.current
 
-        return this.$t('suggestBuyMore', { x : addMore, y : tier.completedTier.y })
+        return this.$t('suggestBuyMore', {x: addMore, y: tier.completedTier.y})
       } else {
         return ''
       }
     },
 
-    getBuyXGetYFreeDiscount (completedTier, catId) {
+    getBuyXGetYFreeDiscount(completedTier, catId) {
       if (!completedTier || !catId) return 0
 
       const t = this
@@ -1594,7 +1709,7 @@ export default {
         const product = item.product
         const basePrice = product.discountPrice || product.price
         const sellingPrice = t.user.vipTier === 'gold' || t.user.vipTier === 'diamond' ? basePrice - 1 : basePrice
-        const _item = { ...product, sellingPrice }
+        const _item = {...product, sellingPrice}
         const fillItems = Array(item.quantity).fill(_item)
         itemTable = itemTable.concat(fillItems)
       })
@@ -1608,24 +1723,24 @@ export default {
       return _.sumBy(freeItems, 'sellingPrice') * -1
     },
 
-    async promptForClearCart () {
+    async promptForClearCart() {
       const confirmClear = await this.$refs.ConfirmDialog.open(this.$t('clearCart'), this.$t('clearCartPrompt'), mdiDelete)
       if (confirmClear) {
         this.$api.updateCart([])
       }
 
     },
-    myOrders () {
+    myOrders() {
       this.shoppingCartDrawer = !this.shoppingCartDrawer
       this.$router.push('/dashboard/OrderList')
     },
 
-    scrollUp () {
+    scrollUp() {
       const cart = document.querySelector('#shopping-cart > div.v-navigation-drawer__content');
       cart.scrollTop = 0;
     },
 
-    async setFirstAvailableDate () {
+    async setFirstAvailableDate() {
       const dateNow = moment(this.systemTime)
       const holidays = await this.$api.get('/v1/settings/holidays')
       if (holidays && holidays.data) {
@@ -1641,7 +1756,7 @@ export default {
 
     },
 
-    allowDates (val) {
+    allowDates(val) {
       const dateNow = moment(this.systemTime)
       let skipDays = 1
       if (dateNow.weekday() === 5) {
@@ -1655,25 +1770,25 @@ export default {
       return val > dateNow.clone().add(skipDays, 'days').format('YYYY-MM-DD') && this.holidays.indexOf(val) === -1
     },
 
-    complete () {
+    complete() {
       this.shoppingCartDrawer = !this.shoppingCartDrawer
       // this.$router.push('/')
-      this.$router.replace({ 'query' : null }).catch(e => {
+      this.$router.replace({'query': null}).catch(e => {
       })
     },
-    clearCart () {
+    clearCart() {
       if (this.order.orderStatus === 'confirmed') {
         this.$api.updateCart([])
       }
     },
 
-    async loginAndContinueShopping () {
+    async loginAndContinueShopping() {
       this.toggleLoginModal(true)
       this.shoppingCartDrawer = true
     },
 
 
-    async pay () {
+    async pay() {
       // this function must freeze window
       // by adding a top grey transparent layer with loader
       // to prevent user exit the cart window
@@ -1709,15 +1824,15 @@ export default {
       }
     },
 
-    async confirmMyOrder (orderNumber, params) {
-      const order = await this.$api.get('/v1/orders/status/' + orderNumber, { params })
+    async confirmMyOrder(orderNumber, params) {
+      const order = await this.$api.get('/v1/orders/status/' + orderNumber, {params})
       if (order.data && order.data.orderStatus === 'confirmed') {
         await this.$api.getMyPrize()
       }
       return order
     },
 
-    async placeOrder () {
+    async placeOrder() {
       this.loadingPayment = true
       try {
         const valid = await this.$refs.orderForm.validate()
@@ -1751,26 +1866,26 @@ export default {
           const address = addresses[this.selectedAddressIndex]
 
           const order = {
-            locale             : this.$i18n.locale,
-            email              : this.user.id ? this.user.email : this.email,
-            recipient          : address.recipient,
-            phone              : address.phone,
-            area               : address.area,
-            district           : address.district,
-            subDistrict        : address.subDistrict,
-            deliveryDay        : this.deliveryDay,
-            deliveryTimeSlot   : this.deliveryTimeSlot,
-            fullAddress        : address.fullAddress,
-            items              : this.cart.filter(item => item.product.publish && !item.product.soldOut).map(item => ({
-              product   : item.product.id, quantity : item.quantity,
-              unitPrice : item.product.discountPrice || item.product.price,
-              addons    : item.addons
+            locale: this.$i18n.locale,
+            email: this.user.id ? this.user.email : this.email,
+            recipient: address.recipient,
+            phone: address.phone,
+            area: address.area,
+            district: address.district,
+            subDistrict: address.subDistrict,
+            deliveryDay: this.deliveryDay,
+            deliveryTimeSlot: this.deliveryTimeSlot,
+            fullAddress: address.fullAddress,
+            items: this.cart.filter(item => item.product.publish && !item.product.soldOut).map(item => ({
+              product: item.product.id, quantity: item.quantity,
+              unitPrice: item.product.discountPrice || item.product.price,
+              addons: item.addons
             })),
-            voucherUsed        : this.voucher ? this.voucher.code : null,
-            payment            : this.payment,
-            creditsUsed        : this.creditsUsed,
-            deliveryType       : this.deliveryType,
-            pickupLocationCode : this.deliveryType === 'pickup' ? address.code : null
+            voucherUsed: this.voucher ? this.voucher.code : null,
+            payment: this.payment,
+            creditsUsed: this.creditsUsed,
+            deliveryType: this.deliveryType,
+            pickupLocationCode: this.deliveryType === 'pickup' ? address.code : null
           }
 
           if (this.giftReqeusted) {
@@ -1788,6 +1903,7 @@ export default {
             // pixel tracker
             this.order = result.data.order
             await this.$api.myProfile(true)
+            await this.placeOrderTracker()
             switch (order.payment.paymentType) {
               case 'payme':
               case 'alipay':
@@ -1824,8 +1940,12 @@ export default {
         this.loadingPayment = false
       }
     },
-
-    submitOrderToAsiaPay (params) {
+    async placeOrderTracker() {
+      if (window.dataLayer) {
+        window.dataLayer.push({event: 'Purchase'})
+      }
+    },
+    submitOrderToAsiaPay(params) {
       const form = document.createElement('form');
       form.method = 'post'
       form.action = params.action
@@ -1843,23 +1963,23 @@ export default {
       form.submit();
     },
 
-    async openAddress (addressIndex) {
+    async openAddress(addressIndex) {
       const selectedAddressIndex = await this.$refs.Address.open(addressIndex)
       if (_.isNumber(selectedAddressIndex)) {
         this.selectedAddressIndex = selectedAddressIndex
       }
     },
 
-    async openPickupAddress (addressIndex) {
+    async openPickupAddress(addressIndex) {
       const selectedAddressIndex = await this.$refs.PickupAddress.open(addressIndex)
       if (_.isNumber(selectedAddressIndex)) {
         this.selectedAddressIndex = selectedAddressIndex
       }
     },
-    async customQuantity (event, index, byButton) {
+    async customQuantity(event, index, byButton) {
       if (!Number.isInteger(parseInt(event))) return;
       const pureCartItemToApi = this.cart.map(item => ({
-        product : item.product.id, quantity : item.quantity, addons : item.addons
+        product: item.product.id, quantity: item.quantity, addons: item.addons
       }))
       const prevQtyInCart = pureCartItemToApi[index].quantity
 
@@ -1892,7 +2012,7 @@ export default {
       await this.$api.updateCart(pureCartItemToApi)
     },
 
-    validateVoucher : _.debounce(async function (code) {
+    validateVoucher: _.debounce(async function (code) {
       if (!code) return
       try {
         this.loadingVoucher = true
@@ -1902,13 +2022,13 @@ export default {
           const mov = getVoucher.data.mov
           if (this.getCheckOutQty >= moq && this.getCheckOutSum() >= mov) {
             this.voucher = getVoucher.data
-            this.voucherMessage = `${ this.voucher.code } (${ this.voucher.name[this.$i18n.locale] })${ this.$t('applied') }`
+            this.voucherMessage = `${this.voucher.code} (${this.voucher.name[this.$i18n.locale]})${this.$t('applied')}`
           } else {
             let message = ''
             if (this.getCheckOutQty < moq) {
-              message = `${ this.$t('voucherCode') }「${ getVoucher.data.code }」${ this.$t('moq', { value : moq }) }`
+              message = `${this.$t('voucherCode')}「${getVoucher.data.code}」${this.$t('moq', {value: moq})}`
             } else {
-              message = `${ this.$t('voucherCode') }「${ getVoucher.data.code }」${ this.$t('mov', { value : mov }) }`
+              message = `${this.$t('voucherCode')}「${getVoucher.data.code}」${this.$t('mov', {value: mov})}`
             }
             this.pushSnackbarMessages(message)
             this.voucherMessage = message
@@ -1937,8 +2057,8 @@ export default {
       }
     }, 500),
 
-    async removeItem (index) {
-      const pureCartItemToApi = this.cart.map(item => ({ product : item.product.id, quantity : item.quantity }))
+    async removeItem(index) {
+      const pureCartItemToApi = this.cart.map(item => ({product: item.product.id, quantity: item.quantity}))
 
       const confirmRemoveItem = await this.$refs.ConfirmDialog.open(this.$t('delete'), this.$t('deleteCartItemPrompt'), mdiDelete)
       if (confirmRemoveItem) {
@@ -1948,7 +2068,7 @@ export default {
       await this.$api.updateCart(pureCartItemToApi)
     },
 
-    getCheckOutSum () {
+    getCheckOutSum() {
       const t = this
       return _.sumBy(this.cart, function (item) {
         if (!item.product.publish || item.product.soldOut) {

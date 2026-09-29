@@ -3,10 +3,15 @@
     <v-card>
       <v-card-title class="position-relative">
         <template v-if="product">
-          <div style="line-height: 1.1" :style="'max-width: ' + ((moment(product.createdAt).add(30, 'days').isAfter(moment()))? 'calc(100% - 30px); word-break: break-word;' : '100%;')">
-            <span class="red--text text--darken-4 mr-1" v-if="product.featured"><span class="red--text text--darken-4 mr-1" v-if="product.featured">{{ $t('featured') }}<v-icon size="16" color="amber darken-3">{{ icons.mdiCreation }}</v-icon></span></span>{{ product.name[$i18n.locale] }}
+          <div style="line-height: 1.1"
+               :style="'max-width: ' + ((moment(product.createdAt).add(30, 'days').isAfter(moment()))? 'calc(100% - 30px); word-break: break-word;' : '100%;')">
+            <span class="red--text text--darken-4 mr-1" v-if="product.featured"><span
+              class="red--text text--darken-4 mr-1" v-if="product.featured">{{ $t('featured') }}<v-icon size="16"
+                                                                                                        color="amber darken-3">{{
+                icons.mdiCreation
+              }}</v-icon></span></span>{{ product.name[$i18n.locale] }}
           </div>
-<!--          <div style="right: 8px; top: 10px; width: 45px; height: 45px;" v-if="moment(product.createdAt).add(30, 'days').isAfter(moment())" class="new-stamp detail shake"></div>-->
+          <!--          <div style="right: 8px; top: 10px; width: 45px; height: 45px;" v-if="moment(product.createdAt).add(30, 'days').isAfter(moment())" class="new-stamp detail shake"></div>-->
         </template>
       </v-card-title>
       <v-divider></v-divider>
@@ -24,7 +29,8 @@
                 <v-row>
                   <v-col cols="12" xl="12">
                     <template v-if="product.images &&  product.images.length">
-                      <v-img :key="'productImg'+index" v-for="(img,index) in product.images" class="ma-auto" max-width="100%" width="600px" :src="img.medium.path"></v-img>
+                      <v-img :key="'productImg'+index" v-for="(img,index) in product.images" class="ma-auto"
+                             max-width="100%" width="600px" :src="img.medium.path"></v-img>
                     </template>
                     <v-img v-else src="https://placehold.co/400"></v-img>
                   </v-col>
@@ -71,13 +77,17 @@
       <v-divider></v-divider>
       <v-card-actions style="background-color: white" class="py-3">
         <v-spacer></v-spacer>
-        <div v-if="product" style="background-color: rgba(198, 119, 60, 1); border-radius: 30px; padding: 0 5px;" class="d-flex align-center">
+        <div v-if="product" style="background-color: rgba(198, 119, 60, 1); border-radius: 30px; padding: 0 5px;"
+             class="d-flex align-center">
           <template v-if="!product.soldOut">
             <template v-if="getValueFromCart">
               <v-btn icon color="white" small outlined @click="customQuantity(-1, product.id, true)">
                 <v-icon color="white">{{ icons.mdiMinus }}</v-icon>
               </v-btn>
-              <v-text-field dark @submit.prevent :value="getValueFromCart" hide-details :disabled="!!(product.addons && product.addons.length)" @change="customQuantity($event, product.id)" single-line size="3" class="centered-input customized white--text py-2" type="number"></v-text-field>
+              <v-text-field dark @submit.prevent :value="getValueFromCart" hide-details
+                            :disabled="!!(product.addons && product.addons.length)"
+                            @change="customQuantity($event, product.id)" single-line size="3"
+                            class="centered-input customized white--text py-2" type="number"></v-text-field>
               <v-btn icon color="white" small outlined @click="customQuantity(1, product.id, true)">
                 <v-icon color="white">{{ icons.mdiPlus }}</v-icon>
               </v-btn>
@@ -109,41 +119,41 @@ import {
   mdiCrown,
   mdiCartOutline,
   mdiMinus, mdiPlus, mdiCreation, mdiDiamondStone
-}                   from "@mdi/js"
-import {mapState}   from "vuex";
-import moment       from 'moment'
-import _            from "lodash";
+} from "@mdi/js"
+import {mapState} from "vuex";
+import moment from 'moment'
+import _ from "lodash";
 import SelectAddons from "@/components/SelectAddons";
 
 export default {
-  name  : 'ProductDetail',
-  props : ['productName'],
-  head () {
+  name: 'ProductDetail',
+  props: ['productName'],
+  head() {
     return {
-      title : (this.product ? this.product.name.zh : '') + '-產品詳情',
-      meta  : [
+      title: (this.product ? this.product.name.zh : '') + '-產品詳情',
+      meta: [
         // hid is used as unique identifier. Do not use `vmid` for it as it will not work
         {
-          hid     : 'description',
-          name    : 'description',
-          content : 'My custom description'
+          hid: 'description',
+          name: 'description',
+          content: 'My custom description'
         }
       ]
     }
   },
-  mounted () {
+  mounted() {
     this.getProductDetail()
   },
-  beforeRouteEnter (to, from, next) {
+  beforeRouteEnter(to, from, next) {
     next(vm => {
       vm._backRoute = from.path
     })
   },
-  data () {
+  data() {
     return {
       moment,
-      dialog  : true,
-      icons   : {
+      dialog: true,
+      icons: {
         mdiMinus,
         mdiPlus,
         mdiCartOutline,
@@ -155,23 +165,23 @@ export default {
         mdiCreation,
         mdiDiamondStone
       },
-      tab     : null,
-      product : null
+      tab: null,
+      product: null
     }
   },
-  components : {
+  components: {
     SelectAddons
   },
-  computed   : {
+  computed: {
     ...mapState(['user', 'cart', 'categories']),
-    getValueFromCart () {
+    getValueFromCart() {
       return this.cart.filter(item => item.product.id === this.product.id).map(item => item.quantity)
-                 .reduce((accumulator, currentValue) => accumulator + currentValue, 0);
+        .reduce((accumulator, currentValue) => accumulator + currentValue, 0);
     }
 
   },
-  methods    : {
-    async customQuantity (event, itemId, byButton) {
+  methods: {
+    async customQuantity(event, itemId, byButton) {
       let addons = null
       if (this.product.addons && this.product.addons.length && event > 0) {
         const selectedAddonIndex = await this.$refs.SelectAddons.open(null, this.product.addons)
@@ -185,7 +195,7 @@ export default {
       if (!Number.isInteger(parseInt(event))) return;
 
       const pureCartItemToApi = this.cart.map(item => ({
-        product : item.product.id, quantity : item.quantity, addons : item.addons
+        product: item.product.id, quantity: item.quantity, addons: item.addons
       }))
 
       let indexInCart = _.findIndex(this.cart, (item) => {
@@ -207,9 +217,9 @@ export default {
       // add item to cart api object
       if (indexInCart < 0) {
         if (addons) {
-          indexInCart = pureCartItemToApi.push({ product : itemId, quantity : 0, addons }) - 1
+          indexInCart = pureCartItemToApi.push({product: itemId, quantity: 0, addons}) - 1
         } else {
-          indexInCart = pureCartItemToApi.push({ product : itemId, quantity : 0 }) - 1
+          indexInCart = pureCartItemToApi.push({product: itemId, quantity: 0}) - 1
         }
       }
 
@@ -232,42 +242,49 @@ export default {
       // after cart array update in backend, initiate tracker
       if (indexInCart && pureCartItemToApi[indexInCart] && pureCartItemToApi[indexInCart].quantity > 0) {
         const product = this.cart[indexInCart]
+        await this.addToCartTracker()
       }
     },
-    getCategoryDetail (catId) {
+    async addToCartTracker() {
+      if (window.dataLayer) {
+        window.dataLayer.push({event: 'AddToCart'})
+      }
+      return true
+    },
+    getCategoryDetail(catId) {
       return this.categories.filter(item => item.id === catId)[0]
     },
-    setStructuredData () {
+    setStructuredData() {
       if (this.product) {
         const jsonldScript = document.createElement('script');
         const container = document.getElementById("structured-data-product")
         jsonldScript.setAttribute('type', 'application/ld+json');
 
         const structuredData = {
-          "@context"        : "https://schema.org/",
-          "@type"           : "Product",
-          "name"            : this.product.name.zh,
-          "image"           : this.product.images[0] ? this.product.images[0].medium.path : 'https://myfridgehk.com/favicon.png',
-          "description"     : this.product.name.zh + "，每日新鮮香港製造，無激素，無抗生素",
-          "brand"           : {
-            "@type" : "Brand",
-            "name"  : "MyFridge"
+          "@context": "https://schema.org/",
+          "@type": "Product",
+          "name": this.product.name.zh,
+          "image": this.product.images[0] ? this.product.images[0].medium.path : 'https://myfridgehk.com/favicon.png',
+          "description": this.product.name.zh + "，每日新鮮香港製造，無激素，無抗生素",
+          "brand": {
+            "@type": "Brand",
+            "name": "MyFridge"
           },
-          "sku"             : this.product.name.zh,
-          "offers"          : {
-            "@type"         : "AggregateOffer",
-            "url"           : "https://myfridgehk.com/product/" + this.product.name.zh,
-            "priceCurrency" : "HKD",
-            "lowPrice"      : "20",
-            "highPrice"     : "29",
-            "offerCount"    : "100"
+          "sku": this.product.name.zh,
+          "offers": {
+            "@type": "AggregateOffer",
+            "url": "https://myfridgehk.com/product/" + this.product.name.zh,
+            "priceCurrency": "HKD",
+            "lowPrice": "20",
+            "highPrice": "29",
+            "offerCount": "100"
           },
-          "aggregateRating" : {
-            "@type"       : "AggregateRating",
-            "ratingValue" : "4.9",
-            "bestRating"  : "5",
-            "worstRating" : "1",
-            "ratingCount" : "188"
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "bestRating": "5",
+            "worstRating": "1",
+            "ratingCount": "188"
           }
         };
 
@@ -276,7 +293,7 @@ export default {
         container.appendChild(jsonldScript)
       }
     },
-    async getProductDetail () {
+    async getProductDetail() {
       try {
         const product = await this.$api.get('/v1/products/name/' + this.productName)
         if (product.data) {
@@ -290,7 +307,7 @@ export default {
         this.confirm()
       }
     },
-    confirm () {
+    confirm() {
       const cat = this.product && this.product.category ? this.product.category.name.en : null
       this.$emit('ok', cat)
     },

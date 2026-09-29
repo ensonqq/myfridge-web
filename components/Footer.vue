@@ -63,13 +63,13 @@
           <div class="d-flex flex-column">
             <!--            <p class="mb-3 footer-color">葵涌華發工業大廈5樓503室</p>-->
             <div class="d-flex flex-wrap">
-              <v-btn class="me-2" fab dark x-small color="secondary" href="https://wa.me/+85265657682" target="_blank" rel="noopener">
+              <v-btn class="me-2" fab dark x-small color="secondary" @click="tracker('ContactUsWhatsApp')" href="https://wa.me/+85265657682" target="_blank" rel="noopener">
                 <v-icon dark>{{ icons.mdiWhatsapp }}</v-icon>
               </v-btn>
-              <v-btn class="me-2" fab dark x-small color="secondary" href="https://www.facebook.com/myfridgehk" target="_blank" rel="noopener">
+              <v-btn class="me-2" fab dark x-small color="secondary" @click="tracker('ContactUsFacebook')" href="https://www.facebook.com/myfridgehk" target="_blank" rel="noopener">
                 <v-icon dark>{{ icons.mdiFacebook }}</v-icon>
               </v-btn>
-              <v-btn class="me-2" fab dark x-small color="secondary" href="https://www.instagram.com/myfridge_hk" target="_blank" rel="noopener">
+              <v-btn class="me-2" fab dark x-small color="secondary" @click="tracker('ContactUsInstagram')" href="https://www.instagram.com/myfridge_hk" target="_blank" rel="noopener">
                 <v-icon dark>{{ icons.mdiInstagram }}</v-icon>
               </v-btn>
             </div>
@@ -126,6 +126,13 @@ export default {
       Cookies.set('locale', lang, { expires : 360 })
       return true
     },
+    tracker(event) {
+      console.log('in')
+      if (window.dataLayer) {
+        window.dataLayer.push({event})
+      }
+      return true
+    }
   },
   data    : () => ({
     moment,
