@@ -127,7 +127,6 @@ export default {
       return true
     },
     tracker(event) {
-      console.log('in')
       if (window.dataLayer) {
         window.dataLayer.push({event})
       }

@@ -119,8 +119,9 @@ export default {
 
       await this.$api.updateCart(pureCartItemToApi)
 
+
       // after cart array update in backend, initiate tracker
-      if (indexInCart && pureCartItemToApi[indexInCart] && pureCartItemToApi[indexInCart].quantity > 0) {
+      if (indexInCart > -1 && pureCartItemToApi[indexInCart] && pureCartItemToApi[indexInCart].quantity > 0) {
         const product = this.cart[indexInCart]
 
         await this.addToCartTracker()

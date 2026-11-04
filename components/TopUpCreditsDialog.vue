@@ -16,7 +16,7 @@
                     <div>*{{ $t('topupCreditsSuccessNote') }}</div>
                   </v-col>
                   <template v-if="topupCredits.length">
-                    <v-col cols="12" lg="4" md="4" v-for="(card,index) in topupCredits" :key="index">
+                    <v-col cols="12" lg="3" md="3" v-for="(card,index) in topupCredits" :key="index">
                       <v-card flat outlined @click="selected = card.id" class="topupCard" :class="{selected : selected === card.id}">
                         <v-card-title class="d-flex justify-space-between">
                           <span>{{ card.name[$i18n.locale] }}</span>
@@ -402,6 +402,9 @@ export default {
         let order = await this.confirmMyOrder(params.orderNumber, params)
         if (order) {
           this.order = order.data
+          if (order.orderStatus === 'confirmed') {
+            await this.placeOrderTracker()
+          }
         }
         setTimeout(() => {
           this.$api.myProfile()

@@ -3,7 +3,7 @@
     <v-row class="pa-0 pb-6 pt-4">
       <v-col class="position-relative pa-1" cols="5" lg="6">
         <div class="position-relative">
-          <div class="featured" :class="{'br-28': item.category.name.zh !== '奶粉' && item.category.name.zh !== '雞胸'}" v-if="item.featured === true"></div>
+          <div class="featured" v-if="item.featured === true"></div>
           <v-img position="center center"
                  @click.prevent="productImageClicked(item)"
                  contain

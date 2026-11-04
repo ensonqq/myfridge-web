@@ -1263,6 +1263,9 @@ export default {
         if (order) {
           this.order = order.data
           this.clearCart()
+          if (order.orderStatus === 'confirmed') {
+            await this.placeOrderTracker()
+          }
         }
         setTimeout(() => {
           this.$api.myProfile()
@@ -1903,7 +1906,7 @@ export default {
             // pixel tracker
             this.order = result.data.order
             await this.$api.myProfile(true)
-            await this.placeOrderTracker()
+            // await this.placeOrderTracker()
             switch (order.payment.paymentType) {
               case 'payme':
               case 'alipay':

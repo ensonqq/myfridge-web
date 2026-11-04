@@ -181,6 +181,7 @@ export default {
       handler (val) {
         if (val) {
           this.activeProductName = val
+          this.viewItemTracker()
         }
       }
     },
@@ -275,6 +276,11 @@ export default {
   },
   methods : {
     ...mapMutations(['setUser', 'setCatDiscount', 'enableTrial', 'toggleTopUpCreditsDialog']),
+    viewItemTracker(){
+      if (window.dataLayer) {
+        window.dataLayer.push({event: 'ViewItem'})
+      }
+    },
     sortChange (value) {
       this.categoriesWithProducts.forEach(cat => {
         if (cat.name.en === this.tab) {
