@@ -1,7 +1,8 @@
 <template>
   <v-dialog v-model="topUpCreditsDialog" fullscreen hide-overlay @close="close" persistent>
     <v-container fluid class="w100p h100p background-color-white" id="topup-dialog">
-      <v-row class="py-1 px-3 ma-0 justify-space-between align-center position-fixed top-0 left-0 w100p background-color-white border-b">
+      <v-row
+        class="py-1 px-3 ma-0 justify-space-between align-center position-fixed top-0 left-0 w100p background-color-white border-b">
         <span>{{ $t('topupCredits') }}</span>
         <v-btn icon color="secondary" @click="topUpCreditsDialog = false">{{ $t('close') }}</v-btn>
       </v-row>
@@ -17,10 +18,14 @@
                   </v-col>
                   <template v-if="topupCredits.length">
                     <v-col cols="12" lg="3" md="3" v-for="(card,index) in topupCredits" :key="index">
-                      <v-card flat outlined @click="selected = card.id" class="topupCard" :class="{selected : selected === card.id}">
+                      <v-card flat outlined @click="selected = card.id" class="topupCard"
+                              :class="{selected : selected === card.id}">
                         <v-card-title class="d-flex justify-space-between">
                           <span>{{ card.name[$i18n.locale] }}</span>
-                          <v-icon class="blue--text text--darken-3" v-if="selected === card.id">{{ icons.mdiCheck }}</v-icon>
+                          <v-icon class="blue--text text--darken-3" v-if="selected === card.id">{{
+                              icons.mdiCheck
+                            }}
+                          </v-icon>
                         </v-card-title>
                         <v-card-text class="px-2">
                           <v-img class="border-radius-15" contain :src="card.images[0].medium.path"></v-img>
@@ -61,18 +66,23 @@
                           </v-row>
                           <v-row>
                             <v-col>
-                              <v-text-field v-model="email" :rules="[$validations.required, $validations.email]" single-line outlined hide-details></v-text-field>
+                              <v-text-field v-model="email" :rules="[$validations.required, $validations.email]"
+                                            single-line outlined hide-details></v-text-field>
                             </v-col>
                           </v-row>
                           <v-row class="no-border border-top mt-6">
                             <v-col>
-                              <h4 class="mt-6 sub">3.{{ $t('paymentMethod') }} ({{ $t('payment') }} HKD${{ selectedCard.price }})</h4>
+                              <h4 class="mt-6 sub">3.{{ $t('paymentMethod') }} ({{ $t('payment') }}
+                                HKD${{ selectedCard.price }})</h4>
                             </v-col>
-                            <v-col cols="12" class="red--text text--darken-4 text-12 pt-0 mt-0">*{{ $t('paymentSucessMsg') }}</v-col>
+                            <v-col cols="12" class="red--text text--darken-4 text-12 pt-0 mt-0">
+                              *{{ $t('paymentSucessMsg') }}
+                            </v-col>
                           </v-row>
                           <v-row class="pt-0 no-border pb-16">
                             <v-col cols="12" class="d-flex flex-column justify-center align-start pa-0">
-                              <v-radio-group class="col-12" v-model="payment.paymentType" column :rules="[$validations.required]" hide-details>
+                              <v-radio-group class="col-12" v-model="payment.paymentType" column
+                                             :rules="[$validations.required]" hide-details>
                                 <v-row class="align-center pb-1-eee" @click="payment.paymentType = 'cc'">
                                   <v-col cols="1">
                                     <v-radio :on-icon="icons.mdiRadioboxMarked"
@@ -86,9 +96,12 @@
                                       {{ $t('card') }}
                                     </v-col>
                                     <v-col cols="7" class="d-flex align-center">
-                                      <v-img max-width="39" contain :src="require('~/assets/images/payment_icons/visa.png')"></v-img>
-                                      <v-img class="ml-1" max-width="35" contain :src="require('~/assets/images/payment_icons/master.png')"></v-img>
-                                      <v-img class="ml-1" max-width="35" contain :src="require('~/assets/images/payment_icons/americanexpress.png')"></v-img>
+                                      <v-img max-width="39" contain
+                                             :src="require('~/assets/images/payment_icons/visa.png')"></v-img>
+                                      <v-img class="ml-1" max-width="35" contain
+                                             :src="require('~/assets/images/payment_icons/master.png')"></v-img>
+                                      <v-img class="ml-1" max-width="35" contain
+                                             :src="require('~/assets/images/payment_icons/americanexpress.png')"></v-img>
                                     </v-col>
                                   </v-col>
                                 </v-row>
@@ -126,7 +139,8 @@
                                       Payme
                                     </v-col>
                                     <v-col cols="7" class="d-flex align-center mb-0 pb-0">
-                                      <v-img max-width="45" contain :src="require('assets/images/payment_icons/payme.png')"></v-img>
+                                      <v-img max-width="45" contain
+                                             :src="require('assets/images/payment_icons/payme.png')"></v-img>
                                     </v-col>
                                     <!--                        <v-col cols="12" class="red&#45;&#45;text text&#45;&#45;darken-4 text-12 pt-0 mt-0">如成功付款後不能返回訂單，稍等5分鐘便會自動確認，「電郵收據」及「我的訂單」將會見到紀錄</v-col>-->
                                   </v-col>
@@ -144,7 +158,8 @@
                                       {{ $t('alipayhk') }}
                                     </v-col>
                                     <v-col cols="7" class="d-flex align-center">
-                                      <v-img max-width="45" contain :src="require('assets/images/payment_icons/alipay.png')"></v-img>
+                                      <v-img max-width="45" contain
+                                             :src="require('assets/images/payment_icons/alipay.png')"></v-img>
                                     </v-col>
                                   </v-col>
                                 </v-row>
@@ -161,10 +176,12 @@
                                       {{ $t('wechatpayhk') }}
                                     </v-col>
                                     <v-col cols="7" class="d-flex align-center">
-                                      <v-img max-width="45" contain :src="require('assets/images/payment_icons/wechatpay.png')"></v-img>
+                                      <v-img max-width="45" contain
+                                             :src="require('assets/images/payment_icons/wechatpay.png')"></v-img>
                                     </v-col>
                                   </v-col>
                                 </v-row>
+<!--
                                 <v-row class="align-center pb-1-eee" @click="payment.paymentType = 'fps'">
                                   <v-col cols="1">
                                     <v-radio :on-icon="icons.mdiRadioboxMarked"
@@ -178,10 +195,12 @@
                                       {{ $t('fps') }}
                                     </v-col>
                                     <v-col cols="7" class="d-flex align-center">
-                                      <v-img max-width="45" contain :src="require('assets/images/payment_icons/fps.png')"></v-img>
+                                      <v-img max-width="45" contain
+                                             :src="require('assets/images/payment_icons/fps.png')"></v-img>
                                     </v-col>
                                   </v-col>
                                 </v-row>
+-->
                                 <v-row class="align-center" @click="payment.paymentType = 'octopus'">
                                   <v-col cols="1">
                                     <v-radio :on-icon="icons.mdiRadioboxMarked"
@@ -195,7 +214,8 @@
                                       {{ $t('octupus') }}
                                     </v-col>
                                     <v-col cols="7" class="d-flex align-center">
-                                      <v-img max-width="45" contain :src="require('assets/images/payment_icons/octopus_1.png')"></v-img>
+                                      <v-img max-width="45" contain
+                                             :src="require('assets/images/payment_icons/octopus_1.png')"></v-img>
                                     </v-col>
                                   </v-col>
                                 </v-row>
@@ -251,11 +271,17 @@
 
             <div class="pa-3 position-fixed w100p bottom-0 left-0 border-t background-color-white">
               <v-stepper-header class="no-shadow" style="height:45px">
-                <v-stepper-step :completeIcon="icons.mdiCheck" class="py-1" :complete="step > 1" step="1">{{ $t('selectTopupCard') }}</v-stepper-step>
+                <v-stepper-step :completeIcon="icons.mdiCheck" class="py-1" :complete="step > 1" step="1">
+                  {{ $t('selectTopupCard') }}
+                </v-stepper-step>
                 <v-divider></v-divider>
-                <v-stepper-step :completeIcon="icons.mdiCheck" class="py-1" :complete="step > 2" step="2">{{ $t('detail') }}</v-stepper-step>
+                <v-stepper-step :completeIcon="icons.mdiCheck" class="py-1" :complete="step > 2" step="2">
+                  {{ $t('detail') }}
+                </v-stepper-step>
                 <v-divider></v-divider>
-                <v-stepper-step :completeIcon="icons.mdiCheck" class="py-1" :complete="step > 3" step="3">{{ $t('payment') }}</v-stepper-step>
+                <v-stepper-step :completeIcon="icons.mdiCheck" class="py-1" :complete="step > 3" step="3">
+                  {{ $t('payment') }}
+                </v-stepper-step>
                 <v-divider></v-divider>
                 <v-stepper-step :completeIcon="icons.mdiCheck" class="py-1" step="4">{{ $t('status') }}</v-stepper-step>
               </v-stepper-header>
@@ -269,13 +295,18 @@
                       <v-btn block @click="close">{{ $t('cancel') }}</v-btn>
                     </v-col>
                     <v-col cols="8">
-                      <v-btn block color="secondary" @click="step += 1" :disabled="!selected">{{ $t('nextStep') }}: {{ selectedCard ? selectedCard.title[$i18n.locale] : $t('pleaseSelectTopupCard') }}</v-btn>
+                      <v-btn block color="secondary" @click="step += 1" :disabled="!selected">{{ $t('nextStep') }}:
+                        {{ selectedCard ? selectedCard.title[$i18n.locale] : $t('pleaseSelectTopupCard') }}
+                      </v-btn>
                     </v-col>
                   </template>
                   <template v-else>
                     <v-col cols="12">
                       <p>{{ $t('loginToTopupMsg') }}</p>
-                      <v-btn block @click="toggleLoginModal(true)" color="secondary">{{ $t('pleaseLoginOrReg') }}</v-btn>
+                      <v-btn block @click="toggleLoginModal(true)" color="secondary">{{
+                          $t('pleaseLoginOrReg')
+                        }}
+                      </v-btn>
                     </v-col>
                   </template>
                 </template>
@@ -286,7 +317,10 @@
                     <v-btn block @click="step -= 1">{{ $t('prevStep') }}</v-btn>
                   </v-col>
                   <v-col cols="8">
-                    <v-btn block color="secondary" @click="placeOrder" :loading="loadingPayment">{{ $t('goToPayment') }}</v-btn>
+                    <v-btn block color="secondary" @click="placeOrder" :loading="loadingPayment">{{
+                        $t('goToPayment')
+                      }}
+                    </v-btn>
                   </v-col>
                 </template>
 
@@ -296,7 +330,10 @@
                     <v-btn block @click="step -= 1">{{ $t('prevStep') }}</v-btn>
                   </v-col>
                   <v-col cols="8">
-                    <v-btn block color="secondary" @click="pay" :loading="loadingConfirmation">{{ $t('payment') }}HKD${{ selectedCard.price }}</v-btn>
+                    <v-btn block color="secondary" @click="pay" :loading="loadingConfirmation">{{
+                        $t('payment')
+                      }}HKD${{ selectedCard.price }}
+                    </v-btn>
                   </v-col>
                 </template>
 
@@ -334,7 +371,7 @@
 </template>
 
 <script>
-import TermsAndConditions       from "@/pages/about/TermsAndConditions";
+import TermsAndConditions from "@/pages/about/TermsAndConditions";
 import {mapMutations, mapState} from "vuex";
 import {
   mdiCartOutline,
@@ -345,29 +382,29 @@ import {
   mdiMinus, mdiPencilOutline,
   mdiPlus, mdiRadioboxBlank, mdiRadioboxMarked, mdiShieldCheck,
   mdiShoppingOutline, mdiStore, mdiTruckFast
-}                               from "@mdi/js";
-import _                        from "lodash";
+} from "@mdi/js";
+import _ from "lodash";
 
 export default {
-  name     : "TopUpCreditsDialog",
-  computed : {
+  name: "TopUpCreditsDialog",
+  computed: {
     ...mapState(['topupCredits', 'user', 'snackbarMessages', 'loginModal']),
-    topUpCreditsDialog : {
-      ...mapState({ get : 'showTopUpCreditsDialog' }),
-      ...mapMutations({ set : 'toggleTopUpCreditsDialog' }),
+    topUpCreditsDialog: {
+      ...mapState({get: 'showTopUpCreditsDialog'}),
+      ...mapMutations({set: 'toggleTopUpCreditsDialog'}),
     },
-    selectedCard () {
+    selectedCard() {
       if (this.selected) {
         return this.topupCredits.filter(item => item.id === this.selected)[0]
       }
       return null
     },
   },
-  watch    : {
-    step () {
+  watch: {
+    step() {
       this.scrollUp()
     },
-    topUpCreditsDialog (val) {
+    topUpCreditsDialog(val) {
       // step reset
       this.step = 1
       const root = document.getElementsByTagName('html')[0]
@@ -378,7 +415,7 @@ export default {
       }
     },
   },
-  async mounted () {
+  async mounted() {
     if (this.topupCredits.length === 1) {
       this.selected = this.topupCredits[0].id
     }
@@ -420,19 +457,19 @@ export default {
       }
     }
   },
-  methods : {
+  methods: {
     ...mapMutations(['pushSnackbarMessages', 'toggleLoginModal']),
-    myOrders () {
+    myOrders() {
       this.topUpCreditsDialog = !this.topUpCreditsDialog
       this.$router.push('/dashboard/TopupList')
     },
-    complete () {
+    complete() {
       this.topUpCreditsDialog = !this.topUpCreditsDialog
       // this.$router.push('/')
-      this.$router.replace({ 'query' : null }).catch(e => {
+      this.$router.replace({'query': null}).catch(e => {
       })
     },
-    async pay () {
+    async pay() {
       // this function must freeze window
       // by adding a top grey transparent layer with loader
       // to prevent user exit the cart window
@@ -442,7 +479,7 @@ export default {
         this.loadingConfirmation = true
 
         // asia pay
-        if (['alipay', 'payme', 'wechatpay', 'fps', 'octopus'].includes(this.payment.paymentType)) {
+        if (['cc', 'alipay', 'payme', 'wechatpay', 'fps', 'octopus'].includes(this.payment.paymentType)) {
           const params = this.asiapay
           const form = document.createElement('form')
           form.method = 'post'
@@ -467,27 +504,27 @@ export default {
       }
     },
 
-    async confirmMyOrder (orderNumber, params) {
-      const order = await this.$api.get('/v1/topups/status/' + orderNumber, { params })
+    async confirmMyOrder(orderNumber, params) {
+      const order = await this.$api.get('/v1/topups/status/' + orderNumber, {params})
       return order
     },
 
-    scrollUp () {
+    scrollUp() {
       const cart = document.querySelector('#app > div.v-dialog__content.v-dialog__content--active > div')
       cart.scrollTop = 0;
     },
 
-    close () {
+    close() {
       this.reset()
     },
-    confirm () {
+    confirm() {
       this.reset()
     },
-    reset () {
+    reset() {
       this.topUpCreditsDialog = false
     },
 
-    async placeOrder () {
+    async placeOrder() {
       try {
         this.loadingPayment = true
         const valid = await this.$refs.topupForm.validate()
@@ -502,9 +539,9 @@ export default {
 
         if (valid) {
           const order = {
-            topupCard : this.selected,
-            email     : this.email,
-            payment   : this.payment,
+            topupCard: this.selected,
+            email: this.email,
+            payment: this.payment,
           }
           const result = await this.$api.post('/v1/topups/placeOrder', order)
 
@@ -512,6 +549,7 @@ export default {
             // pixel tracker
             this.order = result.data.order
             switch (order.payment.paymentType) {
+              case 'cc':
               case 'payme':
               case 'alipay':
               case 'wechatpay':
@@ -545,19 +583,19 @@ export default {
       }
     },
   },
-  data    : () => ({
-    loadingConfirmation : false,
-    order               : null,
-    payment             : {
-      paymentType : null
+  data: () => ({
+    loadingConfirmation: false,
+    order: null,
+    payment: {
+      paymentType: null
     },
-    email               : '',
-    valid               : true,
-    selected            : '',
-    step                : 1,
+    email: '',
+    valid: true,
+    selected: '',
+    step: 1,
     //payment
-    loadingPayment : false,
-    icons          : {
+    loadingPayment: false,
+    icons: {
       mdiShoppingOutline, mdiPlus, mdiMinus, mdiClose, mdiCheckCircle, mdiCheckboxBlankCircleOutline, mdiCheck,
       mdiRadioboxBlank, mdiRadioboxMarked, mdiTruckFast, mdiStore, mdiPencilOutline, mdiCartOutline, mdiChevronRight,
       mdiChevronLeft, mdiCrown, mdiClipboardCheckMultipleOutline,
